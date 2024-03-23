@@ -1,13 +1,12 @@
 <meta charset="utf-8">
 <?php
 	include('verifica-login.php');
-	include('conexao.php');
+	include('conexao.php');	
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>IFFriends</title>
-		<script src='nightly.min.js'></script>
 		<meta charset="UTF-8"/>
 		<title>IFFTool</title> <!-- Nome que pagina tem -->
 		<link rel="stylesheet" type="text/css" href="_css/login.css"> <!-- Onde fica o arquivo de estilo da pagina -->
@@ -28,62 +27,37 @@
     	<!-- Fim do script -->
 	</head>
 	<body>
-		<?php include('menu.php'); ?>
+		<!-- menu da pagina -->
+			<?php include('menu.php'); ?>
+		<!-- Fim de menu -->
 
 		<!-- ver amigos online -->
-			<div id="online">
-				<center><h1>Online</h1></center>
-				<hr>
-			</div>
-			<div id="amigo">
-				<center>
-					<table>
-						<tr><td></td></tr><!-- aqui ira aparecer os amigos online -->
-					</table>
-				</center>
-			</div>
-		<!-- fim de amigos online -->
-		<!-- pesqusa de amigos -->
-			<div id="busca">
-				<table id="busca">
-					<tr>
-						<td id="pesquisa">
-							<div id="divPesquisa">
-								<input type="text" id="tBusca" placeholder="Pesquisar"/>
-								<button id="bBusca"><img src="_imagens/1.png"/></button>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</div>
+			<?php include('amigos-online.php'); ?>
 		<!-- Fim da pesquisa de amigos-->
 
 		<!-- editar seus dados -->
 			<div id="postagens">
 				<center>
 					<table id="or">
-						<tr> 
-							<td rowspan="4">
-								<!--<a href=profpic.jpg> <img src="_imagens/profpic.jpg" width=200></a><br>-->
-								<?php
-								
-								$id=$_SESSION['id'];
-								/*$consulta= "SELECT `foto_perfil`, `local_foto_perfil` FROM `usuario` WHERE idusuario='$id'";
-								echo "$consulta";
-								$resultado = mysqli_query($conexao, $consulta)or die ('Não foi possível conectar');
-									$rows=$resultado->fetch_assoc();
-									$foto=$rows['local_foto_perfil'].$rows['foto_perfil'];
-									
-									echo "<center><img src=$foto width=200 height=200>";*/
-								?>
-							</td>
+						<tr> <td rowspan="4">
+						
+						<!-- ÁREA DA FOTO DE PERFIL-->
+
+							<?php include('foto_perfil.php'); ?>
+					
+					
+						<!-- FIM DA ÁREA DA FOTO DE PERFIL-->
+						
+						<br></td>
+
 						</tr>
 					</table>
 					<br><br>
 					<div id="or">
 						<form id="Login" method="post" action="atualiza-dados.php">
 	            			<table id="ajuste" align="center">
-	            				<?php
+	            				<?php 
+	            					$id=$_SESSION['id'];
 	            					$nome=$_SESSION['nome'];
 	            					$email=$_SESSION['email'];
 	            					$cidade=$_SESSION['cidade'];
@@ -284,7 +258,7 @@
 					          	</tr>
 
 								<tr>
-									<td>
+									<td colspan="2">
 										<form method="post" action="guarda-foto.php" enctype="multipart/form-data">
 										<input role="button" type="file" name="arquivo">
 										
@@ -292,10 +266,10 @@
 										<?php
 										$_SESSION['origem']="editperf";
 										?>
-										<input type="submit" value="uplod">
+										
+										<input type="submit" value="upload">
 										</form>
-										</td>
-									<td></td>
+									</td>
 								</tr>
 	          				</table>
 					</div>

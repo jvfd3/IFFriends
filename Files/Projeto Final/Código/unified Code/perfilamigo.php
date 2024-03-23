@@ -15,31 +15,7 @@ session_start();
 		<?php include('menu.php'); ?>
 
 		<!-- ver amigos online -->
-			<div id="online">
-				<center><h1>Online</h1></center>
-				<hr>
-			</div>
-			<div id="amigo">
-				<center>
-					<table>
-						<tr><td></td></tr><!-- aqui ira aparecer os amigos online -->
-					</table>
-				</center>
-			</div>
-		<!-- fim de amigos online -->
-		<!-- pesqusa de amigos -->
-			<div id="busca">
-				<table id="busca">
-					<tr>
-						<td id="pesquisa">
-							<div id="divPesquisa">
-								<input type="text" id="tBusca" placeholder="Pesquisar"/>
-								<button id="bBusca"><img src="_imagens/1.png"/></button>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</div>
+			<?php include('amigos-online.php'); ?>
 		<!-- Fim da pesquisa de amigos-->
 
 		<!-- mostar perfil -->
@@ -67,21 +43,21 @@ session_start();
 								$telefone = $rows['telefone'];
 								$genero = $rows['genero'];
 								$nomes = $rows['nome_social'];
-								$foto = $rows['foto_perfil'];
+								$foto = $rows['local_foto_perfil'].$rows['foto_perfil'];
 							}
 						?>
 
 						<tr> 
-							<td rowspan="4"><a href=" "> <img src=" " width=200></a></td>
+							<td rowspan="4"><a href=" "> <img <?php echo"src=".$foto."";?> width=200></a></td>
 
 							<td> <a href="adicionar.php"> <img src="_imagens/addamigo.png" width=100> </a></td>
 						</tr>
 						<tr><td></td></tr>
 						<tr>
-							<td> <a href=fotos.php> <img src="_imagens/fotos.png" width=100> </a> </td>
+							<td> <a href=fotosamigo.php> <img src="_imagens/fotos.png" width=100> </a> </td>
 						</tr>
 						<tr>
-							<td> <a href=amigo.html> <img src="_imagens/amigos.png" width=100> </a> </td>
+							<td> <a href=amigo.php> <img src="_imagens/amigos.png" width=100> </a> </td>
 						</tr>
 					</table>
 

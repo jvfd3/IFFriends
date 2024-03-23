@@ -18,46 +18,10 @@ if ($_POST['busca'] != "") {
 	<body>
 		<?php include('menu.php');?>
 		<!-- ver amigos online -->
-			<div id="online">
-				<center><h1>Online</h1></center>
-				<hr>
-			</div>
-			<div id="amigo">
-				<center>
-					<table>
-						<tr><td></td></tr><!-- aqui ira aparecer os amigos online -->
-					</table>
-				</center>
-			</div>
-		<!-- fim de amigos online -->
-		<!-- pesqusa de amigos -->
-			<div id="busca">
-				<table id="busca">
-					<tr>
-						<td id="pesquisa">
-							<div id="divPesquisa">
-								<input type="text" id="tBusca" placeholder="Pesquisar"/>
-								<button id="bBusca"><img src="_imagens/1.png"/></button>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</div>
+		<?php include('amigos-online.php'); ?>
 		<!-- Fim da pesquisa de amigos-->
 
 		<div id="pagina">
-			<!-- informações sobre a pagina -->
-					<div id="info">
-							<center><h1><font size="5"> Filtrar Resultado</font></h1>
-							<input type="radio" name="filtro" value="usuario">Usuário<br>
-							<input type="radio" name="filtro" value="campi">Campi<br>
-							<select>
-								<option selected="curso">curso</option>
-							</select>
-							</center>
-					</div>	
-			<!-- fim de informações sobre a pagina -->
-
 			<!-- Nome do que esta sendo buscado -->
 				<div id="foto">
 					<h1><?php echo $busca ?></h1>

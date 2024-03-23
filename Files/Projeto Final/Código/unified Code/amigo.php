@@ -14,42 +14,14 @@ session_start();
 	</head>
 	<body>
 		<!-- menu da pagina -->
-			<div id="interface">
-				<!-- Incio da barra de pesquisa -->
-					<div id="divBusca">
-						<input type="text" id="txtBusca" placeholder="Buscar..."/>
-							<a href="pesquisa.html"><button id="btnBusca"><img src="_imagens/1.png"/></button></a>
-					</div>
-				<!-- Fim da barra de pesquisa -->
-			</div>
+			<?php 
+			include ('conexao.php');
+			include('menu.php');
+			include('amigos-online.php');
+			?>
 		<!-- Fim de menu -->
 
 		<!-- ver amigos online -->
-			<div id="online">
-				<center><h1>Online</h1></center>
-				<hr>
-			</div>
-			<div id="amigo">
-				<center>
-					<table>
-						<tr><td></td></tr><!-- aqui ira aparecer os amigos online -->
-					</table>
-				</center>
-			</div>
-		<!-- fim de amigos online -->
-		<!-- pesqusa de amigos -->
-			<div id="busca">
-				<table id="busca">
-					<tr>
-						<td id="pesquisa">
-							<div id="divPesquisa">
-								<input type="text" id="tBusca" placeholder="Pesquisar"/>
-								<button id="bBusca"><img src="_imagens/1.png"/></button>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</div>
 		<!-- Fim da pesquisa de amigos-->
 
 		<!-- mostrar amigos -->
@@ -61,30 +33,93 @@ session_start();
 							<tr>
 								<td>
 									<div id="divPesquisa">
-										<input type="text" id="tBusca" placeholder="Pesquisar"/>
-										<button id="bBusca"><img src="_imagens/1.png"/></button>
+										<form method="post" action="amigo.php">
+											<input type="text" id="tBusca" name="busca" placeholder="Pesquisar"/>
+											<button id="bBusca" type="submit"><img src="_imagens/1.png"/></button>
+										</form>
+										<?php
+											$id=$_SESSION['idpessoa'];
+											$busca=isset($_POST['busca'])?$_POST['busca']:"-";
+											/*if ($busca != "") {
+												$consulta = "SELECT `idusuario` FROM `usuario` WHERE `nome` like '$busca%' or `nome_social` like '$busca%'";
+												$resultado = mysqli_query($conexao, $consulta) or die('error');
+											    $quant = mysqli_num_rows($resultado);
+											    for($i=0;$i<$quant;$i++){
+											    $rows=$resultado->fetch_assoc();
+												$idpessoa = $rows['idusuario'];
+												$consulta1 = "SELECT `usuario_idusuario`, `idamizade_amigo` FROM `amizade` WHERE usuario_idusuario='$id' and idamizade_amigo='$idpessoa' or usuario_idusuario='$idpessoa' and idamizade_amigo='$id' and data_confirmacao is not null ";
+												$resultado1 = mysqli_query($conexao, $consulta1) or die('error');
+												$quant1 = mysqli_num_rows($resultado1);
+												for($i=0;$i<$quant1;$i++){
+												$rows1=$resultado->fetch_assoc();
+												if ($rows1['idamizade_amigo']!=$id) {
+													//print_r($rows1);
+												$idamigo=$rows1['idamizade_amigo'];
+												$consulta2 = "SELECT `nome`, `local_foto_perfil`, `foto_perfil` FROM `usuario` WHERE `idusuario`='$idamigo'";
+												echo "$consulta1";
+												//$resultado2 = mysqli_query($conexao, $consulta2) or die('error');
+												//$rows2=$resultado1->fetch_assoc();
+												//echo "<tr id='amizade'> 
+													//<td id='amizade'> 
+													//<a href='perfilamigo.php?id=".$idamigo."'> 
+														//<img src='".$rows2['local_foto_perfil'].$rows2['foto_perfil']."' width=100%></a> 
+													//</td> 
+													//<td id='amizade'>".$rows2['nome']."
+													//</td> 
+												//</tr>";
+												}
+												else{
+													$idamigo=$rows1['usuario_idusuario'];
+												$consulta2 = "SELECT `nome`, `local_foto_perfil`, `foto_perfil` FROM `usuario` WHERE `idusuario`='$idamigo'";
+												$resultado2 = mysqli_query($conexao, $consulta2) or die('error');
+												$rows2=$resultado2->fetch_assoc();
+												//echo "<tr id='amizade'>";
+												//echo "<td id='amizade'> <a href='perfilamigo.php?id=".$idamigo."'> <img src='".$rows2['local_foto_perfil'].$rows2['foto_perfil']."' width='100%'> </a> </td>";
+												//echo "<td id='amizade'>".$rows1['nome']."</td> </tr>";
+												}
+											}
+										}
+										}*/
+										?>
 									</div>
 								</td>
 							</tr>
 						</table>
 					</div>
 					<table id="amizade">
-						<tr id="amizade">
-							<td id="amizade"> <a href=amigo1.jpg> <img src="_imagens/amigo1.jpg" width=100> </a> </td>
-							<td id="amizade"> amigo 1</td>
-						</tr>
-						<tr id="amizade">
-							<td id="amizade"> <a href=amigo2.jpg> <img src="_imagens/amigo2.jpg" width=100> </a> </td>
-							<td id="amizade"> amigo 2</td>
-						</tr>
-						<tr id="amizade">
-							<td id="amizade"> <a href=amigo3.jpg> <img src="_imagens/amigo3.jpg" width=100> </a> </td>
-							<td id="amizade"> amigo 3</td>
-						</tr>
-						<tr id="amizade">
-							<td id="amizade"> <a href=amigo4.jpg> <img src="_imagens/amigo4.jpg" width=100> </a> </td>
-							<td id="amizade"> amigo 4</td>
-						</tr>
+						<?php
+							if ($busca == "-"){ 
+							$consulta = "SELECT `usuario_idusuario`, `idamizade_amigo` FROM `amizade` WHERE usuario_idusuario='$id' or idamizade_amigo='$id' and data_confirmacao is not null ";
+							$resultado = mysqli_query($conexao, $consulta) or die('error');
+							$quant = mysqli_num_rows($resultado);
+							for($i=0;$i<$quant;$i++){
+							$rows=$resultado->fetch_assoc();
+							if ($rows['idamizade_amigo']!=$id) {
+							$idamigo=$rows['idamizade_amigo'];
+							$consulta1 = "SELECT `nome`, `local_foto_perfil`, `foto_perfil` FROM `usuario` WHERE `idusuario`='$idamigo'";
+							$resultado1 = mysqli_query($conexao, $consulta1) or die('error');
+							$rows1=$resultado1->fetch_assoc();
+							echo "<tr id='amizade'> 
+								<td id='amizade'> 
+								<a href='perfilamigo.php?id=".$idamigo."'> 
+									<img src='".$rows1['local_foto_perfil'].$rows1['foto_perfil']."' width=100%></a> 
+								</td> 
+								<td id='amizade'>".$rows1['nome']."
+								</td> 
+							</tr>";
+							}
+							else{
+								$idamigo=$rows['usuario_idusuario'];
+							$consulta1 = "SELECT `nome`, `local_foto_perfil`, `foto_perfil` FROM `usuario` WHERE `idusuario`='$idamigo'";
+							$resultado1 = mysqli_query($conexao, $consulta1) or die('error');
+							$rows1=$resultado1->fetch_assoc();
+							echo "<tr id='amizade'>";
+							echo "<td id='amizade'> <a href='perfilamigo.php?id=".$idamigo."'> <img src='".$rows1['local_foto_perfil'].$rows1['foto_perfil']."' width='100%'> </a> </td>";
+							echo "<td id='amizade'>".$rows1['nome']."</td> </tr>";
+							}
+							}
+						}
+						?>
 					</table>
 				</div>
 			</center>

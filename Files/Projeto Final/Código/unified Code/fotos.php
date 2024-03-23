@@ -14,51 +14,11 @@
 	</head>
 	<body>
 		<!-- menu da pagina -->
-			<div id="interface">
-				<table>
-					<tr>
-						<td>
-							<!-- Incio da barra de pesquisa -->
-								<div id="divBusca">
-									<input type="text" id="txtBusca" placeholder="Buscar..."/>
-									<a href="pesquisa.html"><button id="btnBusca"><img src="_imagens/1.png"/></button>
-								</div>
-							<!-- Fim da barra de pesquisa -->
-						</td>
-						<td>
-							<div id="sair"><a href="logout.php">sair</a></div>
-						</td>
-					</tr>
-				</table>
-			</div>
+			<?php include('menu.php'); ?>
 		<!-- Fim de menu -->
 
 		<!-- ver amigos online -->
-			<div id="online">
-				<center><h1>Online</h1></center>
-				<hr>
-			</div>
-			<div id="amigo">
-				<center>
-					<table>
-						<tr><td></td></tr><!-- aqui ira aparecer os amigos online -->
-					</table>
-				</center>
-			</div>
-		<!-- fim de amigos online -->
-		<!-- pesquisa de amigos -->
-			<div id="busca">
-				<table id="busca">
-					<tr>
-						<td id="pesquisa">
-							<div id="divPesquisa">
-								<input type="text" id="tBusca" placeholder="Pesquisar"/>
-								<button id="bBusca"><img src="_imagens/1.png"/></button>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</div>
+			<?php include('amigos-online.php'); ?>
 		<!-- Fim da pesquisa de amigos-->
 
 		<!-- area de foto -->

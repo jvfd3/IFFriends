@@ -20,7 +20,7 @@ if(isset($_FILES['arquivo'])){
 			$folder		= 'fotos/'.$id.'/';}
 		
 		else if($_SESSION['origem']=="editperf"){
-			$folder		= 'fotos/'.$id.'/profpic/';}
+			$folder		= 'fotos/'.$id.'/ProfPic/';}
 			
 		else {	$folder		= 'fotos/'.$id.'/SemOrigem/';};
 		
@@ -80,24 +80,29 @@ if(isset($_FILES['arquivo'])){
 							
 						}
 						
-						elseif($_SESSION['origem']=="editperf"){
-							if(move_uploaded_file($tmp, $folder.'/'.$novoNome)){
-								$inserir ="UPDATE `usuario` SET `foto_perfil`='$novoNome' WHERE `idusuario`='$id'";
+						else if($_SESSION['origem']=="editperf"){
+							
+						
+							$_SESSION['folder']=$folder;
+								if(move_uploaded_file($tmp, $folder.'/'.$novoNome)){
+								$inserir = "UPDATE `usuario` SET `foto_perfil`='$novoNome', `local_foto_perfil`='$folder' WHERE idusuario='$id'";
+	
 							if (mysqli_query($conexao, $inserir)) {
 								$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";}
-							else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
-							}
-							header('Location: perfil.php');
+								else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
+								}
+							header('Location: editperf.php');
 							exit();
+							
 						}					
 						
-					else{
-						$_SESSION['error7'] = "<b>$name :</b> Desculpe! Ocorreu um erro...";}
+					else{$_SESSION['error7'] = "<b>$name :</b> Desculpe! Ocorreu um erro...";}
+					
 				foreach($msg as $pop);
 			}
 		}
 	}
 }
-header('Location: fotos.php');
+header('Location: editperf.php');
 exit();
 ?>
