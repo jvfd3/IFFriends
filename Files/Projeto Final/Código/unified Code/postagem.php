@@ -4,7 +4,7 @@
 	
 	$id = $_SESSION['id'];
 
-	$postagem = isset($_GET['postagem'])?$_GET['postagem']:"";
+	$postagem = isset($_POST['postagem'])?$_POST['postagem']:"";
 	if ($postagem != "" && $postagem != " ") {
 		$postando="INSERT INTO `postagem` (postagemtexto, usuario_idusuario) VALUES ('$postagem', '$id')";
 	}

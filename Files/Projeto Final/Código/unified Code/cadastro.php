@@ -1,7 +1,7 @@
-<!DOCTYPE html>
 <?php 
   isset($_SESSION['usuario'])?header('Location: pagina-pricipal.php'):session_start();
 ?>
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
   	<meta charset="utf-8"/>

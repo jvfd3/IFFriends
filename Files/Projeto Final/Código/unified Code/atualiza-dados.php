@@ -2,8 +2,9 @@
 <?php
    include('verifica-login.php');
    include('conexao.php');
-   error_reporting(0);
-   ini_set(“display_errors”, 0 );
+   include('verifica-login.php');
+   //error_reporting(0);
+   //ini_set(“display_errors”, 0 );
    
    $id=$_SESSION['id'];
 
@@ -27,10 +28,10 @@
    if ($cidade == "") {
       $cidade=$_SESSION['cidade'];
    }
-   //$bairro = isset($_POST["tBairro"])?$_POST["tBairro"]:$_SESSION['bairro'];
-   //if ($bairro == "") {
-      //$bairro=$_SESSION['bairro'];
-   //}
+   $bairro = isset($_POST["tBairro"])?$_POST["tBairro"]:$_SESSION['bairro'];
+   if ($bairro == "") {
+      $bairro=$_SESSION['bairro'];
+   }
    $curso = isset($_POST["tCurso"])?$_POST["tCurso"]:$_SESSION['curso'];
    if ($curso == "") {
       $curso=$_SESSION['curso'];
@@ -51,12 +52,26 @@
    if ($nomes == "") {
       $nomes=$_SESSION['nome_social'];
    }
+   $situacao = isset($_POST["apagar"])?$_POST["apagar"]:1;
    $ano = date ("Y-m-d");
-       //$teste = "update `usuario` set nome='$nome', email='$email', senha='$senha', rsenha='$rsenha', cidade='$cidade', bairro='$bairro', curso='$curso', data_de_nascimento='$data', telefone='$tele', genero='$sexo', nome_social='$nomes' where idusuario='$id' ";
-   $teste = "update `usuario` set nome='$nome', email='$email', senha='$senha', rsenha='$rsenha', cidade='$cidade', curso='$curso', data_de_nascimento='$data', telefone='$tele', genero='$sexo', nome_social='$nomes' where idusuario='$id' ";
-      echo "$teste";
-      mysqli_query ($conexao, $teste) or die ('error');
-      mysqli_close($conexao);
+   if ($situacao == 1) {
+      $teste = "update `usuario` set nome='$nome', email='$email', senha='$senha', rsenha='$rsenha', cidade='$cidade', bairro='$bairro', curso='$curso', data_de_nascimento='$data', telefone='$tele', genero='$sexo', nome_social='$nomes', situacao='$situacao' where idusuario='$id'";
+      $update = mysqli_query($conexao, $teste) or die ('error');
       header('Location: perfil.php');
       exit();  
+   }
+   elseif($situacao == 0){
+      $delete = "DELETE FROM `usuario` WHERE `idusuario`='$id'";
+      $delete1 = "DELETE FROM `postagem` WHERE `usuario_idusuario`='$id'";
+      $delete2 = "DELETE FROM `albuns` WHERE `idusuario`='$id'";
+      $del = mysqli_query($conexao, $delete) or die (mysqli_error($conexao)); 
+      echo "<br>$del";
+      echo "<br>";
+      $del1 = mysqli_query($conexao, $delete1) or die (mysqli_error($conexao)); 
+      echo "<br>$del1<br>";
+      mysqli_close($conexao);
+      header('Location: logout.php');
+      exit();
+      echo "<br>error";
+   }
 ?>

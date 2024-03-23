@@ -73,7 +73,7 @@
 						<tr><td> </td></tr>
 						<tr><td></td></tr>					
 
-						<tr><td> <a href=fotos.html> <img src="_imagens/fotos.png" width=100> </a> </td></tr>
+						<tr><td> <a href=fotos.php> <img src="_imagens/fotos.png" width=100> </a> </td></tr>
 						<tr><td> <a href=amigo.html> <img src="_imagens/amigos.png" width=100> </a> </td></tr>
 					</table>
 
@@ -128,6 +128,22 @@
 									}
 									$_SESSION['cidade']=$cidade;
 									echo "$cidade";
+									?></label></td>
+							</tr>
+
+							<tr>
+								<td id="or"><label>Bairro:</label> </td>
+								<td><label><?php
+									$id=$_SESSION['id'];
+									$consulta = "SELECT * FROM `usuario` WHERE idusuario = '$id'";
+									$resultado = mysqli_query ($conexao, $consulta) or die ('Não foi possível conectar');
+									$quant = mysqli_num_rows($resultado);
+									for($i=0;$i<$quant;$i++){
+										$rows=$resultado->fetch_assoc();
+										$bairro = $rows['bairro'];
+									}
+									$_SESSION['bairro']=$bairro;
+									echo "$bairro";
 									?></label></td>
 							</tr>
 
