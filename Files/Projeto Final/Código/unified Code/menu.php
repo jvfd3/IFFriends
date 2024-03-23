@@ -54,15 +54,17 @@ include('verifica-login.php');
 							<td>
 								<nav id="menu">
 									<ul> 
-									    <li><a href="#">configuração</a>
+									<font size="3" face="arial">
+									    <li><a href="#"><b>Configuração</b></a>
 									      <ul> 
-									        <li><a href="pagina-pricipal.php">inicio</a></li> 
-									        <li><a href="perfil.php">perfil</a></li> 
-									        <li><a href="fotos.php">fotos</a></li> 
-									        <li><?php echo "<a href='amigo.php?id=".$_SESSION['id']."'>";?>amigos</a></li>
-									        <li><a href="logout.php">sair</a></li> 
+									        <li><a href="pagina-pricipal.php">Inicio</a></li> 
+									        <li><a href="perfil.php">Perfil</a></li> 
+									        <li><a href="fotos.php">Fotos</a></li> 
+									        <li><?php echo "<a href='amigo.php?id=".$_SESSION['id']."'>";?>Amigos</a></li>
+									        <li><a href="logout.php">Sair</a></li> 
 									      </ul> 
 										</li>
+									<font size="5">
 									</ul>
 								</nav>
 							</td>

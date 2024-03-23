@@ -1,4 +1,4 @@
-@charset"UTF-8";
+﻿@charset"UTF-8";
 *{margin: 1; padding: 1}
 html, body{
   height: 100%;
@@ -85,7 +85,7 @@ html, body{
   ul li a {
      display: block;
      text-decoration: none;
-     color: #E2144A;
+     color: #32CD32;
      background: #fff;
      padding: 5px;
      border: 1px solid #ccc; 
@@ -136,7 +136,7 @@ img#foto{
   position: all;
   left: 79.8%;
   top: 50px;
-  background-color:#077c0f;
+  background-color: #32CD32;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   vertical-align: middle;
@@ -274,7 +274,7 @@ img#foto{
     text-align: left;
   }
 
-
+/*IMAGEM DE PERFIL*/
 img#imgperf {
 	border-radius:50%;
  max-width: 50000px;
@@ -282,3 +282,12 @@ img#imgperf {
 	border: solid 5px green;
 
 }
+/*IMAGEM DE PERFIL(AMIGO)*/
+img#imgperfamigo {
+	border-radius:50%;
+ max-width: 50000px;
+  max-height: 50000px;
+	border: solid 5px green;
+
+}
+

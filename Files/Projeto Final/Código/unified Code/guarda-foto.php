@@ -21,12 +21,12 @@ if(isset($_FILES['arquivo'])){
 		
 		//MENSAGENS
 		$msg = array();
-		$errorMsg = array(
+		/*$errorMsg = array(
 			1 => 'O arquivo no upload é maior do que o limite definido em upload_max_filesize no php.ini.',
 			2 => 'O arquivo ultrapassa o limite de tamanho em MAX_FILE_SIZE que foi especificado no formulário HTML',
 			3 => 'o upload do arquivo foi feito parcialmente',
 			4 => 'Não foi feito o upload do arquivo'
-		);
+		);*/
 				$name 	= $file['name'];
 				$type	= $file['type'];
 				$size	= $file['size'];
@@ -39,10 +39,10 @@ if(isset($_FILES['arquivo'])){
 					$_SESSION['error3'] = $errorMsg[$error];
 				}
 				else if(!in_array($type, $permite)){
-					$_SESSION['error4'] = "<b>$name :</b> Erro imagem não suportada!";
+					$_SESSION['error4'] = "<b>$name :</b> Erro arquivo não suportada!";
 				}
 				else if($size > $maxSize){
-					$_SESSION['error5'] = "<b>$name :</b> Erro imagem ultrapassa o limite de 5MB";
+					$_SESSION['error5'] = "<b>$name :</b> Erro arquivo ultrapassa o limite de 5MB";
 				}
 				else{
 						if($_SESSION['origem']=="fotos"){
@@ -50,12 +50,12 @@ if(isset($_FILES['arquivo'])){
 								$inserir ="INSERT INTO `albuns` (`nome_foto`, `usuario_idusuario`) VALUES ('$pasta', '$id')";
 						
 							if (mysqli_query($conexao, $inserir)) {
-								$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";}
-							else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
+								$_SESSION['sucesso'] = "<div class='alert alert-success'><b>Cadastrada com sucesso!</b></div>";}
+							else{$_SESSION['error6'] = "<div class='alert alert-danger'>Não pôde ser cadastrada!</div>";}
 							}
 							unset($_SESSION['origem']);
-							header('Location: fotos.php');
-							exit();
+							//header('Location: fotos.php');
+							//exit();
 						}
 						
 						elseif($_SESSION['origem']=="editperf"){
@@ -66,8 +66,8 @@ if(isset($_FILES['arquivo'])){
 								$inserir = "UPDATE `usuario` SET `foto_perfil`='$pasta' WHERE idusuario='$id'";
 
 							if (mysqli_query($conexao, $inserir)) {
-								$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";}
-								else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
+								$_SESSION['sucesso'] = "<div class='alert alert-success'><b>Cadastrada com sucesso!</b></div>";}
+								else{$_SESSION['error6'] = "<div class='alert alert-danger'>Não pôde ser cadastrada!</div>";}
 								}
 								unset($_SESSION['origem']);
 							//header('Location: editperf.php');
@@ -75,6 +75,6 @@ if(isset($_FILES['arquivo'])){
 						}
 					}		
 			}
-//header('Location: editperf.php');
-//exit();
+header("Location: ".$_SERVER['HTTP_REFERER']."");
+exit();
 ?>

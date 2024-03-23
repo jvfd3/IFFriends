@@ -8,11 +8,11 @@
 	<head>
 		<title>IFFriends</title>
 		<meta charset="UTF-8"/>
-		<title>IFFTool</title> <!-- Nome que pagina tem -->
 		<link rel="stylesheet" type="text/css" href="_css/fotos.css">
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
+	<font face="arial">
 
 		<!-- area de foto -->
 			<div id="postagens">
@@ -29,7 +29,7 @@
 					?>
 					<fieldset>
 						<div id="titulo">
-							<font size=5 face=arial color=cyan > Fotos	</font>
+							<font size=5 face=arial > Fotos	</font>
 							<a>
 								  <div>
 								    <br>
@@ -39,11 +39,13 @@
 								  $_SESSION['origem']="fotos";
 								  ?>
 								  	<form method="post" action="guarda-foto.php" enctype="multipart/form-data">
-								  <div id="fotos1"><input role="button" type="file" name="arquivo" id="foto">
+									
+								  <div id="fotos1"><input role="button" type="file" name="arquivo" accept="image/jpeg, image/png" id="foto">
 								  <div id="foto"><label for="foto" id="foto">Adicione sua foto</label></div>
 								 <!--Envia para o guarda-foto.php -->
 								  
 								  <button type="submit" id="foto">Salvar</button></div>
+								 
 								  </form>
 								</div>
 							</a>
@@ -60,13 +62,14 @@
 									$rows=$resultado->fetch_assoc();
 									$foto = $rows['nome_foto'];
 								
-									echo "<li id='fotos01'><img src='$foto' id='fotos'></li>";
+									echo "<li id='fotos01'><img src='$foto' id='fotos'  alt='Error na imagem'></li>";
 								}
 							?>
 						</ul>
 					</fieldset>
 				</center>
 			</div>
+			</font>
 		<!-- are de foto -->
 	</body>
 </html>

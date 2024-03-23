@@ -13,7 +13,6 @@
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-
 			<center>
 				<div id="postagens">
 					<h1 id="titulo">Amigos</h1><br>

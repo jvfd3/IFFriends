@@ -10,11 +10,11 @@ $quant = mysqli_num_rows($resultado);
 if ($quant==0) {
 	$teste="insert into `amizade`(idamizade_amigo, data_solicitacao, usuario_idusuario) values ('$id', '$data', '$amigo')";
 	mysqli_query($conexao, $teste) or die ('error');
-	$_SESSION['solicitacao']= "enviado com sucesso sua solicitação";
+	$_SESSION['solicitacao']= "<b>Solicitação enviada com sucesso!</b>";
 	header("Location: ".$_SERVER['HTTP_REFERER']."");
 	exit();
 }
-$_SESSION['solicitacao']= "já foi enviado sua solicitação";
+$_SESSION['solicitacao']= "<b>Impossível solicitar amizade!</b>";
 header("Location: ".$_SERVER['HTTP_REFERER']."");
 exit();
 ?>

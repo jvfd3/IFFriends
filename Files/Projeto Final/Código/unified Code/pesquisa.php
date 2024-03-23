@@ -1,5 +1,7 @@
 <?php
-session_start();
+include('menu.php');
+include ('conexao.php');
+include('amigos-online.php');
 if ($_POST['busca'] != "") {
 	$busca = $_POST['busca'];
 }
@@ -8,38 +10,53 @@ if ($_POST['busca'] != "") {
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>IFFriends</title>
+		<title>IFFriends</title><!-- Nome que pagina tem -->
 		<meta charset="UTF-8"/>
-		<title>IFFTool</title> <!-- Nome que pagina tem -->
+	
 		
-		<link rel="stylesheet" type="text/css" href="_css/pagina.css">
+		<link rel="stylesheet" type="text/css" href="_css/pesquisa.css">
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-		<?php include('menu.php');?>
-		<!-- ver amigos online -->
-		<?php include('amigos-online.php'); ?>
-		<!-- Fim da pesquisa de amigos-->
-
-		<div id="pagina">
-			<!-- Nome do que esta sendo buscado -->
+	<font face"arial">
+		<div id="postagens">
+	
+			<!-- Nome do que está sendo buscado -->
 				<div id="foto">
+				<font face="arial">
 					<h1><?php echo $busca ?></h1>
-					<hr>
+					<hr> </hr>
+
+					
+						<table>
 					<?php
-					include ('conexao.php');
-					$consulta = "SELECT * FROM `usuario` WHERE nome like '$busca%' or nome_social like '$busca%'";
+					$consulta = "SELECT * FROM `usuario` WHERE nome like '%$busca%' or nome_social like '%$busca%'";
 					$resultado = mysqli_query($conexao, $consulta) or die('error');
 				    $quant = mysqli_num_rows($resultado);
 				    for($i=0;$i<$quant;$i++){
 				    $rows = mysqli_fetch_array($resultado);
 					$usuario[] = $rows['nome'];
 					$idpessoa[] = $rows['idusuario'];
-					echo "<br><br><table>";
-						echo "<tr><td><a href='perfilamigo.php?id=".$idpessoa[$i]."' >$usuario[$i]</a></td</tr>";
-					}
-					echo "</tabel><br>";
+					$foto[] = $rows['foto_perfil'];
+					
+					echo "<tr><td style=width:120px>";
+					if ($foto[$i]=="")	{	echo "<img src=_imagens/profpic.jpg width=100 height=100>";	}
+					else 				{	echo "<img src=$foto[$i] width=100 height=100>";			};
+					echo "</td>";
+				
+					echo "<td style=width:180px>";
+					echo "<a href='perfilamigo.php?id=".$idpessoa[$i]."' >";
+					echo "<font size=32 face=arial color=black>";
+					echo "$usuario[$i]";
+					echo "</font>";
+					echo "</a>";
+					echo "</td></tr>";
+							
+					};	
 					?>
+					</table>
+						<br>
+					</font>
 				</div>
 			<!-- fim da are do que esta sendo buscado -->
 			
@@ -47,5 +64,6 @@ if ($_POST['busca'] != "") {
 				
 			<!-- fim do que esta sendo buscado -->
 		</div>
+		</font>
 </body>
 </html>
