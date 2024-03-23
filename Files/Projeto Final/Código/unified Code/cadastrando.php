@@ -1,3 +1,4 @@
+<meta charset="utf-8"/>
 <?php
   session_start();
   isset($_SESSION['usuario'])?header('Location: pagina-pricipal.php'):"";     
@@ -48,7 +49,8 @@
       }
       mysqli_close($conexao);
       mkdir('fotos/'.$id.'/');
-      mysqli_close($conexao);
+      mkdir('fotos/'.$id.'/profpic/');
+      mkdir('fotos/'.$id.'/SemOrigem/');
       header('Location: cadastro.php');
       exit();
     } else {

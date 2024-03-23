@@ -11,7 +11,18 @@ if(isset($_FILES['arquivo'])){
 		$numFile=count(array_filter($file));
 
 		//PASTA
-		$folder		= 'fotos/'.$id.'/';
+		
+		//O $_SESSION['origem'] recebe seu valor do arquivo fotos.php e do editperf.php
+		//Caso esse arquivo (o guarda-foto.php) seja utilizado em algum outro meio (postagem, mensagem, página, etc.), adicionar outros else if
+		// para destinar a imagem para a pasta certa
+		
+		if ($_SESSION['origem']=="fotos"){
+			$folder		= 'fotos/'.$id.'/';}
+		
+		else if($_SESSION['origem']=="editperf"){
+			$folder		= 'fotos/'.$id.'/profpic/';}
+			
+		else {	$folder		= 'fotos/'.$id.'/SemOrigem/';};
 		
 		//REQUISITOS
 		$permite 	= array('image/jpeg', 'image/png');
@@ -57,15 +68,31 @@ if(isset($_FILES['arquivo'])){
 				}
 				else{
 					
-					if(move_uploaded_file($tmp, $folder.'/'.$novoNome)){
-						$inserir ="INSERT INTO `albuns` (nome_foto, local_foto, usuario_idusuario) VALUES ('$novoNome', '$folder', '$id')";
-						if ( mysqli_query($conexao, $inserir)) {
-							$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";
-						}else{
-							$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";
-						}}//else{
-						//$_SESSION['error7'] = "<b>$name :</b> Desculpe! Ocorreu um erro...";}
-				
+					
+						if($_SESSION['origem']=="fotos"){
+								
+							if(move_uploaded_file($tmp, $folder.'/'.$novoNome)){
+								$inserir ="INSERT INTO `albuns` (`nome_foto`, `local_foto`, `usuario_idusuario`) VALUES ('$novoNome', '$folder', '$id')";
+							if (mysqli_query($conexao, $inserir)) {
+								$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";}
+							else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
+							}
+							
+						}
+						
+						elseif($_SESSION['origem']=="editperf"){
+							if(move_uploaded_file($tmp, $folder.'/'.$novoNome)){
+								$inserir ="UPDATE `usuario` SET `foto_perfil`='$novoNome' WHERE `idusuario`='$id'";
+							if (mysqli_query($conexao, $inserir)) {
+								$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";}
+							else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
+							}
+							header('Location: perfil.php');
+							exit();
+						}					
+						
+					else{
+						$_SESSION['error7'] = "<b>$name :</b> Desculpe! Ocorreu um erro...";}
 				foreach($msg as $pop);
 			}
 		}

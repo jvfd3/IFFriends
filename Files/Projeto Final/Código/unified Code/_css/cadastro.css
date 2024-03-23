@@ -1,6 +1,6 @@
 ﻿@charset"UTF-8";
 body{
-	overflow: auto;
+	overflow: hidden;
 	max-height: 100%; 
 	max-width: 100%;
 	}
@@ -26,32 +26,35 @@ div#inicio{
 		margin-bottom: -3%;
 	}
 form#Login{
-	margin-left: 35%;
-	margin-top: 5%;
+	margin-left: 39%;
+	margin-top: 0%;
 	width: 400px;
 	overflow: visible;
 	}
 table#ajuste{
 	height: 100%;
-	text-align: left;
-	margin-left: -20%;
-	margin-top: 250px;
+	text-align: right;
+	margin-left: -49%;
+	margin-top: 50px;
 	white-space: nowrap;
 	}
 table#ajuste td{
 	margin-bottom: 4%;
+	width: 100%;
 }
 
 table#ajuste1{
-	width: 29%;
+	width: 100%;
 	text-align: right;
-	margin-top: -605px;
-	margin-right: -100%;
+	margin-top: -610px;
+	margin-right: -34%;
+	margin-bottom: 4%;
 }
 td{
 	width: 40%;
 	float: left;
 	margin-right: -28%;
+	margin-top: 0.2%;
 	}
 
 input{
@@ -65,17 +68,14 @@ input{
 	}
 input#cData{
 	display: block;
-	margin-left: 118%;
-	margin-bottom: 2%;
+	margin-bottom: 5%;
 	width: 180px;
 	}
 input#cTele{
 	width: 320px;
-	margin-left: 30px;
 }
 input#cNomeS{
 	display: block;
-	margin-left: 75px;
 	width: 275px;
 	font-size: 21px;
 	}
@@ -93,5 +93,5 @@ button.button{
 	width: 30%;
 	}
 div#button, div#buton{
-	margin-left: -20%;
+	margin-left: 18%;
 	}

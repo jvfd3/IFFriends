@@ -7,13 +7,13 @@
   	<meta charset="utf-8"/>
   	<title> Cadastro</title><!-- Nome que pagina tem -->
   	<!-- Onde fica o arquivo de estilo da pagina -->
-      <link rel="stylesheet" type="text/css" href="_css/estilo.css">
-      <link rel="stylesheet" type="text/css" href="_css/estilo-1.css" media="screen and (max-width: 870px) and(min-width: 420px)">
-      <link rel="stylesheet" type="text/css" href="_css/estilo-2.css" media="screen and (max-width: 414px)">
-    <!-- Reaproveitando o arquivo de estilo da pagin index -->
-  	<!-- Onde fica o arquivo de estilo da pagina -->
-    <link rel="stylesheet" type="text/css" href="_css/cadastro.css" media="screen and (min-width:0px)">
-    <link rel="stylesheet" type="text/css" href="_css/cadastro-1.css" media="screen and (width: 640px)">
+      <!-- Reaproveitando o arquivo de estilo da pagin index -->
+        <link rel="stylesheet" type="text/css" href="_css/estilo.css">
+        <link rel="stylesheet" type="text/css" href="_css/estilo-1.css" media="screen and (max-width: 870px) and(min-width: 420px)">
+        <link rel="stylesheet" type="text/css" href="_css/estilo-2.css" media="screen and (max-width: 414px)">
+    	<!-- Onde fica o arquivo de estilo da pagina -->
+        <link rel="stylesheet" type="text/css" href="_css/cadastro.css" media="screen and (min-width:0px)">
+        <link rel="stylesheet" type="text/css" href="_css/cadastro-1.css" media="screen and (width: 640px)">
     
     <!-- Icone que fica na pagina -->
     <link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" />
@@ -28,24 +28,22 @@
             : "hidden"; 
         }
       </script>
-      <!-- Fim do script -->
-	  <style>
-		body{
-			background-image:url("_imagens/bgverde.jpg");
-			background-attachment:fixed;
-			background-size:100%;
-			background-repeat:no-repeat;
-			background-color:#000;
-		}
-	</style>	
+      <style>
+    body{
+      background-image:url("_imagens/bgverde.jpg");
+      background-attachment:fixed;
+      background-size:100% 100%;
+      background-repeat:no-repeat;
+    }
+  </style>  
+    <!-- Fim do script -->
   </head>
   <body>
-  <b><font face="Arial">
     <!-- Primeira divisão da pagina -->
       <!-- Criar a logo da pagina -->
         <div id="primeira"">
         <header id="cabecalho">
-          <p align=center><a href="index.php"><img src="_imagens/logo3circle.png"></a></p><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
+          <a id="icone" href="index.php"><img id="icone" src="_imagens/logo3.png"></a><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
         </header>
         </div>
       <!-- Fim da Primeira divisão da pagina -->
@@ -278,7 +276,7 @@
             </tr>
           </table>
             
-           <div id="button">
+            <div id="button">
               <button type="submit" class="button">Cadastrar</button>
             </div>
 
@@ -290,6 +288,5 @@
         <!-- Fim do formulario -->
       </div>
     <!-- Fim da terceira divisão da pagina -->
-	</font></b>
 </body>
 </html>

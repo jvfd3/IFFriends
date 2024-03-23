@@ -12,30 +12,7 @@
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-		<!-- menu da pagina -->
-			<div id="interface">
-					<!-- Incio da barra de pesquisa -->
-					<table>
-						<tr>
-							<td>
-								<form method="post" action="pesquisa.php">
-								<div id="divBusca">
-								<input type="text" id="txtBusca" name="busca" placeholder="Buscar..."/>
-								<button id="btnBusca">
-									<img src="_imagens/1.png"/>
-								</button>
-								</div>
-								</form>
-							</td>
-							<td>
-								<div id="sair"><a href="logout.php">sair</a></div>
-							</td>
-						<!-- Fim da barra de pesquisa -->
-						</tr>
-					</table>
-			</div>
-		<!-- Fim de menu -->
-
+		<?php include('menu.php');?>
 		<!-- ver amigos online -->
 			<div id="online">
 						<center><h1>Online</h1></center>
@@ -129,7 +106,7 @@
 							$resultado2=mysqli_query($conexao, $consulta2);
 							$rows2=$resultado2->fetch_assoc();
 							$idamizade = $rows2['idamizade'];
-							$teste="update `amizade` set data_confirmacao='$data' postagem_usuario_idusuario='$aceitou' where idamizade='$idamizade'";
+							$teste="update `amizade` set data_confirmacao='$data' where idamizade='$idamizade'";
 							$enviar=mysqli_query($conexao, $teste) or die ('error');
 							}
 							elseif ($naoaceitou >= 1) {
@@ -161,22 +138,24 @@
 				          <!-- Mostrar postagens -->
 						<?php
 							$consulta = "SELECT * FROM `amizade` WHERE 'idamizade_amigo'='$id'";
-							$consulta2 = "SELECT * FROM `amizade` WHERE 'usuario_idusuario'='$id'";
+							$consulta1 = "SELECT * FROM `amizade` WHERE 'usuario_idusuario'='$id'";
+							echo "$consulta<br>";
+							echo "$consulta1<br>";
 							$resultado=mysqli_query($conexao, $consulta);
 							$quant = mysqli_num_rows($resultado);
 							for($i=0;$i<$quant;$i++){
 							$rows=$resultado->fetch_assoc();
 							$idamigo = $rows['usuario_idusuario'];
-				            $consulta = "SELECT * FROM `postagem` WHERE `usuario_idusuario`=$id and  ";
+				            $consulta = "SELECT * FROM `postagem` WHERE `usuario_idusuario`=$id";
 				            $resultado = mysqli_query($conexao, $consulta) or die('error');
 				            $quant = mysqli_num_rows($resultado);
-							}
 				            for($i=0;$i<$quant;$i++){
 								$rows=$resultado->fetch_assoc();
 								$postagem = $rows['postagemtexto'];
 								echo "<div><tr><td><center>$postagem<br></center></td></tr></div>";
 							}
-				            
+				            }
+				            echo "$consulta";
 				            mysqli_close($conexao);
 						 ?>
 					</table>

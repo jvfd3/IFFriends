@@ -67,14 +67,29 @@
 			<div id="postagens">
 				<center>
 					<table id="or"><!-- onde vai conter as opções -->
-						<tr> <td rowspan="6"><a href=perfil.php> <img src="_imagens/profpic.jpg" width=200></a></td></tr>
-						
+						<tr> <td rowspan="6"><img src="_imagens/profpic.jpg" width=200></a></td></tr>
+
+
+							<?php
+								$id=$_SESSION['id'];
+								$consulta = "SELECT * FROM `usuario` WHERE idusuario='$id'";
+								$resultado = mysqli_query($conexao, $consulta)or die ('Não foi possível conectar');
+								$quant = mysqli_num_rows($resultado);
+								for($i=0;$i<$quant;$i++){
+									$rows=$resultado->fetch_assoc();
+									//$nome = $rows['nome_foto'];
+									//$local = $rows['local_foto'];
+									//echo "<li id='fotos01'><img src='$local$nome' id='fotos'></li>";
+								}
+							?>
+
+
 						<tr><td> <a href=editperf.php> <img src="_imagens/editperf.png" width=100></a></td></tr>
 						<tr><td> </td></tr>
 						<tr><td></td></tr>					
 
 						<tr><td> <a href=fotos.php> <img src="_imagens/fotos.png" width=100> </a> </td></tr>
-						<tr><td> <a href=amigo.html> <img src="_imagens/amigos.png" width=100> </a> </td></tr>
+						<tr><td> <a href=amigo.php> <img src="_imagens/amigos.png" width=100> </a> </td></tr>
 					</table>
 
 					<br><label><h1></h1></label><br>

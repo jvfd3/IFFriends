@@ -5,8 +5,9 @@
 	$id = $_SESSION['id'];
 
 	$postagem = isset($_POST['postagem'])?$_POST['postagem']:"";
+	$data = date('Y-m-d');
 	if ($postagem != "" && $postagem != " ") {
-		$postando="INSERT INTO `postagem` (postagemtexto, usuario_idusuario) VALUES ('$postagem', '$id')";
+		$postando="INSERT INTO `postagem` (data_postagem, postagemtexto, usuario_idusuario) VALUES ('$data', '$postagem', '$id')";
 	}
 	echo"<br>";
 	echo "$postando<br>";

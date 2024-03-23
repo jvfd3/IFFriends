@@ -28,25 +28,7 @@
     	<!-- Fim do script -->
 	</head>
 	<body>
-		<!-- menu da pagina -->
-			<div id="interface">
-				<table>
-					<tr>
-						<td>
-							<!-- Incio da barra de pesquisa -->
-								<div id="divBusca">
-									<input type="text" id="txtBusca" placeholder="Buscar..."/>
-									<a href="pesquisa.html"><button id="btnBusca"><img src="_imagens/1.png"/></button>
-								</div>
-							<!-- Fim da barra de pesquisa -->
-						</td>
-						<td>
-								<div id="sair"><a href="logout.php">sair</a></div>
-						</td>
-					</tr>
-				</table>
-			</div>
-		<!-- Fim de menu -->
+		<?php include('menu.php'); ?>
 
 		<!-- ver amigos online -->
 			<div id="online">
@@ -80,9 +62,20 @@
 			<div id="postagens">
 				<center>
 					<table id="or">
-						<tr> <td rowspan="4">
-						<a href=profpic.jpg> <img src="_imagens/profpic.jpg" width=200></a><br></td>
-
+						<tr> 
+							<td rowspan="4">
+								<!--<a href=profpic.jpg> <img src="_imagens/profpic.jpg" width=200></a><br>-->
+								<?php
+								
+								$id=$_SESSION['id'];
+								$consulta= "SELECT `foto_perfil`, `local_foto_perfil` FROM `usuario` WHERE idusuario='$id'";
+								$resultado = mysqli_query($conexao, $consulta)or die ('Não foi possível conectar');
+									$rows=$resultado->fetch_assoc();
+									$foto=$rows['local_foto_perfil'].$rows['foto_perfil'];
+									
+									echo "<center><img src=$foto width=200 height=200>";
+								?>
+							</td>
 						</tr>
 					</table>
 					<br><br>
@@ -286,10 +279,25 @@
 							                <option value="1">Não Excluir</option>
 					              		</select>
 					              </td>
-					          	</tr>
-	          				</table>
-	          				<br><input type="submit" value="Salvar" id="s"> </a>
+					              <br><input type="submit" value="Salvar" id="s"> </a>
 						</form>
+					          	</tr>
+
+								<tr>
+									<td>
+										<form method="post" action="guarda-foto.php" enctype="multipart/form-data">
+										<input role="button" type="file" name="arquivo">
+										
+										<!--Envia para o guarda-foto.php -->
+										<?php
+										$_SESSION['origem']="editperf";
+										?>
+										<input type="submit" value="uplod">
+										</form>
+										</td>
+									<td></td>
+								</tr>
+	          				</table>
 					</div>
 				</center>
 			</div>

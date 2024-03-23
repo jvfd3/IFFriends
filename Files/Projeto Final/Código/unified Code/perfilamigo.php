@@ -5,7 +5,6 @@ session_start();
 <html>
 	<head>
 		<title>IFFriends</title>
-		<script src='nightly.min.js'></script>
 		<meta charset="UTF-8"/>
 		<title>IFFTool</title> <!-- Nome que pagina tem -->
 		<link rel="stylesheet" type="text/css" href="_css/login.css"> <!-- Onde fica o arquivo de estilo da pagina -->
@@ -13,24 +12,7 @@ session_start();
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-		<!-- menu da pagina -->
-			<div id="interface">
-				<table>
-					<tr>
-						</td>
-
-						<td>
-							<!-- Incio da barra de pesquisa -->
-								<div id="divBusca">
-									<input type="text" id="txtBusca" placeholder="Buscar..."/>
-									<a href="pesquisa.html"><button id="btnBusca"><img src="_imagens/1.png"/></button>
-								</div>
-							<!-- Fim da barra de pesquisa -->
-						</td>
-					</tr>
-				</table>
-			</div>
-		<!-- Fim de menu -->
+		<?php include('menu.php'); ?>
 
 		<!-- ver amigos online -->
 			<div id="online">

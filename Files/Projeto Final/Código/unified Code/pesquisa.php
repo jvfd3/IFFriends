@@ -9,29 +9,14 @@ else{ header("Location: ".$_SERVER['HTTP_REFERER']."");}
 <html>
 	<head>
 		<title>IFFriends</title>
-		<script src='nightly.min.js'></script>
 		<meta charset="UTF-8"/>
 		<title>IFFTool</title> <!-- Nome que pagina tem -->
-		<link rel="stylesheet" type="text/css" href="_css/login.css"> <!-- Onde fica o arquivo de estilo da pagina -->
+		
 		<link rel="stylesheet" type="text/css" href="_css/pagina.css">
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-		<!-- menu da pagina -->
-			<div id="interface">
-				<td>
-							<!-- Incio da barra de pesquisa -->
-								<div id="divBusca">
-									<input type="text" id="txtBusca" placeholder="Buscar..."/>
-									<button id="btnBusca"><img src="_imagens/1.png"/></button>
-								</div>
-							<!-- Fim da barra de pesquisa -->
-						</td>
-					</tr>
-				</table>
-			</div>
-		<!-- Fim de menu -->
-
+		<?php include('menu.php');?>
 		<!-- ver amigos online -->
 			<div id="online">
 				<center><h1>Online</h1></center>
@@ -79,14 +64,23 @@ else{ header("Location: ".$_SERVER['HTTP_REFERER']."");}
 					<hr>
 					<?php
 					include ('conexao.php');
-					$consulta = "SELECT * FROM `usuario` WHERE nome='$busca'";
+					$consulta = "SELECT * FROM `usuario` WHERE nome='$busca' or nome_social='$busca'";
 					$resultado = mysqli_query($conexao, $consulta) or die('error');
 				    $quant = mysqli_num_rows($resultado);
 				    for($i=0;$i<$quant;$i++){
 					$rows=$resultado->fetch_assoc();
-					$usuario = $rows['nome'];
-					$_SESSION['idpessoa'] = $rows['idusuario'];
-					echo "<a href='perfilamigo.php'>$usuario<br></a>";}
+					$usuario[] = $rows['nome'];
+					$idpessoa[] = $rows['idusuario'];
+					print_r($usuario);echo "<br>";
+					print_r($idpessoa);echo "<br>";
+					}
+					echo "<br><br><table>";
+					for($i=0;$i<$quant;$i++){
+						echo "<tr><td><a href='perfilamigo.php' onmousedown='return($id)'>$usuario[$i]</a></td</tr>";
+					}
+					echo "</tabel><br>";
+					$_SESSION['idpessoa'] = $idpessoa[$i];
+					echo $_SESSION['idpessoa'];
 					?>
 				</div>
 			<!-- fim da are do que esta sendo buscado -->
@@ -95,7 +89,9 @@ else{ header("Location: ".$_SERVER['HTTP_REFERER']."");}
 				<div id="poste">
 					<center>
 						<table id="poste">
-							
+							<?php
+							//$_SESSION['idpessoa'] = $idpessoa[$i];
+							?>
 						</table>
 					</center>
 				</div>

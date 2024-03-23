@@ -46,7 +46,7 @@
 				</center>
 			</div>
 		<!-- fim de amigos online -->
-		<!-- pesqusa de amigos -->
+		<!-- pesquisa de amigos -->
 			<div id="busca">
 				<table id="busca">
 					<tr>
@@ -61,7 +61,7 @@
 			</div>
 		<!-- Fim da pesquisa de amigos-->
 
-		<!-- are de foto -->
+		<!-- area de foto -->
 			<div id="postagens">
 				<center>
 					<?php
@@ -86,6 +86,11 @@
 								  <div>
 								  	<form method="post" action="guarda-foto.php" enctype="multipart/form-data">
 								  <input role="button" type="file" name="arquivo">
+								 <!--Envia para o guarda-foto.php -->
+								 <?php 
+								  $_SESSION['origem']="fotos";
+								  ?>
+								  
 								  <button type="submit">Salvar</button>
 								  </form>
 								</div>

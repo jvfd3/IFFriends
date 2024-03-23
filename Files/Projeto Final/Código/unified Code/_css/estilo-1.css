@@ -7,6 +7,8 @@ html, body{
   overflow: auto;/* Não permite rolagem na pagina */
   position: relative;
   margin: 0px;
+  font-family: Arial;
+  font-weight: 700;
 }
 
 /*Definindo a largura e a posicão da primeira divisão*/
