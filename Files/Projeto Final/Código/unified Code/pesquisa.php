@@ -3,7 +3,7 @@ session_start();
 if ($_POST['busca'] != "") {
 	$busca = $_POST['busca'];
 }
-else{ header("Location: ".$_SERVER['HTTP_REFERER']."");}
+//else{ header("Location: ".$_SERVER['HTTP_REFERER']."");}
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,37 +64,23 @@ else{ header("Location: ".$_SERVER['HTTP_REFERER']."");}
 					<hr>
 					<?php
 					include ('conexao.php');
-					$consulta = "SELECT * FROM `usuario` WHERE nome='$busca' or nome_social='$busca'";
+					$consulta = "SELECT * FROM `usuario` WHERE nome like '$busca%' or nome_social like '$busca%'";
 					$resultado = mysqli_query($conexao, $consulta) or die('error');
 				    $quant = mysqli_num_rows($resultado);
 				    for($i=0;$i<$quant;$i++){
-					$rows=$resultado->fetch_assoc();
+				    $rows = mysqli_fetch_array($resultado);
 					$usuario[] = $rows['nome'];
 					$idpessoa[] = $rows['idusuario'];
-					print_r($usuario);echo "<br>";
-					print_r($idpessoa);echo "<br>";
-					}
 					echo "<br><br><table>";
-					for($i=0;$i<$quant;$i++){
-						echo "<tr><td><a href='perfilamigo.php' onmousedown='return($id)'>$usuario[$i]</a></td</tr>";
+						echo "<tr><td><a href='perfilamigo.php?id=".$idpessoa[$i]."' >$usuario[$i]</a></td</tr>";
 					}
 					echo "</tabel><br>";
-					$_SESSION['idpessoa'] = $idpessoa[$i];
-					echo $_SESSION['idpessoa'];
 					?>
 				</div>
 			<!-- fim da are do que esta sendo buscado -->
 			
 			<!-- mostra o resuldado da busca -->
-				<div id="poste">
-					<center>
-						<table id="poste">
-							<?php
-							//$_SESSION['idpessoa'] = $idpessoa[$i];
-							?>
-						</table>
-					</center>
-				</div>
+				
 			<!-- fim do que esta sendo buscado -->
 		</div>
 </body>

@@ -45,11 +45,14 @@ session_start();
 		<!-- mostar perfil -->
 			<div id="postagens">
 				<center>
-					<?php $mensagem=isset($_SESSION['solicitacao'])?$_SESSION['solicitacao']:"";echo $mensagem; unset($_SESSION['solicitacao']) ?>
+					<?php $mensagem=isset($_SESSION['solicitacao'])?$_SESSION['solicitacao']:"";
+						echo $mensagem; 
+						unset($_SESSION['solicitacao']) ?>
 					<table id="or"><!-- onde vai conter as opções -->
 						<?php
 							include ('conexao.php');
-							$id=$_SESSION['idpessoa'];
+							$id= (isset($_GET['id'])?$_GET['id'] : '');
+							$_SESSION['idpessoa'] = $id;
 							$consulta = "SELECT * FROM `usuario` WHERE idusuario='$id'";
 							$resultado = mysqli_query($conexao, $consulta) or die('error');
 						    $quant = mysqli_num_rows($resultado);
@@ -70,11 +73,12 @@ session_start();
 
 						<tr> 
 							<td rowspan="4"><a href=" "> <img src=" " width=200></a></td>
-							<td> <a href="adicionar.php"> <img src=" " width=100> </a></td>
+
+							<td> <a href="adicionar.php"> <img src="_imagens/addamigo.png" width=100> </a></td>
 						</tr>
 						<tr><td></td></tr>
 						<tr>
-							<td> <a href=fotos.html> <img src="_imagens/fotos.png" width=100> </a> </td>
+							<td> <a href=fotos.php> <img src="_imagens/fotos.png" width=100> </a> </td>
 						</tr>
 						<tr>
 							<td> <a href=amigo.html> <img src="_imagens/amigos.png" width=100> </a> </td>

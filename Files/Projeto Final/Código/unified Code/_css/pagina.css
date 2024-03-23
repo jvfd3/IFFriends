@@ -1,9 +1,9 @@
-﻿@charset"UTF-8";
+@charset"UTF-8";
 
 /* configurações da are de fundo(um divisão que engloba tudo) */
   div#pagina{
     position: absolute;
-    overflow: hidden;
+    overflow: auto;
     width: 79.5%;
     height: 93.5%;
     background-color: #616b66;
