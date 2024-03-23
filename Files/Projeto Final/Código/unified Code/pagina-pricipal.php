@@ -12,20 +12,16 @@
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-		<?php 
-		include('menu.php');
-		include('amigos-online.php');
-		?>
-		
 		<!-- postagens -->
 			<div id="postagens">
 				<center>
 					<table id="postagens">
-						<tr>
+						<tr id="postagens">
 							<td id="postagens"><a href=perfil.php> <?php include('foto_perfil.php'); ?></a></td>
 
-							<form method="post" action="postagem.php">
-								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"> </textarea></td>
+							<form method="post" action="postagem.php" enctype="multipart/form-data">
+								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"></textarea>
+									<input accept="video/mp4, image/jpeg" name="arquivo"  role="button" type="file" id="teste"></td>
 													
 							<td id="postagens2"> <input type="submit" value="Enviar" id="botao"></td>
 							</form>
@@ -34,8 +30,28 @@
 				</center>
 				<hr>
 				<center>
+					<?php
+						if(isset($_SESSION['error'])):
+					?>
+					<div>
+						<font color=white><p><?php echo $_SESSION['error']; ?></p></font>
+					</div>
+					<?php
+						endif;
+						unset($_SESSION['error']);
+					?>
+					<?php
+						if(isset($_SESSION['sucesso'])):
+					?>
+					<div class="notification">
+						<font color=white><p><?php echo $_SESSION['sucesso']; ?></p></font>
+					</div>
+					<?php
+						endif;
+						unset($_SESSION['sucesso']);
+					?>
 					<table>
-						<!-- Exibição da solicitações -->
+						 <!--Exibição da solicitações -->
 						<?php
 							$id=$_SESSION['id'];
 							$consulta = "SELECT * FROM `amizade` WHERE data_confirmacao is null and usuario_idusuario='{$id}'";
@@ -56,7 +72,7 @@
 								}
 							}
 						?>
-						<!-- Se aceitou ou não a solicitação -->
+						<!-- Se aceitou ou não a solicitação--> 
 						<?php
 							$aceitou=isset($_POST['aceitou'])?$_POST['aceitou']:"0";
 							$naoaceitou=isset($_POST['naoaceitou'])?$_POST['naoaceitou']:"0";
@@ -67,7 +83,7 @@
 							$rows2=$resultado2->fetch_assoc();
 							$idamizade = $rows2['idamizade'];
 							$teste="update `amizade` set data_confirmacao='$data' where idamizade='$idamizade'";
-							$enviar=mysqli_query($conexao, $teste) or die ('error');
+							$enviar=mysqli_query($conexao, $teste) or die ('error1');
 							header("Location: pagina-pricipal.php");
 							}
 							elseif ($naoaceitou >= 1) {
@@ -76,28 +92,10 @@
 								$rows2=$resultado2->fetch_assoc();
 								$idamizade = $rows2['idamizade'];
 								$teste="DELETE FROM `amizade` WHERE idamizade='$idamizade'";
-								$enviar=mysqli_query($conexao, $teste) or die ('error');
+								$enviar=mysqli_query($conexao, $teste) or die ('error2');
 								header("Location: pagina-pricipal.php");
 							}
 						?>
-						<!-- Exibir o que vc postou -->
-						<?php
-				            if(isset($_SESSION['autorizado'])):
-				            echo "
-				            <div>
-				            <tr><td><center>".$_SESSION['postagem']."</center></td></tr>
-				            </div>";
-				            
-				            endif;
-				            unset($_SESSION['autorizado']);
-				          ?>
-				          <?php
-				            if(isset($_SESSION['nao_autorizado'])):?>
-				            <?php
-				            endif;
-				            unset($_SESSION['nao_autorizado']);
-				          ?>
-				          <!-- Mostrar postagens -->
 						<?php
 							$consulta = "SELECT usuario_idusuario FROM `amizade` WHERE data_confirmacao is not null and `idamizade_amigo`='$id'";
 							$consulta1 = "SELECT idamizade_amigo FROM `amizade` WHERE data_confirmacao is not null and `usuario_idusuario`='$id'";
@@ -126,22 +124,42 @@
 								
 							}
 							}
-							elseif ($quant === 0 && $quant1 === 0) {$idamigo =  "'".$id."' ";}
-							$consulta = "SELECT * FROM `postagem` WHERE `usuario_idusuario`=".$idamigo." ORDER BY `data_postagem` ASC";
-					            $resultado1 = mysqli_query($conexao, $consulta) or die('error');
+							elseif ($quant === 0 && $quant1 === 0) 
+								{$idamigo =  "'".$id."' ";}
+							$consulta = "SELECT * FROM `postagem` WHERE `usuario_idusuario`=".$idamigo." ORDER BY `data_postagem`  DESC, `idpostagem` DESC";
+					            $resultado1 = mysqli_query($conexao, $consulta) or die('');
 					            $quant1 = mysqli_num_rows($resultado1);
 					            if ($quant1 == 0) {
 					            }
+					            echo "<div><tr><center id='mostra'>";
 					            for($a=0;$a<$quant1;$a++){
 									$rows=$resultado1->fetch_assoc();
 									$postagem = $rows['postagemtexto'];
-									echo "<div><tr><td><center>$postagem<br></center></td></tr></div>";
+									$postagem1 = $rows['postagem-fv'];
+									$extensao = @end(explode('.', $postagem1));
+									if (isset($postagem)) {
+										echo "<td>$postagem</td>";
+									}if ($extensao == "jpg") {
+										echo "<td><img id='mostra' src=".$postagem1."></td>";
+									}
+									if ($extensao == "mp4") {
+										echo "<td><video controls>
+										<source src=".$postagem1." type='video/mp4'>
+										Desculpa mas não é possivel exibir o video
+										</video><br></td>";
+									}
+									echo "<br></center></tr>";
 								}
+								echo "</div>";
 				            mysqli_close($conexao);
 						 ?>
 					</table>
 				</center>
 			</div>
 		<!-- fim da postagem -->
+		<?php 
+		include('menu.php');
+		include('amigos-online.php');
+		?>
 	</body>
 </html>

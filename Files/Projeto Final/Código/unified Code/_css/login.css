@@ -11,13 +11,13 @@ html, body{
 
 /* estilo do menu */
   div#interface{
-    position: absolute;
+    position: all;
     overflow: hidden;
     width: 100%;
     height: 46px;
     background-color: #616b66;
     margin: 0px 0px 0px 0px;
-    padding: 0px 10px 0px 10px;
+    padding: 0px 0px 0px 0px;
     }
 
   /*barra de pesquisa*/
@@ -61,12 +61,55 @@ html, body{
       margin-top: -1.9%;
     }
   /*fim da barra de pesquisa*/
+/*Configurações Padrões*/
+  nav#menu{
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+  height: 350px;
+  width: 170px;
+  margin-top: -29px;
+  margin-left: 40.5%;
+  position: absolute;
+  }
+   ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 200px;
+  height: 200px;
+  }
+   ul li {
+  position: relative;
+  }
+    li ul {
+  position: absolute;
+  left: 0px;
+  top: 25px;
+  display: none;
+  }
+  ul li a {
+     display: block;
+     text-decoration: none;
+     color: #E2144A;
+     background: #fff;
+     padding: 5px;
+     border: 1px solid #ccc; 
+  }
+  /* Fix IE. Hide from IE Mac \*/
+  * html ul li { float: left; }
+  * html ul li a { height: 1%; }
+  /* End */
+  li:hover ul { display: block; }
+  ul li a:hover{
+  text-decoration:underline;
+  font-weight: bold;
+  background: #ccc; }
 
 /* Fim do estilo do menu */
 
 td{
   width: 10%;
-  
   }
 h1{
   font-size: 200%;
@@ -75,6 +118,7 @@ hr{
   height: 5px;
   background-color: rgba(0, 0, 0, 0.6);
   width: 99.9%;
+  margin-top: -5px;
   }
 
 
@@ -83,93 +127,27 @@ hr{
   float:right;
   width: 20%;
   height: 90px;
-  position: absolute;
+  position: all;
   left: 79.8%;
   top: 50px;
-  background-color: #6efb78;
+  background-color:#077c0f;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   vertical-align: middle;
   white-space: nowrap;
-  overflow: hidden;
   }
   div#amigo{
-    float:right;
     width: 20%;
-    height: 82%;
-    position: absolute;
-    left: 79.8%;
-    top: 140px;
-    background-color: #6efb78;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+    height: 84.5%;
+    display: block;
+    margin-left: 80%;
+    margin-top: 90px;
+    background-color: rgba(10,23,55,0.5);
     vertical-align: middle;
     white-space: nowrap;
     overflow: auto;
   }
-  div#busca{
-    float:right;
-    width: 20%;
-    height: 5%;
-    position: absolute;
-    left: 79.8%;
-    top: 93.5%;
-    background-color: #616b66;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-    vertical-align: middle;
-    white-space: nowrap;
-  }
-
-  div#divPesquisa{
-    display: block;
-    background-color:#E0EEEE;
-    border:solid 2px #5F9EA0;
-    border-radius:1px;
-    width:98%;
-    height:90%;
-    margin: -4px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-    position: relative;
-    float: left;
-  }
-   
-  #tBusca{
-    float:left;
-    background-color:transparent;
-    font-size:13.1px;
-    border:none;
-    height:98%;
-    width:66%;
-  }
-   
-  #bBusca{
-    border:none;
-    float:right;
-    height:98%;
-    width:30%;
-    background:#d2faf0;
-  }
-   
-  #divBusca img{
-    width: 50%;
-    float:center;
-  }
-  td#pesquisa{
-    width: 98%;
-    height: 100%;
-    position: absolute;
-  }
-  input, textarea{
-    font-family: sans-serif;
-    font-weight: normal;
-    font-size: 13pt;
-    background-color: rgba(255,255,255,.8);
-  }
-
-  input:hover, textarea:hover{
-    background-color: #dddddd;
-  }
+  
 /*Fim de amigos online */
 
 /*conversa*/
@@ -181,7 +159,7 @@ hr{
     position: absolute;
     left: 0.2%;
     top: 50px;
-    background-color:#077c0f;
+  background-color:rgba(10,23,55,0.5);
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
     overflow:auto;
@@ -189,13 +167,11 @@ hr{
   table#postagens{
     width: 99%;
     height: 100%;
+    margin-top: 20px;
     }
   td#postagens img{
-    width: 100px;
-    margin-left: -3%;
-    margin-top: 3%;
-    margin-bottom: 1%;
-    border-radius: 50px;
+    width: 110px;
+    height: 110px;
   }
   td#postagens1 {
     display: inline;
@@ -215,3 +191,12 @@ hr{
     width: 80px;
     text-align: left;
   }
+
+
+img#imgperf {
+	border-radius:50%;
+ max-width: 50000px;
+  max-height: 50000px;
+	border: solid 5px green;
+
+}

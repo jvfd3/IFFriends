@@ -30,6 +30,8 @@
 				$_SESSION['usuario'] = $usuario;
 				$_SESSION['verificar'] = $row;
 				$_SESSION['id'] = $id;
+				$consulta = "UPDATE `usuario` SET `online`='1' WHERE `idusuario`='$id'";
+				$resultado = mysqli_query ($conexao, $consulta) or die ('Não foi possível conectar');
 				header('Location: pagina-pricipal.php');
 				exit();
 			} else {

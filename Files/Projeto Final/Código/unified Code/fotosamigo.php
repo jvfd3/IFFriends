@@ -39,8 +39,10 @@
 							<font size=5 face=arial color=cyan >	 Fotos	</font>
 						</div>
 
+						
 						<ul id="album-fotos">
 							<?php
+							
 								include ('conexao.php');
 								$id=$_SESSION['idpessoa'];
 								$consulta = "SELECT * FROM `albuns` WHERE usuario_idusuario='$id'";
@@ -48,9 +50,8 @@
 								$quant = mysqli_num_rows($resultado);
 								for($i=0;$i<$quant;$i++){
 									$rows=$resultado->fetch_assoc();
-									$nome = $rows['nome_foto'];
-									$local = $rows['local_foto'];
-									echo "<li id='fotos01'><img src='$local$nome' id='fotos'></li>";
+									$local = $rows['foto_album'];
+									echo "<li id='fotos01'><img src='$local' id='fotos'></li>";
 								}
 							?>
 						</ul>

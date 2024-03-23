@@ -1,4 +1,4 @@
-@charset"UTF-8";
+﻿@charset"UTF-8";
 
 /* configurações da are de fundo(um divisão que engloba tudo) */
   div#pagina{
@@ -40,13 +40,19 @@
 
 /* foto da pagina */
   div#foto{
+  resize: both;
+  overflow: auto;
     height: 150px; 
     width: 78.7%;
     margin-left: 21%;
     margin-top: 1px;
     }
     a{
+  resize: both;
+  overflow: auto;
       height: 100%;
+
       width: 100%;
-      border: 1px solid;
+    border-radius: 50%;
+  border: 1px solid;
     }

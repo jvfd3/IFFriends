@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* opções */
 	table#or{
 		margin-top: 70px;
@@ -9,7 +9,8 @@
 
 /* mostrar dados do usuario */
 	div#or{
-		width: 30%;
+		margin-bottom:100px;
+		width: 50%;
 		border: 5px solid green;
 		}
 		table#ordem{

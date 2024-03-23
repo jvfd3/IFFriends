@@ -1,7 +1,8 @@
 @charset "UTF-8";
 /* editando o formulario */
 	div#or{
-		width: 30%;
+		margin-bottom:100px;
+		width: 50%;
 		border: 5px solid green;
 		}
 	label{

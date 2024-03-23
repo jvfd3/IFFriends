@@ -1,11 +1,13 @@
-<?php
+<?php 
 	session_start();
-?>
+	include ('conexao.php');
+	include('menu.php');
+	include('amigos-online.php'); 
+	?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>IFFriends</title>
-		<script src='nightly.min.js'></script>
 		<meta charset="UTF-8"/>
 		<title>IFFTool</title> <!-- Nome que pagina tem -->
 		<link rel="stylesheet" type="text/css" href="_css/login.css"> <!-- Onde fica o arquivo de estilo da pagina -->
@@ -13,13 +15,6 @@
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-		<!-- menu da pagina -->
-			<?php include('menu.php'); ?>
-		<!-- Fim de menu -->
-
-		<!-- ver amigos online -->
-			<?php include('amigos-online.php'); ?>
-		<!-- Fim da pesquisa de amigos-->
 
 		<!-- area de foto -->
 			<div id="postagens">
@@ -36,7 +31,7 @@
 					?>
 					<fieldset>
 						<div id="titulo">
-							<font size=5 face=arial color=cyan >	 Fotos	</font>
+							<font size=5 face=arial color=cyan > Fotos	</font>
 							<a>
 							  	<div >
 								  <div>
@@ -44,12 +39,12 @@
 								  </div>
 								</div>
 								  <div>
+								  	<?php 
+								  $_SESSION['origem']="fotos";
+								  ?>
 								  	<form method="post" action="guarda-foto.php" enctype="multipart/form-data">
 								  <input role="button" type="file" name="arquivo">
 								 <!--Envia para o guarda-foto.php -->
-								 <?php 
-								  $_SESSION['origem']="fotos";
-								  ?>
 								  
 								  <button type="submit">Salvar</button>
 								  </form>
@@ -59,16 +54,14 @@
 
 						<ul id="album-fotos">
 							<?php
-								include ('conexao.php');
 								$id=$_SESSION['id'];
 								 $_SESSION['origem']="fotos";
-								$consulta = "SELECT `foto_album` FROM `albuns` WHERE usuario_idusuario='$id'";
-
+								$consulta = "SELECT `nome_foto` FROM `albuns` WHERE usuario_idusuario='$id'";
 								$resultado = mysqli_query($conexao, $consulta)or die ('Não foi possível conectar');
 								$quant = mysqli_num_rows($resultado);
 								for($i=0;$i<$quant;$i++){
 									$rows=$resultado->fetch_assoc();
-									$foto = $rows['foto_album'];
+									$foto = $rows['nome_foto'];
 								
 									echo "<li id='fotos01'><img src='$foto' id='fotos'></li>";
 								}

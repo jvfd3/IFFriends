@@ -23,6 +23,7 @@ session_start();
 					<table id="amizade">
 						<?php
 						$id=isset($_SESSION['idpessoa'])?$_SESSION['idpessoa']:$_GET['id'];
+							
 							$consulta = "SELECT `usuario_idusuario`, `idamizade_amigo` FROM `amizade` WHERE usuario_idusuario='$id' or idamizade_amigo='$id' and data_confirmacao is not null ";
 							$resultado = mysqli_query($conexao, $consulta) or die('error');
 							$quant = mysqli_num_rows($resultado);
@@ -30,21 +31,31 @@ session_start();
 							$rows=$resultado->fetch_assoc();
 							if ($rows['idamizade_amigo']!=$id) {
 							$idamigo=$rows['idamizade_amigo'];
-							$consulta1 = "SELECT `nome`, `local_foto_perfil`, `foto_perfil` FROM `usuario` WHERE `idusuario`='$idamigo'";
+							$consulta1 = "SELECT `nome`, `foto_perfil` FROM `usuario` WHERE `idusuario`='$idamigo'";
 							$resultado1 = mysqli_query($conexao, $consulta1) or die('error');
 							$rows1=$resultado1->fetch_assoc();
 							echo "<tr id='amizade'> 
-							<td id='amizade'> <a href='perfilamigo.php?id=".$idamigo."'> <img src='".$rows1['local_foto_perfil'].$rows1['foto_perfil']."' width=100%></a> </td> 
-							<td id='amizade'>".$rows1['nome']."	</td> </tr>";
+							<td id='amizade'> 
+								<a href='perfilamigo.php?id=".$idamigo."'> ";
+							if($rows1['foto_perfil'] != ""){
+								echo "<img src=".$rows1['foto_perfil']." width=100%></td>";}
+								else{echo "<img src='_imagens/profpic.jpg' width=100%></td>";} 
+							echo"<td id='amizade'>".$rows1['nome']."	
+							</td></a></tr>";
 							}
 							else{
 								$idamigo=$rows['usuario_idusuario'];
-							$consulta1 = "SELECT `nome`, `local_foto_perfil`, `foto_perfil` FROM `usuario` WHERE `idusuario`='$idamigo'";
+							$consulta1 = "SELECT `nome`, `foto_perfil` FROM `usuario` WHERE `idusuario`='$idamigo'";
 							$resultado1 = mysqli_query($conexao, $consulta1) or die('error');
 							$rows1=$resultado1->fetch_assoc();
-							echo "<tr id='amizade'>
-							<td id='amizade'> <a href='perfilamigo.php?id=".$idamigo."'> <img src='".$rows1['local_foto_perfil'].$rows1['foto_perfil']."' width='100%'> </a> </td>
-							<td id='amizade'>".$rows1['nome']."</td> </tr>";
+							echo "<tr id='amizade'> 
+							<td id='amizade'> 
+								<a href='perfilamigo.php?id=".$idamigo."'> ";
+							if($rows1['foto_perfil'] != ""){
+								echo "<img src=".$rows1['foto_perfil']." width=100%></td>";}
+								else{echo "<img src='_imagens/profpic.jpg' width=100%></td>";} 
+							echo"<td id='amizade'>".$rows1['nome']."	
+							</td></a> </tr>";
 							}
 						}
 						?>

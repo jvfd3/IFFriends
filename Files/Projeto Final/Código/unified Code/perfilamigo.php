@@ -43,12 +43,22 @@ session_start();
 								$telefone = $rows['telefone'];
 								$genero = $rows['genero'];
 								$nomes = $rows['nome_social'];
-								$foto = $rows['local_foto_perfil'].$rows['foto_perfil'];
+								$foto = $rows['foto_perfil'];
 							}
 						?>
 
 						<tr> 
-							<td rowspan="4"><a href=" "> <img <?php echo"src=".$foto."";?> width=200></a></td>
+							<td rowspan="4">
+							<?php 
+							if ($foto=="")	{
+								echo "<center><img src=_imagens/profpic.jpg width=200 height=200> </center>";
+											}
+							else	{
+								echo "<center><img src=$foto width=200 height=200></center>";
+									};
+							?>
+						
+							</td>
 
 							<td> <a href="adicionar.php"> <img src="_imagens/addamigo.png" width=100> </a></td>
 						</tr>

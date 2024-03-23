@@ -6,27 +6,18 @@ if(isset($_FILES['arquivo'])){
 		$codigo_galeria = $_SESSION['id'];
 		//INFO IMAGEM
 		$file = $_FILES['arquivo'];
-
 		$numFile1 = $file['name'];
 		$numFile=count(array_filter($file));
 
-		//PASTA
-		
-		//O $_SESSION['origem'] recebe seu valor do arquivo fotos.php e do editperf.php
-		//Caso esse arquivo (o guarda-foto.php) seja utilizado em algum outro meio (postagem, mensagem, página, etc.), adicionar outros else if
-		// para destinar a imagem para a pasta certa
-		
-		if ($_SESSION['origem']=="fotos"){
-			$folder		= 'fotos/'.$id.'/Album/';}
-		
-		else if($_SESSION['origem']=="editperf"){
-			$folder		= 'fotos/'.$id.'/ProfPic/';}
-			
-		else {	$folder		= 'fotos/'.$id.'/SemOrigem/';};
-		
 		//REQUISITOS
 		$permite 	= array('image/jpeg', 'image/png');
 		$maxSize	= 1024 * 1024 * 5;
+		
+		if ($_SESSION['origem']=="fotos"){
+			$folder		= 'fotos/'.$id.'/Album';}
+		
+		else if($_SESSION['origem']=="editperf"){
+			$folder		= 'fotos/'.$id.'/ProfPic';}
 		
 		//MENSAGENS
 		$msg = array();
@@ -36,25 +27,11 @@ if(isset($_FILES['arquivo'])){
 			3 => 'o upload do arquivo foi feito parcialmente',
 			4 => 'Não foi feito o upload do arquivo'
 		);
-		if($numFile <= 0){
-			$_SESSION['error1'] = '<div class="alert alert-danger">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-						Selecione pelo menos 3 fotos para galeria!
-					</div>';
-		}
-		else if($numFile >=10){
-			$_SESSION['error2'] = '<div class="alert alert-danger">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-						Você ultrapassou o limite de upload. Selecione até 9 fotos e tente novamente!
-					</div>';
-		}else{
 				$name 	= $file['name'];
 				$type	= $file['type'];
 				$size	= $file['size'];
 				$error	= $file['error'];
 				$tmp	= $file['tmp_name'];
-
-			for($i = 0; $i < $numFile; $i++){
 				$extensao = @end(explode('.', $name));
 				$novoNome = rand().".$extensao";
 				$pasta = $folder.'/'.$novoNome;
@@ -68,21 +45,20 @@ if(isset($_FILES['arquivo'])){
 					$_SESSION['error5'] = "<b>$name :</b> Erro imagem ultrapassa o limite de 5MB";
 				}
 				else{
-					
-					
 						if($_SESSION['origem']=="fotos"){
-								
 							if(move_uploaded_file($tmp, $pasta)){
-								$inserir ="INSERT INTO `albuns` (`foto_album`, `usuario_idusuario`) VALUES ('$pasta', '$id')";
+								$inserir ="INSERT INTO `albuns` (`nome_foto`, `usuario_idusuario`) VALUES ('$pasta', '$id')";
 						
 							if (mysqli_query($conexao, $inserir)) {
 								$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";}
 							else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
 							}
+							unset($_SESSION['origem']);
 							header('Location: fotos.php');
+							exit();
 						}
 						
-						else if($_SESSION['origem']=="editperf"){
+						elseif($_SESSION['origem']=="editperf"){
 							
 						
 							$_SESSION['folder']=$folder;
@@ -93,18 +69,12 @@ if(isset($_FILES['arquivo'])){
 								$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";}
 								else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
 								}
-							header('Location: editperf.php');
-							exit();
-							
-						}					
-						
-					else{$_SESSION['error7'] = "<b>$name :</b> Desculpe! Ocorreu um erro...";}
-					
-				foreach($msg as $pop);
+								unset($_SESSION['origem']);
+							//header('Location: editperf.php');
+							//exit();	
+						}
+					}		
 			}
-		}
-	}
-}
 //header('Location: editperf.php');
-exit();
+//exit();
 ?>

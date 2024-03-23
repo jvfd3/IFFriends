@@ -6,8 +6,8 @@ $resultado = mysqli_query($conexao, $consulta)or die ('Não foi possível conect
 	$rows=$resultado->fetch_assoc();
 	$foto=$rows['foto_perfil'];
 	if ($foto==""){
-		echo "<center><img src=_imagens/profpic.jpg width=200 height=200> </center>";
+		echo "<center><img id='imgperf' src=_imagens/profpic.jpg width=200 height=200> </center>";
 		}
-	else {	echo "<center><img src=$foto width=200 height=200></center>";	};
+	else {	echo "<center><img id='imgperf' src=$foto width=200 height=200></center>";	};
 
 ?>
