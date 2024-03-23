@@ -12,6 +12,18 @@ div#inicio{
 
 }
 /*Ajustando o formulario*/
+.notification1{
+		background-color: red;
+		width: 29%;
+		margin-left: 35%;
+		margin-bottom: -3%;
+	}
+.notification2{
+		background-color: green;
+		width: 35%;
+		margin-left: 30%;
+		margin-bottom: -3%;
+	}
 form#Login{
 	margin-left: 10%;
 	margin-top: 5%;

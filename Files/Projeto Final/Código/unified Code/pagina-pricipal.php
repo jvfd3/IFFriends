@@ -65,20 +65,40 @@
 					<table id="postagens"> 
 						<tr>
 							<td id="postagens"><a href=perfil.html> <img src="_imagens/profpic.jpg" width=70></a></td>
-							
-							<!-- JV: não sei quais as diferenças de usar o inputtext ou o text area para esse caso, mas usei o input pra conseguir usar o placeholder -->
-					<!--	<td id="postagens1"><input type="text" name="postagem" id="idpostagem" size="90%" maxlength="90" placeholder="Compartilhe os seus pensamentos"></td><td>&nbsp;</td>-->
-						<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"> </textarea>
-												
+							<form method="get" action="pagina-pricipal.php">
+								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"> </textarea> <input type="file" name=""></td>
+													
 							<td id="postagens2"> <input type="submit" name="enviar" value="Enviar" id="botao"></td>
+							</form>
 						</tr>
 					</table>
 				</center>
 				<hr>
-
 				<center>
 					<table>
-						
+						<?php
+							include('conexao.php'); 
+							$postagem = isset($_GET['postagem'])?$_GET['postagem']:"";
+							$postando="INSERT INTO `postagem` (postagem_texto) VALUES ('$postagem')";
+							if (mysqli_query($conexao, $postando)) {
+								echo "<tr><td><center>$postagem</center</td></tr>";
+				               
+				            } else {
+				               echo "erro";
+				            }
+				            /*mysqli_close($conexao);
+				            include('conexao.php');
+				            $consulta = "SELECT * FROM `postagem` WHERE 1";
+				            $resultado = mysqli_query($consulta, $conexao);
+				            echo "$resultado";
+				            $quant = mysqli_num_rows($resultado);
+				            for($i=0;$i<$quant;$i++){
+				            	$exibir= mysql_result($resultado,$i,"postagem_texto");
+				            	echo "$exibir";
+				            }
+				            	echo "leo";*/
+      						
+						 ?>
 					</table>
 				</center>
 			</div>

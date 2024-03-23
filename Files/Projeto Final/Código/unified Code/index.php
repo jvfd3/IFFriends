@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	isset($_SESSION['usuario'])?header('Location: pagina-pricipal.php'):"";
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +17,7 @@
 			<!-- Criar a logo da pagina -->
   			<div id="primeira">
     		<header id="cabecalho">
-      		<a id="icone" href="index.php"><img id="icone" src="_imagens/Logo2.png"></a><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
+      		<a id="icone" href="index.php"><img id="icone" src="_imagens/Logo3.png"></a><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
     		</header>
     		</div>
     	<!-- Fim da Primeira divisão da pagina -->
@@ -38,7 +39,9 @@
 						<table id="login">
 							<tr>
 								<td><label for="cEmail">E-mail:</label></td>
-				 				<td><input type="email" name="tEmail" id="cEmail" size="50" maxlength="113" /></td>
+				 				<td><input type="email" name="tEmail" id="cEmail" size="50" maxlength="113" value="<?php if(isset($_SESSION['email'])):?>
+				 				<?php echo $_SESSION['email'] ;?>
+				 				<?php endif; unset($_SESSION['email']);?>"/></td>
 							</tr>
 
 							<tr>
@@ -48,7 +51,7 @@
 						</table>
 
 						<div id="lembrar">
-									<label for="cLembrar">Lembrar-me</label><input type="checkbox" name="tLembrar" id="cLembrar">
+									<label for="cLembrar">Lembrar-me</label><input type="checkbox" name="tLembrar" id="cLembrar" value="on" <?php if(isset($_SESSION['lembrar'])):?> checked <?php endif; unset($_SESSION['lembrar']);?> >
 								</div>
 
 						<div id="button1">
@@ -56,14 +59,11 @@
 						</div>
 
 						<div id="button">
-							<a href="cadastro.html"><button type="button" class="button">Cadastro</button></a><!-- tera que trocar o href no futuro -->
+							<a href="cadastro.php"><button type="button" class="button">Cadastro</button></a><!-- tera que trocar o href no futuro -->
 						</div>
 					</form>
 				<!-- Fim do formulario -->
 			</div>
 		<!-- Fim da terceira divisão da pagina -->
-		<?php
-			
-		?>
 	</body>
 </html>

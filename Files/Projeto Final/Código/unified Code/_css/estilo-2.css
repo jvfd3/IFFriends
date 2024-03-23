@@ -12,14 +12,14 @@ html, body{
 /*Definindo a largura e a posicão da primeira divisão*/
 	div#primeira{
 		width: 100%;
-		height: 11.5%;
+		height: 15%;
 		margin-left: 0%;
 		}
 /*Ajustando a imagem*/
 	header#cabecalho img#icone{
 		position: absolute;
 		width: 100%;
-		height: 11.5%;
+		height: 15%;
 		margin-top: 0.1%;
 		}
 
