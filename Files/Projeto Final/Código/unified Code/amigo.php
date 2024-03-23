@@ -1,4 +1,3 @@
-https://drive.google.com/drive/u/1/folders/1wmX0F8YcEZvwZSLp52uR5Xr_ZZDS77IJ
 <?php
 session_start();
 ?>

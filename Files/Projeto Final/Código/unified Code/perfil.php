@@ -67,8 +67,8 @@
 			<div id="postagens">
 				<center>
 					<table id="or"><!-- onde vai conter as opções -->
-						<tr> <td rowspan="6"><img src="_imagens/profpic.jpg" width=200></a></td></tr>
-
+						<tr> <td rowspan="6"><a href=perfil.php> <img src="_imagens/profpic.jpg" width=200></a></td></tr>
+						
 						<tr><td> <a href=editperf.php> <img src="_imagens/editperf.png" width=100></a></td></tr>
 						<tr><td> </td></tr>
 						<tr><td></td></tr>					

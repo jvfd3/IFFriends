@@ -160,7 +160,8 @@
 				          ?>
 				          <!-- Mostrar postagens -->
 						<?php
-							$consulta = "SELECT * FROM `amizade` WHERE 'idamizade_amigo'='$id' and 'usuario_idusuario'='$id'";
+							$consulta = "SELECT * FROM `amizade` WHERE 'idamizade_amigo'='$id'";
+							$consulta2 = "SELECT * FROM `amizade` WHERE 'usuario_idusuario'='$id'";
 							$resultado=mysqli_query($conexao, $consulta);
 							$quant = mysqli_num_rows($resultado);
 							for($i=0;$i<$quant;$i++){
@@ -169,12 +170,13 @@
 				            $consulta = "SELECT * FROM `postagem` WHERE `usuario_idusuario`=$id and  ";
 				            $resultado = mysqli_query($conexao, $consulta) or die('error');
 				            $quant = mysqli_num_rows($resultado);
+							}
 				            for($i=0;$i<$quant;$i++){
 								$rows=$resultado->fetch_assoc();
 								$postagem = $rows['postagemtexto'];
 								echo "<div><tr><td><center>$postagem<br></center></td></tr></div>";
 							}
-				            }
+				            
 				            mysqli_close($conexao);
 						 ?>
 					</table>

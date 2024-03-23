@@ -28,14 +28,24 @@
             : "hidden"; 
         }
       </script>
-    <!-- Fim do script -->
+      <!-- Fim do script -->
+	  <style>
+		body{
+			background-image:url("_imagens/bgverde.jpg");
+			background-attachment:fixed;
+			background-size:100%;
+			background-repeat:no-repeat;
+			background-color:#000;
+		}
+	</style>	
   </head>
   <body>
+  <b><font face="Arial">
     <!-- Primeira divisão da pagina -->
       <!-- Criar a logo da pagina -->
         <div id="primeira"">
         <header id="cabecalho">
-          <a id="icone" href="index.php"><img id="icone" src="_imagens/logo3.png"></a><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
+          <p align=center><a href="index.php"><img src="_imagens/logo3circle.png"></a></p><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
         </header>
         </div>
       <!-- Fim da Primeira divisão da pagina -->
@@ -268,7 +278,7 @@
             </tr>
           </table>
             
-            <div id="button">
+           <div id="button">
               <button type="submit" class="button">Cadastrar</button>
             </div>
 
@@ -280,5 +290,6 @@
         <!-- Fim do formulario -->
       </div>
     <!-- Fim da terceira divisão da pagina -->
+	</font></b>
 </body>
 </html>

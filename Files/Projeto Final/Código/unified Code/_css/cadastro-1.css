@@ -1,4 +1,4 @@
-@charset"UTF-8";
+﻿@charset"UTF-8";
 body{
 	overflow: auto;
 	max-height: 100%; 
@@ -13,10 +13,12 @@ div#inicio{
 }
 /*Ajustando o formulario*/
 .notification1{
-		background-color: red;
+		display: block;
+		border-radius:20px;	
+		background-color: %ff0000;
 		width: 29%;
 		margin-left: 35%;
-		margin-bottom: -3%;
+		margin-bottom: 50%;
 	}
 .notification2{
 		background-color: green;
@@ -33,7 +35,8 @@ form#Login{
 table#ajuste{
 	height: 100%;
 	text-align: left;
-	margin-left: 0%;
+	margin-left: -50%;
+	margin-top: 250px;
 	white-space: nowrap;
 	}
 table#ajuste td{
@@ -42,8 +45,9 @@ table#ajuste td{
 
 table#ajuste1{
 	width: 29%;
-	margin-top: -585px;
-	margin-right: -19.5%;
+	text-align: right;
+	margin-top: -605px;
+	margin-right: -100%;
 }
 td{
 	width: 40%;

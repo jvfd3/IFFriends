@@ -1,4 +1,4 @@
-@charset"UTF-8;
+﻿@charset"UTF-8;
 *{margin: 0; padding: 0}
 html, body{
   height: 100%;
@@ -25,7 +25,8 @@ html, body{
 
 /*Ajustando o formulario*/
 	.notification{
-		background-color: red;
+		border-radius:20px;
+		background-color:#ff0000;
 		width: 29%;
 		margin-left: 35%;
 		margin-bottom: 8%;
