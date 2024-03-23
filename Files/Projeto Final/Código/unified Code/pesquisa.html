@@ -5,14 +5,14 @@
 		<script src='nightly.min.js'></script>
 		<meta charset="UTF-8"/>
 		<title>IFFTool</title> <!-- Nome que pagina tem -->
-			<link rel="stylesheet" type="text/css" href="_css/inicio.css"> <!-- Onde fica o arquivo de estilo da pagina -->
-			<link rel="stylesheet" type="text/css" href="_css/pagina.css">
-			<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
+		<link rel="stylesheet" type="text/css" href="_css/login.css"> <!-- Onde fica o arquivo de estilo da pagina -->
+		<link rel="stylesheet" type="text/css" href="_css/pagina.css">
+		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 			
-			<!-- Inico do corpo da função muda cor -->
+		<!-- Inico do corpo da função muda cor -->
 			<?php
-			$a=@$_POST['cor'];
-			$b="#ffffff";
+				$a=@$_POST['cor'];
+				$b="#ffffff";
 			?>
 			<style> 
 				body{ 
@@ -21,82 +21,142 @@
 				} 
 			</style>
 		<!-- Fim da função muda cor -->
+		<!-- mudo noturno -->
 			<script type="text/javascript">
-			$(document).ready(function(){
-	  		var button = $('.night-mode-button');
-	  		var container = $('.content-box');
+				$(document).ready(function(){
+		  		var button = $('.night-mode-button');
+		  		var container = $('.content-box');
 
-	  		button.click(function() {
-	    	container.toggleClass('-nightmode');
-	  		});
-			});
-		</script>
+		  		button.click(function() {
+		    	container.toggleClass('-nightmode');
+		  		});
+				});
+			</script>
+		<!-- mudo noturno -->
 	</head>
 	<body>
 		<!-- menu da pagina -->
-		<div id="interface">
-			<table>
-				<tr>
-					<td>
-					<!-- Incio do modo noturno -->
-						<button class="fab-toggle-nihgtly" id="toggle-nightify-btn">Modo noturno</button>
+			<div id="interface">
+				<table>
+					<tr>
+						<td>
+							<!-- Incio do modo noturno -->
+								<button class="fab-toggle-nihgtly" id="toggle-nightify-btn">Modo noturno</button>
 
-				    	<script src="_javascript/nightly.js-develop/src/nightly.js" charset="utf-8"></script>
-				    	<script type="text/javascript">
-				      		var sayGoodNight = function() {
-				        	console.log("Good night :) !");
-				      		}
+						    	<script src="_javascript/nightly.js-develop/src/nightly.js" charset="utf-8"></script>
+						    	<script type="text/javascript">
+						      		var sayGoodNight = function() {
+						        	console.log("Good night :) !");
+						      		}
 
-				      		var sayGoodMorning = function() {
-				        	console.log("Good morning !");
-				     		}
+						      		var sayGoodMorning = function() {
+						        	console.log("Good morning !");
+						     		}
 
-				      		var Nightly = new Nightly(false, {
-				            classes: [
-				            {
-				            apply: 'hilighted-tex-dark',
-				            to: 'hilighted-tex'
-				            },
-				            {
-				            apply: 'comment-section-dark',
-				            to: 'comment-section'
-				            },
-				            {
-				            apply: 'comment-card-dark',
-				            to: 'comment-card'
-				            }
-				            ],
-				            });
-				                                
-				      		document.getElementById("toggle-nightify-btn").addEventListener("click", function(){
+						      		var Nightly = new Nightly(false, {
+						            classes: [
+						            {
+						            apply: 'hilighted-tex-dark',
+						            to: 'hilighted-tex'
+						            },
+						            {
+						            apply: 'comment-section-dark',
+						            to: 'comment-section'
+						            },
+						            {
+						            apply: 'comment-card-dark',
+						            to: 'comment-card'
+						            }
+						            ],
+						            });
+					                                
+						      		document.getElementById("toggle-nightify-btn").addEventListener("click", function(){
 
-				        	Nightly.toggle(sayGoodNight, sayGoodMorning);
-				      		});
-				    	</script>
-					<!-- Fim do modo noturno -->
-					</td>
-					<td>
-					<!-- Incio do muda cor -->
-						<form method="post" action="login.php">
-						<input type="color" name="cor"/>
-						<button type="submit" name="mudaCor" id="cmuda" value="Mudar cor">muda cor</button>
-						</form>
-					<!-- Fim do muda cor -->
-					</td>
-					<td>
-					<!-- Incio da barra de pesquisa -->
-						<div id="divBusca">
-							<input type="text" id="txtBusca" placeholder="Buscar..."/>
-							<button id="btnBusca"><img src="_imagens/1.png"/></button>
-						</div>
-					<!-- Fim do muda cor -->
-					</td>
-				</tr>
-			</table>
-		</div>
+						        	Nightly.toggle(sayGoodNight, sayGoodMorning);
+						      		});
+						    	</script>
+							<!-- Fim do modo noturno -->
+						</td>
+
+						<td>
+							<!-- Incio do muda cor -->
+								<form method="post" action="login.html">
+									<input type="color" name="cor"/>
+									<button type="submit" name="mudaCor" id="cmuda" value="Mudar cor">muda cor</button>
+								</form>
+							<!-- Fim do muda cor -->
+						</td>
+
+						<td>
+							<!-- Incio da barra de pesquisa -->
+								<div id="divBusca">
+									<input type="text" id="txtBusca" placeholder="Buscar..."/>
+									<button id="btnBusca"><img src="_imagens/1.png"/></button>
+								</div>
+							<!-- Fim da barra de pesquisa -->
+						</td>
+					</tr>
+				</table>
+			</div>
+		<!-- Fim de menu -->
+
+		<!-- ver amigos online -->
+			<div id="online">
+				<center><h1>Online</h1></center>
+				<hr>
+			</div>
+			<div id="amigo">
+				<center>
+					<table>
+						<tr><td></td></tr><!-- aqui ira aparecer os amigos online -->
+					</table>
+				</center>
+			</div>
+		<!-- fim de amigos online -->
+		<!-- pesqusa de amigos -->
+			<div id="busca">
+				<table id="busca">
+					<tr>
+						<td id="pesquisa">
+							<div id="divPesquisa">
+								<input type="text" id="tBusca" placeholder="Pesquisar"/>
+								<button id="bBusca"><img src="_imagens/1.png"/></button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		<!-- Fim da pesquisa de amigos-->
+
 		<div id="pagina">
-			<div id="info"></div>
-			<div><table id="poste"><tr><td>leo</td></tr></table></div>
+			<!-- informações sobre a pagina -->
+					<div id="info">
+							<center><h1><font size="5"> Filtrar Resultado</font></h1>
+							<input type="radio" name="filtro" value="usuario">Usuário<br>
+							<input type="radio" name="filtro" value="campi">Campi<br>
+							<select>
+								<option selected="curso">curso</option>
+							</select>
+							</center>
+					</div>	
+			<!-- fim de informações sobre a pagina -->
+
+			<!-- Nome do que esta sendo buscado -->
+				<div id="foto">
+					<h1></h1>
+					<hr>
+				</div>
+			<!-- fim da are do que esta sendo buscado -->
+			
+			<!-- mostra o resuldado da busca -->
+				<div id="poste">
+					<center>
+						<table id="poste">
+							
+						</table>
+					</center>
+				</div>
+			<!-- fim do que esta sendo buscado -->
 		</div>
 </body>
 </html>

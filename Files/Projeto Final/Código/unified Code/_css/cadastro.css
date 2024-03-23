@@ -1,31 +1,60 @@
 @charset"UTF-8";
 body{
-width: 100%;
-height: 100%;
-white-space: nowrap;
-overflow: hidden;
-}
+	overflow: scroll;
+	}
 /*Ajustando o formulario*/
-div{
-margin-right: center;
-margin-bottom: 6px;
-}
-div#inicio{
-margin-top: 250px;
-}
-option{
-width: 200px;
+form#Login{
+	margin-left: 650px;
+	margin-top: -24.5%;
+	}
+table#ajuste{
+	height: 100%;
+	width: 100%;
+	text-align: left;
+	}
+td{
+	width: 40%;
+	float: left;
+	margin-right: -28%;
+	}
 
-}
-div.form-group{
-position: relative;
--webkit-appearance: none;  /* Remove estilo padrão do Chrome */
--moz-appearance: none; /* Remove estilo padrão do FireFox */
-width: 1850px;
-/*margin-left: 200px;*/
-}
 input{
-}
-input[password]{
-margin-left: 200px;
-}
+	text-align: center;
+	font-size: 25px;
+	height: 45px;
+	width: 350px;
+	border: 1px solid black;
+	}
+input#cData{
+	display: block;
+	margin-left: 30%;
+	margin-bottom: 2%;
+	width: 199px;
+	}
+input#cNomeS{
+	display: block;
+	margin-left: 55px;
+	width: 295px;
+	font-size: 21px;
+	}
+select#Sexo{
+	width: 355px;
+	height: 45px;
+	}
+tr#sexo{
+	display: block;
+	margin-bottom: 50px;
+	}
+
+/*ajuste de botões*/
+button.button{
+	width: 11%;
+	}
+div#button, div#buton{
+	margin-left: -50%;
+	}
+
+input#color{
+	width: 30px;
+	height: 20px;
+	}
