@@ -54,7 +54,7 @@
         <?php
             if(isset($_SESSION['nao_autorizado'])):?>
             <div class='notification1'>
-            <p>ERRO: Senhas diferentes</p>
+            <p>ERRO: Senhas não coincidem!</p>
             </div>
             <?php
             endif;
@@ -63,7 +63,7 @@
           <?php
             if(isset($_SESSION['nao_autorizado1'])):?>
             <div class='notification1'>
-            <p>ERRO: Não tem idade para se cadastrar</p>
+            <p>ERRO: Não possui idade suficiente!</p>
             </div>
             <?php
             endif;
@@ -72,7 +72,7 @@
           <?php
             if(isset($_SESSION['nao_autorizado2'])):?>
             <div class='notification1'>
-            <p>ERRO: O e-mail já existe</p>
+            <p>ERRO: O e-mail já está em uso!</p>
             </div>
             <?php
             endif;
@@ -81,7 +81,7 @@
           <?php
             if(isset($_SESSION['autorizado'])):?>
             <div class='notification2'>
-            <p>cadastro com sucesso!&nbsp;<a href='index.php'>Clique aqui para fazer login</a></p>
+            <p>Cadastro com sucesso!&nbsp;<a href='index.php'>Clique aqui para fazer login</a></p>
             </div>
             <?php
             endif;
@@ -135,7 +135,7 @@
             </table>
             <table id="ajuste1" align="center">
               <tr>
-                <td><input type="text" name="tNome" id="cNome" size="30" maxlength="50" placeholder="Nome Completo" required="required"></td>
+                <td><input type="text" name="tNome" id="cNome" size="30" maxlength="30" placeholder="Nome Completo" required="required"></td>
               </tr>
 
               <tr>

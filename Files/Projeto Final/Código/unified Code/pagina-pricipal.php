@@ -13,10 +13,10 @@
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-		<!-- postagens -->
 			<div id="postagens">
 				<center>
 					<table id="postagens">
+					
 						<tr id="postagens">
 							<td id="postagens"><a href=perfil.php> <?php include('foto_perfil.php'); ?></a></td>
 
@@ -28,76 +28,38 @@
 							<td id="postagens2"> <input type="submit" value="Enviar" id="botao"></td>
 							</form>
 						</tr>
+						
 					</table>
 				</center>
 				<hr>
 				<center>
-					<?php
-						if(isset($_SESSION['error'])):
-					?>
-					<div>
-						<font color=white><p><?php echo $_SESSION['error']; ?></p></font>
-					</div>
-					<?php
-						endif;
-						unset($_SESSION['error']);
-					?>
-					<?php
-						if(isset($_SESSION['sucesso'])):
-					?>
-					<div class="notification">
-						<font color=white><p><?php echo $_SESSION['sucesso']; ?></p></font>
-					</div>
-					<?php
-						endif;
-						unset($_SESSION['sucesso']);
-					?>
 					<table id="postagens1">
-						 <!--Exibição da solicitações -->
+				
+
+					<!--Exibição da solicitações -->
 						<?php
 							$id=$_SESSION['id'];
-							$consulta = "SELECT * FROM `amizade` WHERE data_confirmacao is null and usuario_idusuario='{$id}'";
+							$consulta = "SELECT `usuario_idusuario`, `idamizade_amigo` FROM `amizade` WHERE data_confirmacao is null and (usuario_idusuario='{$id}' or idamizade_amigo='{$id}')";
 							$resultado=mysqli_query($conexao, $consulta);
 							$quant = mysqli_num_rows($resultado);
 							for($i=0;$i<$quant;$i++){
 							$rows=$resultado->fetch_assoc();
-							$idamigo = $rows['usuario_idusuario'];
+							if($rows['idamizade_amigo'] != $id){
+								$idamigo = $rows['idamizade_amigo'];
 							$consulta1="SELECT * FROM `usuario` WHERE idusuario='{$idamigo}'";
 							$resultado1=mysqli_query($conexao, $consulta1);
 							$quant1 = mysqli_num_rows($resultado1);
 							$rows1=$resultado1->fetch_assoc();
 							$nome = $rows1['nome'];
 							if ($quant1 >= 1) {
-							echo "<form method='post' action='pagina-pricipal.php'>Aceitar solicitação de amizade de $nome 
-								<button type='submit' name='aceitou' value='$idamigo'>aceitar</button>
-									<button type='submit' name='naoaceitou' value='$idamigo'>não aceito</button><br></form>";
+							echo "<form method='post' action='aceita.php'><font size=5 face=arial><b>Aceitar solicitação de amizade de $nome</font></b><button type='submit' name='aceitou' value='$idamigo'>aceitar</button> 	<button type='submit' name='naoaceitou' value='$idamigo'>não aceito</button><br></form>";
 								}
 							}
-						?>
-						<!-- Se aceitou ou não a solicitação--> 
-						<?php
-							$aceitou=isset($_POST['aceitou'])?$_POST['aceitou']:"0";
-							$naoaceitou=isset($_POST['naoaceitou'])?$_POST['naoaceitou']:"0";
-							$data=date('Y-m-d');
-							if ($aceitou >= 1) {
-							$consulta2 = "SELECT * FROM `amizade` WHERE data_confirmacao is null and idamizade_amigo='{$id}' or usuario_idusuario='{$aceitou}'";
-							$resultado2=mysqli_query($conexao, $consulta2)or die('error');
-							$rows2=$resultado2->fetch_assoc();
-							$idamizade = $rows2['idamizade'];
-							$teste="update `amizade` set data_confirmacao='$data' where idamizade='$idamizade'";
-							$enviar=mysqli_query($conexao, $teste) or die ('error1');
-							header("Location: pagina-pricipal.php");
-							}
-							elseif ($naoaceitou >= 1) {
-								$consulta2 = "SELECT * FROM `amizade` WHERE data_confirmacao is null and idamizade_amigo='{$id}' and usuario_idusuario='{$naoaceitou}'";
-								$resultado2=mysqli_query($conexao, $consulta2);
-								$rows2=$resultado2->fetch_assoc();
-								$idamizade = $rows2['idamizade'];
-								$teste="DELETE FROM `amizade` WHERE idamizade='$idamizade'";
-								$enviar=mysqli_query($conexao, $teste) or die ('error2');
-								header("Location: pagina-pricipal.php");
 							}
 						?>
+					<!--Fim exibição da solicitações -->
+
+					<!-- Mostra postagem --> 
 						<?php
 							$consulta = "SELECT usuario_idusuario FROM `amizade` WHERE data_confirmacao is not null and `idamizade_amigo`='$id'";
 							$consulta1 = "SELECT idamizade_amigo FROM `amizade` WHERE data_confirmacao is not null and `usuario_idusuario`='$id'";
@@ -105,62 +67,68 @@
 							$quant = mysqli_num_rows($resultado);
 							$resultado1=mysqli_query($conexao, $consulta1);
 							$quant1 = mysqli_num_rows($resultado1);
-							if($quant > 0 && $quant1 > 0){
 							for($i=0;$i<$quant or $i<$quant1;$i++){
 							$rows=$resultado->fetch_assoc();
 							$rows1=$resultado1->fetch_assoc();
-							$ids [] = $rows["usuario_idusuario"];
-							$ids [] = $rows1['idamizade_amigo'];
+							if($rows["usuario_idusuario"] != ""){$ids [] = $rows["usuario_idusuario"];}
+							if($rows1['idamizade_amigo'] != ""){$ids [] = $rows1['idamizade_amigo'];}
 							}
+							if ($quant == 1 or $quant1 == 1){
 							$quant2 = count($ids);
+							$quant3 = $quant2 - 1;
 							for($i=0;$i<$quant2;$i++){
-								if ($i == 0) {
-									$idamigo =  "'".$id."' or '".$ids[$i]."' or '" ;
-								}
-								elseif ($i > 0 && $i <= $quant) {
-									$idamigo = " ".$idamigo.$ids[$i]."' or '";
-								}
-								elseif ($i > $quant) {
-									$idamigo = "".$idamigo.$ids[$i]."'";
-								}
-								
+							if ($i == 0) {
+							$idamigo =  "'".$id."' or '".$ids[$i]."'" ;
+							}
+							elseif ($i > 0 && $i < $quant3) {
+							$idamigo = $idamigo." or '".$ids[$i]."'";
+							}
+							elseif ($i == $quant3) {
+							$idamigo = $idamigo." or '".$ids[$i]."'";
 							}
 							}
-							elseif ($quant === 0 && $quant1 === 0) 
-								{$idamigo =  "'".$id."' ";}
+							}elseif ($quant == 0 && $quant1 == 0) 
+								{$idamigo = "'".$id."' ";}
 							$consulta = "SELECT * FROM `postagem` WHERE `usuario_idusuario`=".$idamigo." ORDER BY `data_postagem`  DESC, `idpostagem` DESC";
+							$consulta1 = "SELECT `nome`, `nome_social`, `foto_perfil` FROM `usuario` WHERE `idusuario`=".$idamigo."";
 					            $resultado1 = mysqli_query($conexao, $consulta) or die('');
 					            $quant1 = mysqli_num_rows($resultado1);
+					            $resultado2 = mysqli_query($conexao, $consulta1) or die('');
+					            $quant2 = mysqli_num_rows($resultado2);
 					            if ($quant1 == 0) {
 					            }
 					            echo "<div><tr><center id='mostra'>";
 					            for($a=0;$a<$quant1;$a++){
 									$rows=$resultado1->fetch_assoc();
+									$rows1=$resultado2->fetch_assoc();
+
+									if ($rows1['nome_social']!="") {$nome=$rows1['nome_social'];}else{$nome=$rows1['nome'];}
+									if ($rows1['foto_perfil']!="") {$foto=$rows1['foto_perfil'];}else{$foto="_imagens/profpic.jpg";}
 									$postagem = $rows['postagemtexto'];
 									$postagem1 = $rows['postagem-fv'];
 									$extensao = @end(explode('.', $postagem1));
 									if (isset($postagem) && $postagem1=="") {
-										echo "<td bgcolor='green'>$postagem</td></tr>";
+										echo "<td class='postagens1'><font face=arial>$postagem</font></td></tr>";
 									}elseif (isset($postagem) && isset($postagem1)) {
 										if ($extensao == "mp4") {
-										echo "<td bgcolor='green'>$postagem<br><br>";
+										echo "<td class='postagens1'><font face=arial>$postagem</font><br><br>";
 										echo "<video controls>
 										<source id='postagens1' src=".$postagem1." type='video/mp4'>
 										Desculpa mas não é possivel exibir o video
 										</video><br></td>";
 									}else{
-										echo "<td bgcolor='green'>$postagem<br><br>";
+										echo "<td class='postagens1'><font face=arial>$postagem</font><br><br>";
 										echo "<img id='postagens1' src=".$postagem1."><br></td>";
 									}
 									}
 									else{
 										if ($extensao == "mp4") {
-											echo "<td bgcolor='green'><video controls>
+											echo "<td class='postagens1'><video controls>
 										<source id='postagens1' src=".$postagem1." type='video/mp4'>
 										Desculpa mas não é possivel exibir o video
 										</video><br></td>";
 									}else{
-										echo "<td bgcolor='green'><img id='postagens1' src=".$postagem1."><br></td>";
+										echo "<td class='postagens1'><img id='postagens1' src=".$postagem1."><br></td>";
 									}
 									}
 									echo "<br></center></tr>";
@@ -168,9 +136,11 @@
 								echo "</div>";
 				            mysqli_close($conexao);
 						 ?>
+					<!-- Fim mostra postagem --> 
+					
 					</table>
 				</center>
 			</div>
-		<!-- fim da postagem -->
+		
 	</body>
 </html>

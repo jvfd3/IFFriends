@@ -2,10 +2,10 @@
 include('menu.php');
 include ('conexao.php');
 include('amigos-online.php');
-if ($_POST['busca'] != "") {
-	$busca = $_POST['busca'];
+if ($_POST['busca'] == "") {
+	header("Location: ".$_SERVER['HTTP_REFERER']."");
 }
-//else{ header("Location: ".$_SERVER['HTTP_REFERER']."");}
+else{$busca = $_POST['busca']; }
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,15 +18,17 @@ if ($_POST['busca'] != "") {
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
+		<font face="arial">
 		<div id="postagens">
 	
-			<!-- Nome do que esta sendo buscado -->
+			<!-- Nome do que está sendo buscado -->
 				<div id="foto">
 					<h1><?php echo $busca ?></h1>
 					<hr> </hr>
 
 					
 						<table>
+					=
 					<?php
 					$consulta = "SELECT * FROM `usuario` WHERE nome like '%$busca%' or nome_social like '%$busca%'";
 					$resultado = mysqli_query($conexao, $consulta) or die('error');
@@ -52,6 +54,7 @@ if ($_POST['busca'] != "") {
 							
 					};	
 					?>
+					
 					</table>
 						<br>
 				</div>
@@ -61,5 +64,6 @@ if ($_POST['busca'] != "") {
 				
 			<!-- fim do que esta sendo buscado -->
 		</div>
+		</font>
 </body>
 </html>

@@ -16,12 +16,13 @@
 
 			<center>
 				<div id="postagens">
+				<font size="5" face=arial><b>
 					<h1 id="titulo">Amigos</h1><br>
 					<table id="amizade">
 						<?php
-						$id=isset($_SESSION['idpessoa'])?$_SESSION['idpessoa']:$_GET['id'];
+						$id=$_GET['id'];
 							
-							$consulta = "SELECT `usuario_idusuario`, `idamizade_amigo` FROM `amizade` WHERE usuario_idusuario='$id' or idamizade_amigo='$id' and data_confirmacao is not null ";
+							$consulta = "SELECT `usuario_idusuario`, `idamizade_amigo` FROM `amizade` WHERE `data_confirmacao` is not null and (`usuario_idusuario`='$id' or `idamizade_amigo`='$id')";
 							$resultado = mysqli_query($conexao, $consulta) or die('error');
 							$quant = mysqli_num_rows($resultado);
 							for($i=0;$i<$quant;$i++){
@@ -59,13 +60,10 @@
 							</td> </tr>";
 							}
 						}
-						/*echo $_SESSION['idpessoa']."<br>".$_GET['id']."<br>".$id;
-						unset($_SESSION['idpessoa']);
-						unset($_GET['id']);
 						unset($id);
-						echo $_SESSION['idpessoa']."<br>".$_GET['id']."<br>".$id."<br>ok";*/
 						?>
 					</table>
+					</b></font>
 				</div>
 			</center>
 		<!-- fim de mostrar amigo -->

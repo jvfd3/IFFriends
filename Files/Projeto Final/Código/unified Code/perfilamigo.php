@@ -13,6 +13,7 @@ include('amigos-online.php');
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
+	<font size="5" face="arial">
 			<div id="postagens">
 				<center>
 					<?php $mensagem=isset($_SESSION['solicitacao'])?$_SESSION['solicitacao']:"";
@@ -71,53 +72,54 @@ include('amigos-online.php');
 					<div id="or">
 						<table id="ordem"><!-- onde vai ser mostrado os dados do usuario -->
 							<tr>
-								<td id="or"><label>Nome:</label></td> 
+								<td id="or"><label><b>Nome:</b></label></td> 
 								<td><label><?php echo $nome; ?></label><td>
 							</tr>
 
 							<tr>
-								<td id="or"><label>E-mail:</label></td>
+								<td id="or"><label><b>E-mail:</b></label></td>
 								<td><label><?php echo $email; ?></label></td> 
 							</tr>
 
 							<tr>
-								<td id="or"><label>Cidade:</label> </td>
+								<td id="or"><label><b>Cidade:</b></label> </td>
 								<td><label><?php echo $cidade; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="or"><label>Bairro:</label> </td>
+								<td id="or"><label><b>Bairro:</b></label> </td>
 								<td><label><?php echo $bairro; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="or"><label>Curso:</label></td> 
+								<td id="or"><label><b>Curso:</b></label></td> 
 								<td><label><?php echo $Curso; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="or"><label>Data de nascimento:</label> </td>
+								<td id="or"><label><b>Data de nascimento:</b></label> </td>
 								<td><label><?php echo $data; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="or"><label>Telefone:</label></td> 
+								<td id="or"><label><b>Telefone:</b></label></td> 
 								<td><label><?php echo $telefone; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="or"><label>Gênero:</label></td> 
+								<td id="or"><label><b>Gênero:</b></label></td> 
 								<td><label><?php echo $genero; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="or"><label>Nome Social:</label> </td>
+								<td id="or"><label><b>Nome Social:</b></label> </td>
 								<td><label><?php echo $nomes; ?></label></td>
 							</tr>
 						</table>
 					</div>
 				</center>
 			</div>
+			</font>
 		<!-- fim mostrar pefril -->
 	</body>
 </html>

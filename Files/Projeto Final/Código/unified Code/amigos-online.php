@@ -7,15 +7,18 @@
 	<!-- menu da pagina -->
 <!-- ver amigos online -->
 			<div id="online">
+			<font face="arial">
 						<center><h1>Online</h1></center>
 						<hr>
+					</font>
 			</div>
 			<div id="amigo">
 				<center>
 					<table>
+					<font size="5" face=arial>
 						<?php
 						$id=$_SESSION['id'];
-							$consulta = "SELECT `usuario_idusuario`, `idamizade_amigo` FROM `amizade` WHERE usuario_idusuario='$id' or idamizade_amigo='$id' and data_confirmacao is not null ";
+							$consulta = "SELECT `usuario_idusuario`, `idamizade_amigo` FROM `amizade` WHERE data_confirmacao is not null and (usuario_idusuario='$id' or idamizade_amigo='$id')";
 							$resultado = mysqli_query($conexao, $consulta) or die('error');
 							$quant = mysqli_num_rows($resultado);
 							for($i=0;$i<$quant;$i++){
@@ -50,10 +53,11 @@
 								echo "<td><img src=".$foto." width=50px></td>";}
 								else{echo "<td><img src=_imagens/profpic.jpg width=50px></td>";}
 
-								echo "<td>$nome</td></tr>";
+								echo "<td><font size=5 face=arial><b>$nome</b></font></td></tr>";
 							}
 						}
 							?>
+							</font>
 					</table>
 				</center>
 			</div>

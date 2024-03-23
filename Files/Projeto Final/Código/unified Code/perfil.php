@@ -90,48 +90,48 @@
 						<table id="tabinf" ><!-- onde vai ser mostrado os dados do usuario do perfil -->
 							<!--	Os ids das colunas não foram utilizados mas estão no perfil.css	-->
 							<tr>
-								<td id="colinfesq"><label>Nome:</label></td>
-								<td id="colinfdir"><label><?php echo "$nome";?></label></td>
+								<td id=""><label>Nome:</label></td>
+								<td id=""><label><?php echo "$nome";?></label></td>
 							</tr>
 
 							<tr>
-								<td id="colinfesq"><label>E-mail:</label></td>
-								<td id="colinfdir"><label><?php echo $_SESSION['email']; ?></label></td> 
+								<td id=""><label>E-mail:</label></td>
+								<td id=""><label><?php echo $_SESSION['email']; ?></label></td> 
 							</tr>
 
 							<tr>
-								<td id="colinfesq"><label>Cidade:</label> </td>
-								<td id="colinfdir"><label><?php echo $_SESSION['cidade']; ?></label></td>
+								<td id=""><label>Cidade:</label> </td>
+								<td id=""><label><?php echo $_SESSION['cidade']; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="colinfesq"><label>Bairro:</label> </td>
-								<td id="colinfdir"><label><?php echo $_SESSION['bairro']; ?></label></td>
+								<td id=""><label>Bairro:</label> </td>
+								<td id=""><label><?php echo $_SESSION['bairro']; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="colinfesq"><label>Curso:</label></td> 
-								<td id="colinfdir"><label><?php echo $_SESSION['curso']; ?></label></td>
+								<td id=""><label>Curso:</label></td> 
+								<td id=""><label><?php echo $_SESSION['curso']; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="colinfesq"><label>Data de nascimento:</label> </td>
-								<td id="colinfdir"><label><?php echo $_SESSION['data']; ?></label></td>
+								<td id=""><label>Data de nascimento:</label> </td>
+								<td id=""><label><?php echo $_SESSION['data']; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="colinfesq"><label>Telefone:</label></td> 
-								<td id="colinfdir"><label><?php echo $_SESSION['telefone']; ?></label></td>
+								<td id=""><label>Telefone:</label></td> 
+								<td id=""><label><?php echo $_SESSION['telefone']; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="colinfesq"><label>Gênero:</label></td> 
-								<td id="colinfdir"><label><?php echo $_SESSION['genero']; ?></label></td>
+								<td id=""><label>Gênero:</label></td> 
+								<td id=""><label><?php echo $_SESSION['genero']; ?></label></td>
 							</tr>
 
 							<tr>
-								<td id="colinfesq"><label>Nome Social:</label> </td>
-								<td id="colinfdir"><label><?php echo $_SESSION['nome_social']; ?></label></td>
+								<td id=""><label>Nome Social:</label> </td>
+								<td id=""><label><?php echo $_SESSION['nome_social']; ?></label></td>
 							</tr>	
 						</table>
 					</center>

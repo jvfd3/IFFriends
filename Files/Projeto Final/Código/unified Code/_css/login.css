@@ -85,7 +85,7 @@ html, body{
   ul li a {
      display: block;
      text-decoration: none;
-     color: #E2144A;
+     color: #32CD32;
      background: #fff;
      padding: 5px;
      border: 1px solid #ccc; 
@@ -122,11 +122,6 @@ hr{
   position: absolute;
   z-index: -1;
 }
-img#foto{
-  width: 90px;
-  height: 40px;
-}
-
 
 /*amigos online*/
   div#online{
@@ -136,7 +131,7 @@ img#foto{
   position: all;
   left: 79.8%;
   top: 50px;
-  background-color:#077c0f;
+  background-color:#32CD32;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   vertical-align: middle;
@@ -216,6 +211,10 @@ img#foto{
   input:hover, textarea:hover{
     background-color: #dddddd;
   }
+  img#foto{
+  width: 90px;
+  height: 40px;
+}
   
 /*Fim de amigos online */
 
@@ -228,7 +227,7 @@ img#foto{
     position: absolute;
     left: 0.2%;
     top: 50px;
-  background-color:rgba(10,23,55,0.5);
+    background-color:rgba(10,23,55,0.5);
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
     overflow-x: hidden;
@@ -238,19 +237,31 @@ img#foto{
     width: 99%;
     height: 100%;
     margin-top: 20px;
+    display: inline;
     }
   td#postagens img{
     width: 110px;
     height: 110px;
   }
+
+  textarea#idpostagem{
+    width: 85%;
+    resize: none;
+  }
   table#postagens1{
-    display: block;
-    margin-top: -870px;
+   margin-left: 0.1%;
+   font-size: 30px;   
     }
   td#postagens1 {
     display: inline;
     margin-top: 2%;
     margin-left: 0%;
+  }
+  td.postagens1{
+    background-color: rgba(63, 191, 63, 0.4); ;
+    max-width: 450px;
+    max-height: 500px;
+    text-align: center;
   }
   img#postagens1{
     width: 450px;
@@ -259,10 +270,6 @@ img#foto{
   source#postagens1{
     width: 450px;
     height: 500px;
-  }
-  textarea#idpostagem{
-    width: 85%;
-    resize: none;
   }
   td#postagens2 {
     display: inline;
@@ -274,11 +281,27 @@ img#foto{
     text-align: left;
   }
 
-
 img#imgperf {
 	border-radius:50%;
  max-width: 50000px;
   max-height: 50000px;
 	border: solid 5px green;
+
+}
+
+/*IMAGEM DE PERFIL*/
+img#imgperf {
+  border-radius:50%;
+ max-width: 50000px;
+  max-height: 50000px;
+  border: solid 5px green;
+
+}
+/*IMAGEM DE PERFIL(AMIGO)*/
+img#imgperfamigo {
+  border-radius:50%;
+ max-width: 50000px;
+  max-height: 50000px;
+  border: solid 5px green;
 
 }

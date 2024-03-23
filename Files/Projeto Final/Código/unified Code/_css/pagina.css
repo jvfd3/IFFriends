@@ -1,6 +1,6 @@
 ﻿@charset"UTF-8";
 
-/* configurações da arte de fundo(um divisão que engloba tudo) */
+/* configurações da are de fundo(um divisão que engloba tudo) */
   div#pagina{
     position: absolute;
     overflow: auto;
@@ -11,7 +11,7 @@
     padding: 0px 0px 0px 0px;
     }
 
-/* area de postagens */
+/* are de postagens */
   div#poste{
     overflow: auto;
     width: 79%;
@@ -41,10 +41,18 @@
 /* foto da pagina */
   div#foto{
   resize: both;
-  overflow: auto;
+  overflow-y: auto;
     height: 150px; 
     width: 78.7%;
     margin-left: 21%;
     margin-top: 1px;
     }
-  
+    a{
+  /*resize: both;*/
+  overflow: auto;
+      height: 100%;
+
+      width: 100%;
+    border-radius: 50%;
+  border: 1px solid;
+    }

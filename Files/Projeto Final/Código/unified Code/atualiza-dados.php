@@ -6,7 +6,27 @@
    ini_set(“display_errors”, 0 );
    
    $id=$_SESSION['id'];
-
+$foto = $_FILES['arquivo'];
+if (isset($foto['name']) && $foto['name'] != "") {
+      $file = $_FILES['arquivo'];
+      $numFile1 = $file['name'];
+      $numFile=count(array_filter($file));
+      $permite    = array('image/jpeg, image/png');
+      $maxSize = 1024 * 1024 * 15;
+      $folder     = 'fotos/'.$id.'/ProfPic';
+      $name    = $file['name'];
+      $type = $file['type'];
+      $size = $file['size'];
+      $error   = $file['error'];
+      $tmp  = $file['tmp_name'];
+      $extensao = @end(explode('.', $name));
+      $novoNome = rand().".$extensao";
+      $pasta = $folder.'/'.$novoNome;
+      if(move_uploaded_file($tmp, $pasta)){
+      $inserir = "UPDATE `usuario` SET `foto_perfil`='$pasta' WHERE idusuario='$id'";
+}
+      if (mysqli_query($conexao, $inserir)) {}
+}
    $nome = isset($_POST["tNome"])?$_POST["tNome"]:"";
    if ($nome == "") {
       $nome=$_SESSION['nome'];
