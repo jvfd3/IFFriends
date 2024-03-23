@@ -130,14 +130,14 @@
               </tr>
 
               <tr>
-                <td><input type="email" name="tEmail" id="cEmail" size="30" maxlength="113" placeholder="Digite seu E-mail" required="required"/></td>
+                <td><input type="email" name="tEmail" id="cEmail" size="30" maxlength="113" placeholder="Digite seu E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required="required"/></td>
               </tr>
 
               <tr>
-                <td><input type="password" name="tSenha" id="cSenha" size="30" minlength="8" maxlength="30" placeholder="Digite a Senha" required="required"/><br></td>
+                <td><input type="password" name="tSenha" id="cSenha" size="30" minlength="8" maxlength="30" placeholder="Digite a Senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}" title="Deve conter pelo menos um número e uma letra maiúscula e minúscula e pelo menos 8 ou mais caracteres" required="required"/><br></td>
               </tr>
               <tr>
-                  <td><input type="password" name="tRSenha" id="cRSenha" size="30" minlength="8" maxlength="30" placeholder="Digite a Senha Novamente" required="required"/></td>
+                  <td><input type="password" name="tRSenha" id="cRSenha" size="30" minlength="8" maxlength="30" placeholder="Digite a Senha Novamente" placeholder="Digite a Senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}" title="Deve conter pelo menos um número e uma letra maiúscula e minúscula e pelo menos 8 ou mais caracteres" required="required"/></td>
               </tr>
 
               <tr>
