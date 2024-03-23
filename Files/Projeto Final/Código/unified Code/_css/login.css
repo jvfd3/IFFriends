@@ -1,12 +1,9 @@
 @charset"UTF-8";
-*{margin: 1; padding: 1}
+*{margin: 0; padding: 0}
 html, body{
   height: 100%;
   overflow: hidden;
   white-space: nowrap;
-  min-width: 600px;
-  max-width: 20000px;
-  margin: 0 auto;
   position: relative;
   }
 
@@ -17,8 +14,8 @@ html, body{
     width: 100%;
     height: 46px;
     background-color: #616b66;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
     }
 
   /*barra de pesquisa*/
@@ -28,6 +25,7 @@ html, body{
       border-radius:10px;
       width:300px;
       height:32px;
+      margin-left: 655px;
       } 
     #txtBusca{
       float:left;
@@ -78,8 +76,8 @@ hr{
   left: 79.8%;
   top: 50px;
   background-color: #616b66;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
+  margin: 0% 0% 0% 0%;
+  padding: 0% 0% 0% 0%;
   vertical-align: middle;
   white-space: nowrap;
   overflow: hidden;
@@ -90,10 +88,10 @@ hr{
     height: 79%;
     position: absolute;
     left: 79.8%;
-    top: 147px;
+    top: 15.2%;
     background-color: #616b66;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
     vertical-align: middle;
     white-space: nowrap;
     overflow: auto;
@@ -106,8 +104,8 @@ hr{
     left: 79.8%;
     top: 93.5%;
     background-color: #616b66;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
     vertical-align: middle;
     white-space: nowrap;
   }

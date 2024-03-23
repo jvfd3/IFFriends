@@ -1,20 +1,13 @@
 @charset"UTF-8;
-*{margin: 1; padding: 1}
+*{margin: 0; padding: 0}
 html, body{
-  height: 100%;
+  height: 99.2%;
   width: 100%;
   white-space: normal;/* Permite a quebra de texto automaticamente */
-	overflow: hidden;/* Não permite rolagem na pagina */
-  min-width: 600px;
-  max-width: 20000px;
-  margin: 1px;
+  overflow: auto;/* Não permite rolagem na pagina */
+  margin-left: 0%;
   position: relative;
 }
-div#sup{
-	width: 100%;
-	
-}
-
 /*Definindo a largura e a posicão da primeira divisão*/
 	div#primeira{
 		width: 100%;
@@ -23,24 +16,13 @@ div#sup{
 /*Ajustando a imagem*/
 	header#cabecalho img#icone{
 		position: absolute;
-		width: 99.8%;
-		height: 11.5%;
-		margin-top: 0.1%;
-		}
-
-/*definindo local das funções */
-	div#funcoes{
 		width: 100%;
-		height: 50px;
-		margin-top: -37%;
+		height: 11.5%;
 		}
-	select{
-		background-image: "_imagens/confi.png";
-	}
 
 /*Ajustando o formulario*/
 	form#Login{
-		margin-top: -8%;
+		margin-top: -50%;
 		}
 	div#inicio{
 		text-align: center;
@@ -54,21 +36,19 @@ div#sup{
 		font-size: 20px;
 		margin-top: 1%;
 		margin-left: 2.2%;
+		margin-bottom: 1%;
 		}
 	div#button1{
-		margin-top: 5px;
-		margin-left: 30px;
-		font-size: 100px;
+		margin-left: 5%;
 		display: inline;
 		}
 	div#button{
-		margin-top: 10px;
-		margin-left: 30px;
-		font-size: 100px;
+		margin-left: 0%;
+		font-size: 100%;
 		display: inline;
 		}
 	button.button{
 		width: 10%;
 		height: 15%;
-		font-size: 20px;
+		font-size: 75%;
 		}
