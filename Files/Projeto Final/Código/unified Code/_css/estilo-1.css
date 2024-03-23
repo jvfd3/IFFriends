@@ -24,19 +24,27 @@ html, body{
 		}
 
 /*Ajustando o formulario*/
-	div#inicio{
+	.notification{
+		background-color: red;
+		width: 29%;
+		margin-left: 35%;
+		margin-bottom: 8%;
+		margin-top: -10%;
+	}
+	table#login{
 		text-align: center;
-		font-size: 200%;
-		margin-top: 20%;
-		}
-	div#senha{
-		margin-top: 1%;
-		}
+		font-size: 120%;
+		display: block;
+		margin-left: 35%;
+		margin-top: -5%;
+	}
 	div#lembrar{
 		font-size: 20px;
 		margin-top: 1%;
 		margin-left: 2.2%;
+		margin-bottom: 30px;
 		}
+
 	div#button1{
 		margin-top: 5px;
 		margin-left: 30px;
@@ -54,3 +62,10 @@ html, body{
 		height: 15%;
 		font-size: 30px;
 		}
+	input {
+ 		font-weight: 300;
+ 		height: 30px;
+	}
+	p {
+  		font-weight: 700;
+	}

@@ -10,7 +10,7 @@
 			$usuario = mysqli_real_escape_string($conexao, $_POST['tEmail']);
 			$senha = mysqli_real_escape_string($conexao, $_POST['tSenha']);
 
-			$query = "select idusuario, from usuario where usuario = '{$usuario}' and senha = md5('{$senha}')";
+			$query = "select * from usuario where email = '{$usuario}' and senha = ('{$senha}')";
 
 			$result = mysqli_query($conexao, $query);
 
@@ -18,11 +18,11 @@
 
 			if($row == 1) {
 				$_SESSION['usuario'] = $usuario;
-				header('Location: login.html');
+				header('Location: pagina-pricipal.php');
 				exit();
 			} else {
 				$_SESSION['nao_autenticado'] = true;
-				header('Location: index1.php');
+				header('Location: index.php');
 				exit();
 			}
 ?>

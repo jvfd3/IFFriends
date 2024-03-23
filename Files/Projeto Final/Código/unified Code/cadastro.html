@@ -3,9 +3,17 @@
   <head>
   	<meta charset="utf-8"/>
   	<title> Cadastro</title><!-- Nome que pagina tem -->
-  	<link rel="stylesheet" type="text/css" href="_css/estilo.css"><!-- Reaproveitando o arquivo de estilo da pagin index -->
-  	<link rel="stylesheet" type="text/css" href="_css/cadastro.css"><!-- Onde fica o arquivo de estilo da pagina -->
-    <link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
+  	<!-- Onde fica o arquivo de estilo da pagina -->
+      <link rel="stylesheet" type="text/css" href="_css/estilo.css">
+      <link rel="stylesheet" type="text/css" href="_css/estilo-1.css" media="screen and (max-width: 870px) and(min-width: 420px)">
+      <link rel="stylesheet" type="text/css" href="_css/estilo-2.css" media="screen and (max-width: 414px)">
+    <!-- Reaproveitando o arquivo de estilo da pagin index -->
+  	<!-- Onde fica o arquivo de estilo da pagina -->
+    <link rel="stylesheet" type="text/css" href="_css/cadastro.css" media="screen and (min-width:0px)">
+    <link rel="stylesheet" type="text/css" href="_css/cadastro-1.css" media="screen and (width: 640px)">
+    
+    <!-- Icone que fica na pagina -->
+    <link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" />
 
     <!-- Script que permite que na opção o usuario escreva qual é o seu sexo -->
       <script type="text/javascript">
@@ -17,42 +25,83 @@
             : "hidden"; 
         }
       </script>
+    <!-- Fim do script -->
   </head>
   <body>
     <!-- Primeira divisão da pagina -->
       <!-- Criar a logo da pagina -->
         <div id="primeira">
         <header id="cabecalho">
-          <a id="icone" href="pagina1.html"><img id="icone" src="_imagens/Logo2.png" width=100 ></a><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
+          <a id="icone" href="pagina1.html"><img id="icone" src="_imagens/Logo2.png"></a><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
         </header>
         </div>
       <!-- Fim da Primeira divisão da pagina -->
-
     <!--terceira divisão da pagina -->
       <div id="inicio">
         <!-- Inicio do formulario -->
-          <form id="Login" method="post">
+          <form id="Login" action="cadastro.php" method="post">
             <table id="ajuste" align="center">
               <tr>
                 <td><label for="cNome">Nome:</label></td>
-                <td><input type="text" name="tNome" id="cNome" size="30" maxlength="50" placeholder="Nome Completo"></td>
               </tr>
 
               <tr>
                 <td><label for="cEmail">E-mail:</label></td>
-                <td><input type="email" name="tEmail" id="cEmail" size="30" maxlength="113" placeholder="Digite seu E-mail"/></td>
               </tr>
 
               <tr>
-                <td><label for="cSenha">Senha:</label></td>
-                <td><input type="password" name="tSenha" id="cSenha" size="30" maxlength="30" placeholder="Digite a Senha"/><br></td>
+                <td><label for="cSenha" id="cSenha">Senha:</label></td>
               </tr>
-              <tr><td></td>
-                  <td><input type="password" name="tRSenha" id="cRSenha" size="30" maxlength="30" placeholder="Digite a Senha Novamente"/></td>
+
+              <tr>
+                <td><label for="cRSenha">&nbsp;</label></td>
               </tr>
 
               <tr>
                 <td><label for="cCidade">Cidade:</label></td>
+              </tr>
+
+              <tr>
+                <td><label for="cBairro">Bairro:</label></td>
+              </tr>
+
+              <tr>
+                <td><label for="cCurso">Curso:</label></td>
+              </tr>
+
+              <tr>
+                <td><label for="cDate" id="cData">Data de Nascimento:</label></td>
+              </tr>
+
+              <tr>
+                <td><label for="cTele">Telefone:</label></td>
+              </tr>
+
+              <tr>
+                <td><label for="gene">Gênero:</label></td>
+              </tr>
+
+              <tr>
+                <td><label for="cNomeS">Nome Social:</label></td>
+              <tr>
+            </table>
+            <table id="ajuste1" align="center">
+              <tr>
+                <td><input type="text" name="tNome" id="cNome" size="30" maxlength="50" placeholder="Nome Completo" required="required"></td>
+              </tr>
+
+              <tr>
+                <td><input type="email" name="tEmail" id="cEmail" size="30" maxlength="113" placeholder="Digite seu E-mail" required="required"/></td>
+              </tr>
+
+              <tr>
+                <td><input type="password" name="tSenha" id="cSenha" size="30" minlength="8" maxlength="30" pattern="[0-9a-fA-F]{4,8}" placeholder="Digite a Senha" required="required"/><br></td>
+              </tr>
+              <tr>
+                  <td><input type="password" name="tRSenha" id="cRSenha" size="30" minlength="8" maxlength="30" placeholder="Digite a Senha Novamente" required="required"/></td>
+              </tr>
+
+              <tr>
                 <td><input type="text" name="tCidade" id="cCidade" size="30" maxlength="50" placeholder="Cidade" list="cidade" />
                   <datalist id="cidade">
                       <option value="Angra dos Reis"></option>
@@ -150,49 +199,44 @@
               </tr>
 
             <tr>
-              <td><label for="cBairro">Bairro:</label></td>
                 <td><input type="text" name="tBairro" id="cBairro" size="30" maxlength="50" placeholder="Bairro"/></td>
             </tr>
 
             <tr>
-              <td><label for="cCurso">Curso:&nbsp;</label></td>
               <td><input type="text" name="tCurso" id="cCurso" size="30" maxlength="40" placeholder="Digite o seu Curso"/></td>
             </tr>
 
             <tr>
-              <td><label for="cDate" id="cData">Data de Nascimento:</label></td>
-                <td><input type="date" name="TData" id="cData" size="30"/></td>
+                <td><date-util format="dd/MM/yyyy"><input type="date" name="tData" id="cData" size="30" format="dd/MM/yyyy"/></date-util></td>
             </tr>
             
             <tr>
-              <td><label for="cTele">Telefone:</label></td>
               <td><input type="tel" name="tTele" id="cTele" size="30" maxlength="11" placeholder="Digite seu Numero"></td>
             </tr>
 
             <tr id="sexo">
-              <td><label for="gene">Gênero:</label></td>
-              <td><select class="form-group" name="Sexo" id="Sexo" onchange="mostraCampo(this);"> <!-- Incorporando a função na opção -->
+              <td><select class="form-group" name="tSexo" id="Sexo" onchange="mostraCampo(this);"> <!-- Incorporando a função na opção -->
                   <option value="" selected="selected">Sexo</option>
-                  <option value="macho">Masculino</option>
-                  <option value="femea">Feminino</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Feminino">Feminino</option>
                   <option value="outros">Outros</option>
                   <input type="text" class="form-control" name="Texto" id="Texto" size="30" style="visibility: hidden; display: block; float: left; margin-top: -45px; height: 45px; position: relative;"><!-- Torna a parte da escrita visivel -->
 
               </select></td></tr>
 
             <tr>
-              <td><label for="cNomeS">Nome Social:</label></td>
-              <td><input type="text" name="tNomeS" id="cNomeS" size="30" maxlength="30" placeholder="Nome exbido na rede social"></td>
+              <td><input type="text" name="tNomeS" id="cNomeS" size="30" maxlength="30" placeholder="Nome exibido na rede social"></td>
             </tr>
           </table>
             
             <div id="button">
-              <a href="cadastro.html"><button type="button" class="button">Cadastrar</button></a>
+              <button type="submit" class="button">Cadastrar</button>
             </div>
 
             <div id="button1">
               <button type="reset" class="button">Apagar</button>
             </div>
+            </form>
           </form>
         <!-- Fim do formulario -->
       </div>
