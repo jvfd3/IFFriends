@@ -1,9 +1,9 @@
-﻿@charset"UTF-8";
+@charset"UTF-8";
 
 /* configurações da are de fundo(um divisão que engloba tudo) */
   div#pagina{
     position: absolute;
-    overflow: auto;
+    overflow: hidden;
     width: 79.5%;
     height: 93.5%;
     background-color: #616b66;
@@ -40,19 +40,8 @@
 
 /* foto da pagina */
   div#foto{
-  resize: both;
-  overflow-y: auto;
     height: 150px; 
     width: 78.7%;
     margin-left: 21%;
     margin-top: 1px;
-    }
-    a{
-  /*resize: both;*/
-  overflow: auto;
-      height: 100%;
-
-      width: 100%;
-    border-radius: 50%;
-  border: 1px solid;
     }

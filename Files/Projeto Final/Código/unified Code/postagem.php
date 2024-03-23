@@ -3,40 +3,22 @@
 	include('conexao.php');
 	
 	$id = $_SESSION['id'];
-	$postagem = isset($_POST['postagem'])?$_POST['postagem']:"";
-	$postagem1 = isset($_FILES['arquivo'])?$_FILES['arquivo']:"";
-	$data = date('Y-m-d');
-	if (isset($postagem1['name']) && $postagem1['name'] != "") {
-		$file = $_FILES['arquivo'];
-		$numFile1 = $file['name'];
-		$numFile=count(array_filter($file));
-		$permite 	= array('video/mp4, image/jpeg');
-		$maxSize	= 1024 * 1024 * 15;
-		$folder		= 'fotos/'.$id.'/postagem';
-		$name 	= $file['name'];
-		$type	= $file['type'];
-		$size	= $file['size'];
-		$error	= $file['error'];
-		$tmp	= $file['tmp_name'];
-		$extensao = @end(explode('.', $name));
-		$novoNome = rand().".$extensao";
-		$pasta = $folder.'/'.$novoNome;
-		if ($postagem != "" && $postagem1['name'] != "") {
-			$postando="INSERT INTO `postagem` (data_postagem, postagemtexto, `postagem-fv`, usuario_idusuario) VALUES ('$data', '$postagem', '$pasta', '$id')";
-		}
-		elseif ($postagem1 != "") {
-			$postando="INSERT INTO `postagem` (data_postagem, `postagem-fv`, usuario_idusuario) VALUES ('$data', '$pasta', '$id')";
-		}
+
+	$postagem = isset($_GET['postagem'])?$_GET['postagem']:"";
+	if ($postagem != "" && $postagem != " ") {
+		$postando="INSERT INTO `postagem` (postagemtexto, usuario_idusuario) VALUES ('$postagem', '$id')";
 	}
-    elseif ($postagem != "") {
-		$postando="INSERT INTO `postagem` (data_postagem, postagemtexto, usuario_idusuario) VALUES ('$data', '$postagem', '$id')";
-	}
-	if(move_uploaded_file($tmp, $pasta)){}
+	echo"<br>";
+	echo "$postando<br>";
 	if (mysqli_query($conexao, $postando)) {
-			header('Location: pagina-pricipal.php');
-	       exit();
-	    }
-	else {
+		$_SESSION['autorizado'] = true;
+		$_SESSION['postagem'] = $postagem;
+		echo "<br>ok";
+		header('Location: pagina-pricipal.php');
+        exit();
+	} else {
+		$_SESSION['nao_autorizado'] = true;
+		echo "<br>erro";
 		header('Location: pagina-pricipal.php');
         exit();
 	}

@@ -7,14 +7,13 @@
   	<meta charset="utf-8"/>
   	<title> Cadastro</title><!-- Nome que pagina tem -->
   	<!-- Onde fica o arquivo de estilo da pagina -->
-      <!-- Reaproveitando o arquivo de estilo da pagin index -->
-        <link rel="stylesheet" type="text/css" href="_css/estilo.css">
-        <link rel="stylesheet" type="text/css" href="_css/estilo-1.css" media="screen and (max-width: 870px) and(min-width: 420px)">
-        <link rel="stylesheet" type="text/css" href="_css/estilo-2.css" media="screen and (max-width: 414px)">
-    	<!-- Onde fica o arquivo de estilo da pagina -->
-        <link rel="stylesheet" type="text/css" href="_css/cadastro.css" media="screen and (max-width:1439px) and (min-width: 1280px)">
-        <link rel="stylesheet" type="text/css" href="_css/cadastro-1.css" media="screen and (min-width: 1440px)">
-        <link rel="stylesheet" type="text/css" href="_css/cadastro-2.css" media="screen and (max-width: 1250px)">
+      <link rel="stylesheet" type="text/css" href="_css/estilo.css">
+      <link rel="stylesheet" type="text/css" href="_css/estilo-1.css" media="screen and (max-width: 870px) and(min-width: 420px)">
+      <link rel="stylesheet" type="text/css" href="_css/estilo-2.css" media="screen and (max-width: 414px)">
+    <!-- Reaproveitando o arquivo de estilo da pagin index -->
+  	<!-- Onde fica o arquivo de estilo da pagina -->
+    <link rel="stylesheet" type="text/css" href="_css/cadastro.css" media="screen and (min-width:0px)">
+    <link rel="stylesheet" type="text/css" href="_css/cadastro-1.css" media="screen and (width: 640px)">
     
     <!-- Icone que fica na pagina -->
     <link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" />
@@ -29,22 +28,14 @@
             : "hidden"; 
         }
       </script>
-      <style>
-    body{
-      background-image:url("_imagens/bgverde.jpg");
-      background-attachment:fixed;
-      background-size:100% 100%;
-      background-repeat:no-repeat;
-    }
-  </style>  
     <!-- Fim do script -->
   </head>
   <body>
     <!-- Primeira divisão da pagina -->
       <!-- Criar a logo da pagina -->
-        <div id="primeira">
+        <div id="primeira"">
         <header id="cabecalho">
-          <p align=center> <a href="index.php"><img src="_imagens/logo3circle.png"></a></p>
+          <a id="icone" href="index.php"><img id="icone" src="_imagens/logo3.png"></a><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
         </header>
         </div>
       <!-- Fim da Primeira divisão da pagina -->
@@ -54,7 +45,7 @@
         <?php
             if(isset($_SESSION['nao_autorizado'])):?>
             <div class='notification1'>
-            <p>ERRO: Senhas não coincidem!</p>
+            <p>ERRO: Senhas diferentes</p>
             </div>
             <?php
             endif;
@@ -63,7 +54,7 @@
           <?php
             if(isset($_SESSION['nao_autorizado1'])):?>
             <div class='notification1'>
-            <p>ERRO: Não possui idade suficiente!</p>
+            <p>ERRO: Não tem idade para se cadastrar</p>
             </div>
             <?php
             endif;
@@ -72,7 +63,7 @@
           <?php
             if(isset($_SESSION['nao_autorizado2'])):?>
             <div class='notification1'>
-            <p>ERRO: O e-mail já está em uso!</p>
+            <p>ERRO: O e-mail já existe</p>
             </div>
             <?php
             endif;
@@ -81,7 +72,7 @@
           <?php
             if(isset($_SESSION['autorizado'])):?>
             <div class='notification2'>
-            <p>Cadastro com sucesso!&nbsp;<a href='index.php'>Clique aqui para fazer login</a></p>
+            <p>cadastro com sucesso!&nbsp;<a href='index.php'>Clique aqui para fazer login</a></p>
             </div>
             <?php
             endif;
@@ -135,7 +126,7 @@
             </table>
             <table id="ajuste1" align="center">
               <tr>
-                <td><input type="text" name="tNome" id="cNome" size="30" maxlength="30" placeholder="Nome Completo" required="required"></td>
+                <td><input type="text" name="tNome" id="cNome" size="30" maxlength="50" placeholder="Nome Completo" required="required"></td>
               </tr>
 
               <tr>

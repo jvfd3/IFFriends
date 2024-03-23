@@ -1,7 +1,5 @@
 <?php
-	include('conexao.php');
-	include('menu.php');
-	include('amigos-online.php');
+	include('verifica-login.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,134 +11,104 @@
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
+		<!-- menu da pagina -->
+			<div id="interface">
+					<!-- Incio da barra de pesquisa -->
+					<table>
+						<tr>
+							<td>
+								<div id="divBusca">
+								<input type="text" id="txtBusca" placeholder="Buscar..."/>
+									<a href="pesquisa.html"><button id="btnBusca"><img src="_imagens/1.png"/></button></a>
+								</div>
+							</td>
+							<td>
+								<div id="sair"><a href="logout.php">sair</a></div>
+							</td>
+						<!-- Fim da barra de pesquisa -->
+						</tr>
+					</table>
+			</div>
+		<!-- Fim de menu -->
+
+		<!-- ver amigos online -->
+			<div id="online">
+						<center><h1>Online</h1></center>
+						<hr>
+			</div>
+			<div id="amigo">
+				<center>
+					<table>
+						<tr><td>icone</td><td>foto</td><td>nome</td></tr><!-- aqui ira aparecer os amigos online -->
+					</table>
+				</center>
+			</div>
+		<!-- fim de amigos online -->
+		<!-- pesqusa de amigos -->
+			<div id="busca">
+				<table id="busca">
+					<tr>
+						<td id="pesquisa">
+							<div id="divPesquisa">
+								<input type="text" id="tBusca" placeholder="Pesquisar"/>
+								<button id="bBusca"><img src="_imagens/1.png"/></button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		<!-- Fim da pesquisa de amigos-->
+
+		<!-- postagens -->
 			<div id="postagens">
 				<center>
-					<table id="postagens">
-					
-						<tr id="postagens">
-							<td id="postagens"><a href=perfil.php> <?php include('foto_perfil.php'); ?></a></td>
+					<table id="postagens"> 
+						<tr>
+							<td id="postagens"><a href=perfil.php> <img src="_imagens/profpic.jpg" width=70></a></td>
 
-							<form method="post" action="postagem.php" enctype="multipart/form-data">
-								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"></textarea>
-									<input type="file" name="arquivo" role="button" accept="video/mp4, image/jpeg" id="foto-video">
-									<label for="foto-video"><img id="foto" src="_imagens/teste.png"></label></td>
+							<form method="get" action="postagem.php">
+								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"> </textarea></td>
 													
 							<td id="postagens2"> <input type="submit" value="Enviar" id="botao"></td>
 							</form>
 						</tr>
-						
 					</table>
 				</center>
 				<hr>
 				<center>
-					<table id="postagens1">
-				
-
-					<!--Exibição da solicitações -->
+					<table>
 						<?php
-							$id=$_SESSION['id'];
-							$consulta = "SELECT `usuario_idusuario`, `idamizade_amigo` FROM `amizade` WHERE data_confirmacao is null and (usuario_idusuario='{$id}' or idamizade_amigo='{$id}')";
-							$resultado=mysqli_query($conexao, $consulta);
-							$quant = mysqli_num_rows($resultado);
-							for($i=0;$i<$quant;$i++){
-							$rows=$resultado->fetch_assoc();
-							if($rows['idamizade_amigo'] != $id){
-								$idamigo = $rows['idamizade_amigo'];
-							$consulta1="SELECT * FROM `usuario` WHERE idusuario='{$idamigo}'";
-							$resultado1=mysqli_query($conexao, $consulta1);
-							$quant1 = mysqli_num_rows($resultado1);
-							$rows1=$resultado1->fetch_assoc();
-							$nome = $rows1['nome'];
-							if ($quant1 >= 1) {
-							echo "<form method='post' action='aceita.php'><font size=5 face=arial><b>Aceitar solicitação de amizade de $nome</font></b><button type='submit' name='aceitou' value='$idamigo'>aceitar</button> 	<button type='submit' name='naoaceitou' value='$idamigo'>não aceito</button><br></form>";
-								}
-							}
-							}
-						?>
-					<!--Fim exibição da solicitações -->
-
-					<!-- Mostra postagem --> 
+				            if(isset($_SESSION['autorizado'])):
+				            echo "
+				            <div>
+				            <tr><td><center>".$_SESSION['postagem']."</center></td></tr>
+				            </div>";
+				            
+				            endif;
+				            unset($_SESSION['autorizado']);
+				          ?>
+				          <?php
+				            if(isset($_SESSION['nao_autorizado'])):?>
+				            <?php
+				            endif;
+				            unset($_SESSION['nao_autorizado']);
+				          ?>
 						<?php
-							$consulta = "SELECT usuario_idusuario FROM `amizade` WHERE data_confirmacao is not null and `idamizade_amigo`='$id'";
-							$consulta1 = "SELECT idamizade_amigo FROM `amizade` WHERE data_confirmacao is not null and `usuario_idusuario`='$id'";
-							$resultado=mysqli_query($conexao, $consulta);
-							$quant = mysqli_num_rows($resultado);
-							$resultado1=mysqli_query($conexao, $consulta1);
-							$quant1 = mysqli_num_rows($resultado1);
-							for($i=0;$i<$quant or $i<$quant1;$i++){
-							$rows=$resultado->fetch_assoc();
-							$rows1=$resultado1->fetch_assoc();
-							if($rows["usuario_idusuario"] != ""){$ids [] = $rows["usuario_idusuario"];}
-							if($rows1['idamizade_amigo'] != ""){$ids [] = $rows1['idamizade_amigo'];}
+							include('conexao.php'); 
+				            $consulta = "SELECT * FROM `postagem` ORDER BY `postagem`.`idpostagem`";
+				            $resultado = mysqli_query($conexao, $consulta) or die('error');
+				            $quant = mysqli_num_rows($resultado);
+				            for($i=0;$i<$quant;$i++){
+								$rows=$resultado->fetch_assoc();
+								$postagem = $rows['postagemtexto'];
+								echo "<div><tr><td><center>$postagem<br></center></td></tr></div>";
 							}
-							if ($quant == 1 or $quant1 == 1){
-							$quant2 = count($ids);
-							$quant3 = $quant2 - 1;
-							for($i=0;$i<$quant2;$i++){
-							if ($i == 0) {
-							$idamigo =  "'".$id."' or '".$ids[$i]."'" ;
-							}
-							elseif ($i > 0 && $i < $quant3) {
-							$idamigo = $idamigo." or '".$ids[$i]."'";
-							}
-							elseif ($i == $quant3) {
-							$idamigo = $idamigo." or '".$ids[$i]."'";
-							}
-							}
-							}elseif ($quant == 0 && $quant1 == 0) 
-								{$idamigo = "'".$id."' ";}
-							$consulta = "SELECT * FROM `postagem` WHERE `usuario_idusuario`=".$idamigo." ORDER BY `data_postagem`  DESC, `idpostagem` DESC";
-							$consulta1 = "SELECT `nome`, `nome_social`, `foto_perfil` FROM `usuario` WHERE `idusuario`=".$idamigo."";
-					            $resultado1 = mysqli_query($conexao, $consulta) or die('');
-					            $quant1 = mysqli_num_rows($resultado1);
-					            $resultado2 = mysqli_query($conexao, $consulta1) or die('');
-					            $quant2 = mysqli_num_rows($resultado2);
-					            if ($quant1 == 0) {
-					            }
-					            echo "<div><tr><center id='mostra'>";
-					            for($a=0;$a<$quant1;$a++){
-									$rows=$resultado1->fetch_assoc();
-									$rows1=$resultado2->fetch_assoc();
-
-									if ($rows1['nome_social']!="") {$nome=$rows1['nome_social'];}else{$nome=$rows1['nome'];}
-									if ($rows1['foto_perfil']!="") {$foto=$rows1['foto_perfil'];}else{$foto="_imagens/profpic.jpg";}
-									$postagem = $rows['postagemtexto'];
-									$postagem1 = $rows['postagem-fv'];
-									$extensao = @end(explode('.', $postagem1));
-									if (isset($postagem) && $postagem1=="") {
-										echo "<td class='postagens1'><font face=arial>$postagem</font></td></tr>";
-									}elseif (isset($postagem) && isset($postagem1)) {
-										if ($extensao == "mp4") {
-										echo "<td class='postagens1'><font face=arial>$postagem</font><br><br>";
-										echo "<video controls>
-										<source id='postagens1' src=".$postagem1." type='video/mp4'>
-										Desculpa mas não é possivel exibir o video
-										</video><br></td>";
-									}else{
-										echo "<td class='postagens1'><font face=arial>$postagem</font><br><br>";
-										echo "<img id='postagens1' src=".$postagem1."><br></td>";
-									}
-									}
-									else{
-										if ($extensao == "mp4") {
-											echo "<td class='postagens1'><video controls>
-										<source id='postagens1' src=".$postagem1." type='video/mp4'>
-										Desculpa mas não é possivel exibir o video
-										</video><br></td>";
-									}else{
-										echo "<td class='postagens1'><img id='postagens1' src=".$postagem1."><br></td>";
-									}
-									}
-									echo "<br></center></tr>";
-							}
-								echo "</div>";
+				            
 				            mysqli_close($conexao);
 						 ?>
-					<!-- Fim mostra postagem --> 
-					
 					</table>
 				</center>
 			</div>
-		
+		<!-- fim da postagem -->
 	</body>
 </html>

@@ -1,6 +1,6 @@
+<meta charset="utf-8">
 <?php
-	header("content-type: text/html;charset=utf-8");
-	define('HOST', 'localhost');
+	define('HOST', '127.0.0.1:3306');
 	define('USUARIO', 'root');
 	define('SENHA', '');
 	define('DB', 'rede-social');

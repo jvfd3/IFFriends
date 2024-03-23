@@ -48,9 +48,6 @@
       }
       mysqli_close($conexao);
       mkdir('fotos/'.$id.'/');
-	  mkdir('fotos/'.$id.'/ProfPic/');
-	  mkdir('fotos/'.$id.'/postagem/');
-	  mkdir('fotos/'.$id.'/Album/');
       mysqli_close($conexao);
       header('Location: cadastro.php');
       exit();

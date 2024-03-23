@@ -2,31 +2,12 @@
 <?php
    include('verifica-login.php');
    include('conexao.php');
-   error_reporting(0);
-   ini_set(“display_errors”, 0 );
+   include('verifica-login.php');
+   //error_reporting(0);
+   //ini_set(“display_errors”, 0 );
    
    $id=$_SESSION['id'];
-$foto = $_FILES['arquivo'];
-if (isset($foto['name']) && $foto['name'] != "") {
-      $file = $_FILES['arquivo'];
-      $numFile1 = $file['name'];
-      $numFile=count(array_filter($file));
-      $permite    = array('image/jpeg, image/png');
-      $maxSize = 1024 * 1024 * 15;
-      $folder     = 'fotos/'.$id.'/ProfPic';
-      $name    = $file['name'];
-      $type = $file['type'];
-      $size = $file['size'];
-      $error   = $file['error'];
-      $tmp  = $file['tmp_name'];
-      $extensao = @end(explode('.', $name));
-      $novoNome = rand().".$extensao";
-      $pasta = $folder.'/'.$novoNome;
-      if(move_uploaded_file($tmp, $pasta)){
-      $inserir = "UPDATE `usuario` SET `foto_perfil`='$pasta' WHERE idusuario='$id'";
-}
-      if (mysqli_query($conexao, $inserir)) {}
-}
+
    $nome = isset($_POST["tNome"])?$_POST["tNome"]:"";
    if ($nome == "") {
       $nome=$_SESSION['nome'];
@@ -64,29 +45,16 @@ if (isset($foto['name']) && $foto['name'] != "") {
       $tele=$_SESSION['telefone'];
    }
    $sexo = isset($_POST["Sexo"])?$_POST["Sexo"]:$_SESSION['genero'];
-   if ($sexo === "outros") {
-      $sexo = $_POST["Texto"];
-   }elseif($sexo == ""){
+   if ($sexo == "") {
       $sexo=$_SESSION['genero'];
    }
    $nomes = isset($_POST["tNomeS"])?$_POST["tNomeS"]:$_SESSION['nome_social'];
-   if ($nomes == ""){
+   if ($nomes == "") {
       $nomes=$_SESSION['nome_social'];
-    }
+   }
    $situacao = isset($_POST["apagar"])?$_POST["apagar"]:1;
    $ano = date ("Y-m-d");
    if ($situacao == 1) {
-      if($senha != $rsenha){
-      $_SESSION['nao_autorizado'] = true;
-      header('Location: editperf.php');
-      exit();
-    }
-    elseif($data < 14 || ""){
-      $_SESSION['nao_autorizado1'] = true;
-      header('Location: editperf.php');
-      exit();
-    }
-    include ('gurda-foto.php');
       $teste = "update `usuario` set nome='$nome', email='$email', senha='$senha', rsenha='$rsenha', cidade='$cidade', bairro='$bairro', curso='$curso', data_de_nascimento='$data', telefone='$tele', genero='$sexo', nome_social='$nomes', situacao='$situacao' where idusuario='$id'";
       $update = mysqli_query($conexao, $teste) or die ('error');
       header('Location: perfil.php');
@@ -97,9 +65,13 @@ if (isset($foto['name']) && $foto['name'] != "") {
       $delete1 = "DELETE FROM `postagem` WHERE `usuario_idusuario`='$id'";
       $delete2 = "DELETE FROM `albuns` WHERE `idusuario`='$id'";
       $del = mysqli_query($conexao, $delete) or die (mysqli_error($conexao)); 
-      $del1 = mysqli_query($conexao, $delete1) or die (mysqli_error($conexao));
+      echo "<br>$del";
+      echo "<br>";
+      $del1 = mysqli_query($conexao, $delete1) or die (mysqli_error($conexao)); 
+      echo "<br>$del1<br>";
       mysqli_close($conexao);
       header('Location: logout.php');
       exit();
+      echo "<br>error";
    }
 ?>

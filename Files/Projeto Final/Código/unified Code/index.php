@@ -8,25 +8,16 @@
 		<meta charset="UTF-8"/><!-- Coloca acentuação -->
 		<title>IFFRIENDS</title> <!-- Nome que pagina tem -->
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
-		
-		<!-- Onde fica o arquivo de estilo da pagina -->
-		<link rel="stylesheet" type="text/css" href="_css/estilo.css"> 
+		<link rel="stylesheet" type="text/css" href="_css/estilo.css"> <!-- Onde fica o arquivo de estilo da pagina -->
 		<link rel="stylesheet" type="text/css" href="_css/estilo-1.css" media="screen and (min-width: 420px)">
 		<link rel="stylesheet" type="text/css" href="_css/estilo-2.css" media="screen and (max-width: 870px)">
-		<style>
-			body{
-				background-image:url("_imagens/bgverde.jpg");
-				background-attachment:fixed;
-				background-size:100% 100%;
-				background-repeat:no-repeat;
-			}
-		</style>	
 	</head>
-	
 	<body>
+		<!-- Primeira divisão da pagina -->
+			<!-- Criar a logo da pagina -->
   			<div id="primeira">
     		<header id="cabecalho">
-      		<p align=center> <a href="index.php"><img src="_imagens/logo3circle.png"></a></p>
+      		<a id="icone" href="index.php"><img id="icone" src="_imagens/Logo3.png"></a><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
     		</header>
     		</div>
     	<!-- Fim da Primeira divisão da pagina -->
@@ -38,7 +29,7 @@
 						if(isset($_SESSION['nao_autenticado'])):
 					?>
 					<div class="notification">
-						<font color=white><p>ERRO: Usuário ou senha inválidos.</p></font>
+						<p>ERRO: Usuário ou senha inválidos.</p>
 					</div>
 					<?php
 						endif;

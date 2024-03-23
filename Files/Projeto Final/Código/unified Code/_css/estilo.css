@@ -1,4 +1,4 @@
-﻿@charset"UTF-8;
+@charset"UTF-8;
 *{margin: 0; padding: 0}
 html, body{
   height: 100%;
@@ -7,8 +7,6 @@ html, body{
   overflow: auto;/* Não permite rolagem na pagina */
   position: relative;
   margin: 0px;
-  font-family: Arial;
-  font-weight: 700;
 }
 
 /*Definindo a largura e a posicão da primeira divisão*/
@@ -19,8 +17,7 @@ html, body{
 		}
 /*Ajustando a imagem*/
 	.notification{
-		border-radius:20px;		
-		background-color:#ff0000;
+		background-color: red;
 		width: 29%;
 		margin-left: 35%;
 		margin-bottom: 8%;
