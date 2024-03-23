@@ -27,10 +27,10 @@
    if ($cidade == "") {
       $cidade=$_SESSION['cidade'];
    }
-   $bairro = isset($_POST["tBairro"])?$_POST["tBairro"]:$_SESSION['bairro'];
-   if ($bairro == "") {
-      $bairro=$_SESSION['bairro'];
-   }
+   //$bairro = isset($_POST["tBairro"])?$_POST["tBairro"]:$_SESSION['bairro'];
+   //if ($bairro == "") {
+      //$bairro=$_SESSION['bairro'];
+   //}
    $curso = isset($_POST["tCurso"])?$_POST["tCurso"]:$_SESSION['curso'];
    if ($curso == "") {
       $curso=$_SESSION['curso'];
@@ -51,24 +51,12 @@
    if ($nomes == "") {
       $nomes=$_SESSION['nome_social'];
    }
-   $situacao = isset($_POST["apagar"])?$_POST["apagar"]:1;
    $ano = date ("Y-m-d");
-   if ($situacao == 1) {
-      $teste = "update `usuario` set nome='$nome', email='$email', senha='$senha', rsenha='$rsenha', cidade='$cidade', bairro='$bairro', curso='$curso', data_de_nascimento='$data', telefone='$tele', genero='$sexo', nome_social='$nomes', situacao='$situacao' where idusuario='$id'";
-      $update = mysqli_query($conexao, $teste) or die ('error');
+       //$teste = "update `usuario` set nome='$nome', email='$email', senha='$senha', rsenha='$rsenha', cidade='$cidade', bairro='$bairro', curso='$curso', data_de_nascimento='$data', telefone='$tele', genero='$sexo', nome_social='$nomes' where idusuario='$id' ";
+   $teste = "update `usuario` set nome='$nome', email='$email', senha='$senha', rsenha='$rsenha', cidade='$cidade', curso='$curso', data_de_nascimento='$data', telefone='$tele', genero='$sexo', nome_social='$nomes' where idusuario='$id' ";
+      echo "$teste";
+      mysqli_query ($conexao, $teste) or die ('error');
+      mysqli_close($conexao);
       header('Location: perfil.php');
       exit();  
-   }
-   if($situacao == 0){
-      include('conexao.php');
-      $delete = "DELETE FROM `usuario` WHERE idusuario='$id'";
-      echo $delete;
-      echo "<br>";
-      $del = mysqli_query($conexao, $delete) or die ('error');
-      echo "<br>$del";
-      echo "<br>";
-      mysqli_close($conexao);
-      header('Location: index.php');
-      exit(); 
-      } 
 ?>

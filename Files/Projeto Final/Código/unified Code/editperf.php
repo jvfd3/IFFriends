@@ -94,7 +94,6 @@
 	            					$nome=$_SESSION['nome'];
 	            					$email=$_SESSION['email'];
 	            					$cidade=$_SESSION['cidade'];
-	            					$bairro=$_SESSION['bairro'];
 	            					$curso=$_SESSION['curso'];
 	            					$data=$_SESSION['data'];
 	            					$telefone=$_SESSION['telefone'];
@@ -241,11 +240,6 @@
 					              	</td>
 		              			</tr>
 
-		              			<tr>
-	              					<td><label for="cCurso">Bairro:&nbsp;</label></td>
-	              					<td><input type="text" name="tBairro" id="cBairro" size="30" maxlength="40" placeholder="<?php echo $bairro; ?>"/></td>
-	            				</tr>
-
 								<tr>
 	              					<td><label for="cCurso">Curso:&nbsp;</label></td>
 	              					<td><input type="text" name="tCurso" id="cCurso" size="30" maxlength="40" placeholder="<?php echo $curso; ?>"/></td>
@@ -276,17 +270,6 @@
 					              <td><label for="cNomeS">Nome Social:</label></td>
 					              <td><input type="text" name="tNomeS" id="cNomeS" size="30" maxlength="30" placeholder="<?php echo $nome_social; ?>"></td>
 					            </tr>
-
-					            <tr id="apagar">
-					              	<td><label for="gene">Excluir conta:</label></td>
-					              	<td>
-					              		<select name="apagar" id="apagar">
-						                  	<option value="1" selected="selected">selecionar</option>
-						                  	<option value="0">Excluir</option>
-							                <option value="1">Não Excluir</option>
-					              		</select>
-					              </td>
-					          	</tr>
 	          				</table>
 	          				<br><input type="submit" value="Salvar" id="s"> </a>
 						</form>
