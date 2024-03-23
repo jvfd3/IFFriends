@@ -1,6 +1,6 @@
 ﻿@charset"UTF-8";
 body{
-	overflow: hidden;
+	overflow: auto;
 	max-height: 100%; 
 	max-width: 100%;
 	}
@@ -27,7 +27,7 @@ div#inicio{
 	}
 form#Login{
 	margin-left: 39%;
-	margin-top: 0%;
+	margin-top: 5%;
 	width: 400px;
 	overflow: visible;
 	}
@@ -35,7 +35,7 @@ table#ajuste{
 	height: 100%;
 	text-align: right;
 	margin-left: -49%;
-	margin-top: 50px;
+	margin-top: 250px;
 	white-space: nowrap;
 	}
 table#ajuste td{
@@ -46,7 +46,7 @@ table#ajuste td{
 table#ajuste1{
 	width: 100%;
 	text-align: right;
-	margin-top: -610px;
+	margin-top: -605px;
 	margin-right: -34%;
 	margin-bottom: 4%;
 }

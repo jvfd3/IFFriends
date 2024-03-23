@@ -43,7 +43,7 @@
       <!-- Criar a logo da pagina -->
         <div id="primeira"">
         <header id="cabecalho">
-          <a id="icone" href="index.php"><img id="icone" src="_imagens/logo3.png"></a><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
+           <p align=center><a href="index.php"><img src="_imagens/logo3circle.png"></a></p><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
         </header>
         </div>
       <!-- Fim da Primeira divisão da pagina -->

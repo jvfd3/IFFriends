@@ -1,9 +1,17 @@
 <?php
-	include('verifica-login.php');
-	include('conexao.php');
+	//include('verifica-login.php');
+	//include('conexao.php');
 ?>
 <!DOCTYPE html>
 <html>
+		<style>
+			body{
+				background-image:url("_imagens/bgverde.jpg");
+				background-attachment:fixed;
+				background-size:100% 100%;
+				background-repeat:no-repeat;
+			}
+		</style>	
 	<head>
 		<title>IFFriends</title>
 		<meta charset="UTF-8"/>
@@ -12,6 +20,7 @@
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
+	<font face="Arial">
 		<?php include('menu.php');?>
 		<!-- ver amigos online -->
 			<div id="online">
@@ -35,12 +44,12 @@
 							$rows1=$resultado1->fetch_assoc();
 							$nome = $rows1['nome'];
 							$foto = $rows1['foto_perfil'];
-							//$icone = $rows1[''];
+							$icone = $rows1[''];
 							echo "<tr><td>icone</td><td>$foto</td><td>$nome</td></tr>";
 							}
 							?>
 						<!-- <tr><td>icone</td><td>foto</td><td>nome</td></tr> aqui ira aparecer os amigos online -->
-					</table>
+					</table>-->
 				</center>
 			</div>
 		<!-- fim de amigos online -->
@@ -67,7 +76,7 @@
 							<td id="postagens"><a href=perfil.php> <img src="_imagens/profpic.jpg" width=70></a></td>
 
 							<form method="post" action="postagem.php">
-								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"> </textarea></td>
+								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos!"> </textarea></td>
 													
 							<td id="postagens2"> <input type="submit" value="Enviar" id="botao"></td>
 							</form>
@@ -94,7 +103,7 @@
 							echo "<form method='post' action='pagina-pricipal.php'>Aceitar solicitação de amizade de $nome 
 								<button type='submit' name='aceitou' value='$idamigo'>aceitar</button>
 									<button type='submit' name='naoaceitou' value='$idamigo'>não aceito</button><br></form>";
-							}
+							}*/
 						?>
 						<!-- Se aceitou ou não a solicitação -->
 						<?php
@@ -162,5 +171,6 @@
 				</center>
 			</div>
 		<!-- fim da postagem -->
+		</font>
 	</body>
 </html>
