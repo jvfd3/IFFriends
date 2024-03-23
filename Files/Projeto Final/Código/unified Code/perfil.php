@@ -49,7 +49,7 @@
 						<tr><td></td></tr>					
 
 						<tr><td> <a href=fotos.php> <img src="_imagens/fotos.png" width=100> </a> </td></tr>
-						<tr><td> <a href=amigo.php> <img src="_imagens/amigos.png" width=100> </a> </td></tr>
+						<tr><td> <?php echo "<a href='amigo.php?id=".$_SESSION['id']."'> <img src='_imagens/amigos.png' width=100> </a>" ?> </td></tr>
 					</table>
 
 					<br><label><h1></h1></label><br>

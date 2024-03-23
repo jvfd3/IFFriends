@@ -1,3 +1,7 @@
+<head>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="_css/login.css">
+</head>
 <!-- ver amigos online -->
 			<div id="online">
 						<center><h1>Online</h1></center>
@@ -30,16 +34,4 @@
 			</div>
 		<!-- fim de amigos online -->
 		<!-- pesqusa de amigos -->
-			<div id="busca">
-				<table id="busca">
-					<tr>
-						<td id="pesquisa">
-							<div id="divPesquisa">
-								<input type="text" id="tBusca" placeholder="Pesquisar"/>
-								<button id="bBusca"><img src="_imagens/1.png"/></button>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</div>
 		<!-- Fim da pesquisa de amigos-->

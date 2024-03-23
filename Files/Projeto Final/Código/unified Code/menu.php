@@ -14,7 +14,7 @@
 								<form method="post" action="pesquisa.php">
 								<div id="divBusca">
 								<input type="text" id="txtBusca" name="busca" placeholder="Buscar..."/>
-								<button id="btnBusca">
+								<button id="btnBusca" type="submit">
 									<img src="_imagens/1.png"/>
 								</button>
 								</div>
