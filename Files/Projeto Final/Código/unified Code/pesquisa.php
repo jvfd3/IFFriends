@@ -18,6 +18,7 @@ else{$busca = $_POST['busca']; }
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
+		<font face="arial">
 		<div id="postagens">
 	
 			<!-- Nome do que está sendo buscado -->
@@ -27,6 +28,7 @@ else{$busca = $_POST['busca']; }
 
 					
 						<table>
+					
 					<?php
 					$consulta = "SELECT * FROM `usuario` WHERE nome like '%$busca%' or nome_social like '%$busca%'";
 					$resultado = mysqli_query($conexao, $consulta) or die('error');
@@ -52,6 +54,7 @@ else{$busca = $_POST['busca']; }
 							
 					};	
 					?>
+					
 					</table>
 						<br>
 				</div>
@@ -61,5 +64,6 @@ else{$busca = $_POST['busca']; }
 				
 			<!-- fim do que esta sendo buscado -->
 		</div>
+		</font>
 </body>
 </html>

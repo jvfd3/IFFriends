@@ -7,9 +7,8 @@ a#link{
 
 /* Estilo de titulo */
 	h1#titulo{
-		font-size: 5;
+		font-size: 3;
 		font-family: arial;
-		color: cyan;
 	}
 
 /*mostrar os amigos*/

@@ -28,6 +28,7 @@ include('verifica-login.php');
 	</script>
 </head>
 <body>
+<font size="3" face="arial">
 	<style>
 		body{
 			background-image:url("_imagens/bgverde.jpg");
@@ -54,13 +55,13 @@ include('verifica-login.php');
 							<td>
 								<nav id="menu">
 									<ul> 
-									    <li><a href="#">configuração</a>
+									    <li><a href="#"><b>Configuração</b></a>
 									      <ul> 
-									        <li><a href="pagina-pricipal.php">inicio</a></li> 
-									        <li><a href="perfil.php">perfil</a></li> 
-									        <li><a href="fotos.php">fotos</a></li> 
-									        <li><?php echo "<a href='amigo.php?id=".$_SESSION['id']."'>";?>amigos</a></li>
-									        <li><a href="logout.php">sair</a></li> 
+									        <li><a href="pagina-pricipal.php">Inicio</a></li> 
+									        <li><a href="perfil.php">Perfil</a></li> 
+									        <li><a href="fotos.php">Fotos</a></li> 
+									        <li><?php echo "<a href='amigo.php?id=".$_SESSION['id']."'>";?>Amigos</a></li>
+									        <li><a href="logout.php"><b>Sair</b></a></li> 
 									      </ul> 
 										</li>
 									</ul>
@@ -70,6 +71,7 @@ include('verifica-login.php');
 						</tr>
 					</table>
 			</div>
+			</font>
 		<!-- Fim de menu -->
 
 </body>
