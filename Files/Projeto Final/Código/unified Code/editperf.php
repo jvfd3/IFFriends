@@ -1,6 +1,5 @@
 <meta charset="utf-8">
 <?php
-	include('verifica-login.php');
 	include('conexao.php');	
 ?>
 <!DOCTYPE html>

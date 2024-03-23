@@ -2,7 +2,6 @@
 <html>
 <head>
 	<meta charset="UTF-8"/>
-	<link rel="stylesheet" type="text/css" href="_css/login.css">
 </head>
 <body>
 	<!-- menu da pagina -->
@@ -55,12 +54,8 @@
 							}
 						}
 							?>
-						<!-- <tr><td>icone</td><td>foto</td><td>nome</td></tr> aqui ira aparecer os amigos online -->
 					</table>
 				</center>
 			</div>
-		<!-- fim de amigos online -->
-		<!-- pesqusa de amigos -->
-		<!-- Fim da pesquisa de amigos-->
 	</body>
 </html>

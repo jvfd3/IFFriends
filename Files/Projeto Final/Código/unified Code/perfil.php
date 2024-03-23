@@ -1,6 +1,7 @@
 <?php
-	include('verifica-login.php');
 	include('conexao.php');
+	include('menu.php');
+	include('amigos-online.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,13 +16,6 @@
 			
 	</head>
 	<body>
-		<!-- menu da pagina -->
-			<?php include('menu.php'); ?>
-		<!-- Fim de menu -->
-
-		<!-- ver amigos online -->
-			<?php include('amigos-online.php'); ?>
-		<!-- Fim da pesquisa de amigos-->
 
 		<!-- mostar perfil de outro usuario -->
 			<div id="postagens">

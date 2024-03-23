@@ -1,5 +1,4 @@
 <?php 
-	session_start();
 	include ('conexao.php');
 	include('menu.php');
 	include('amigos-online.php'); 
@@ -10,7 +9,6 @@
 		<title>IFFriends</title>
 		<meta charset="UTF-8"/>
 		<title>IFFTool</title> <!-- Nome que pagina tem -->
-		<link rel="stylesheet" type="text/css" href="_css/login.css"> <!-- Onde fica o arquivo de estilo da pagina -->
 		<link rel="stylesheet" type="text/css" href="_css/fotos.css">
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
@@ -33,20 +31,19 @@
 						<div id="titulo">
 							<font size=5 face=arial color=cyan > Fotos	</font>
 							<a>
-							  	<div >
 								  <div>
-								    <br>Adicione sua foto
+								    <br>
 								  </div>
-								</div>
 								  <div>
 								  	<?php 
 								  $_SESSION['origem']="fotos";
 								  ?>
 								  	<form method="post" action="guarda-foto.php" enctype="multipart/form-data">
-								  <input role="button" type="file" name="arquivo">
+								  <div id="fotos1"><input role="button" type="file" name="arquivo" id="foto">
+								  <div id="foto"><label for="foto" id="foto">Adicione sua foto</label></div>
 								 <!--Envia para o guarda-foto.php -->
 								  
-								  <button type="submit">Salvar</button>
+								  <button type="submit" id="foto">Salvar</button></div>
 								  </form>
 								</div>
 							</a>

@@ -36,7 +36,7 @@ html, body{
       font-size:18px;
       border:none;
       height:32px;
-      width:92%;
+      width:91.25%;
       }
     #btnBusca{
       border:none;
@@ -50,16 +50,10 @@ html, body{
        
       #divBusca img{
         width: 50%;
-        float:center;
+        display: block;
+        position: relative;
+        float:right;
       }
-    div#sair a{
-      width: 30px;
-      height: 15px;
-      border: 1px solid;
-      display: block;
-      float: right;
-      margin-top: -1.9%;
-    }
   /*fim da barra de pesquisa*/
 /*Configurações Padrões*/
   nav#menu{
@@ -68,7 +62,7 @@ html, body{
   display: block;
   height: 350px;
   width: 170px;
-  margin-top: -29px;
+  margin-top: -10px;
   margin-left: 40.5%;
   position: absolute;
   }
@@ -120,6 +114,18 @@ hr{
   width: 99.9%;
   margin-top: -5px;
   }
+  input#foto-video{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+img#foto{
+  width: 90px;
+  height: 40px;
+}
 
 
 /*amigos online*/
@@ -147,6 +153,69 @@ hr{
     white-space: nowrap;
     overflow: auto;
   }
+  div#busca{
+    float:right;
+    width: 20%;
+    height: 5%;
+    position: absolute;
+    left: 79.8%;
+    top: 93.5%;
+    background-color: #616b66;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  div#divPesquisa{
+    display: block;
+    background-color:#E0EEEE;
+    border:solid 2px #5F9EA0;
+    border-radius:1px;
+    width:98%;
+    height:90%;
+    margin: -4px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    float: left;
+  }
+   
+  #tBusca{
+    float:left;
+    background-color:transparent;
+    font-size:13.1px;
+    border:none;
+    height:98%;
+    width:66%;
+  }
+   
+  #bBusca{
+    border:none;
+    float:right;
+    height:98%;
+    width:30%;
+    background:#d2faf0;
+  }
+   
+  #divBusca img{
+    width: 50%;
+    float:center;
+  }
+  td#pesquisa{
+    width: 98%;
+    height: 100%;
+    position: absolute;
+  }
+  input, textarea{
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 13pt;
+    background-color: rgba(255,255,255,.8);
+  }
+
+  input:hover, textarea:hover{
+    background-color: #dddddd;
+  }
   
 /*Fim de amigos online */
 
@@ -162,7 +231,8 @@ hr{
   background-color:rgba(10,23,55,0.5);
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
-    overflow:auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     }
   table#postagens{
     width: 99%;
@@ -173,10 +243,22 @@ hr{
     width: 110px;
     height: 110px;
   }
+  table#postagens1{
+    display: block;
+    margin-top: -870px;
+    }
   td#postagens1 {
     display: inline;
     margin-top: 2%;
     margin-left: 0%;
+  }
+  img#postagens1{
+    width: 450px;
+    height: 500px;
+  }
+  source#postagens1{
+    width: 450px;
+    height: 500px;
   }
   textarea#idpostagem{
     width: 85%;

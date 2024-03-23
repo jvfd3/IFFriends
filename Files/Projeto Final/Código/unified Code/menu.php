@@ -1,5 +1,5 @@
 <?php
-session_start();
+include('verifica-login.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,8 +59,8 @@ session_start();
 									        <li><a href="pagina-pricipal.php">inicio</a></li> 
 									        <li><a href="perfil.php">perfil</a></li> 
 									        <li><a href="fotos.php">fotos</a></li> 
-									        <li><a href="amigos.php">amigos</a></li>
-									        <li><?php echo "<a href='amigo.php?id=".$_SESSION['id']."'>"; ?>sair</a></li> 
+									        <li><?php echo "<a href='amigo.php?id=".$_SESSION['id']."'>";?>amigos</a></li>
+									        <li><a href="logout.php">sair</a></li> 
 									      </ul> 
 										</li>
 									</ul>

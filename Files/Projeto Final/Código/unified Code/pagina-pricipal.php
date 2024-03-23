@@ -1,6 +1,7 @@
 <?php
-	include('verifica-login.php');
 	include('conexao.php');
+	include('menu.php');
+	include('amigos-online.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,8 @@
 
 							<form method="post" action="postagem.php" enctype="multipart/form-data">
 								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"></textarea>
-									<input accept="video/mp4, image/jpeg" name="arquivo"  role="button" type="file" id="teste"></td>
+									<input type="file" name="arquivo" role="button" accept="video/mp4, image/jpeg" id="foto-video">
+									<label for="foto-video"><img id="foto" src="_imagens/teste.png"></label></td>
 													
 							<td id="postagens2"> <input type="submit" value="Enviar" id="botao"></td>
 							</form>
@@ -50,7 +52,7 @@
 						endif;
 						unset($_SESSION['sucesso']);
 					?>
-					<table>
+					<table id="postagens1">
 						 <!--Exibição da solicitações -->
 						<?php
 							$id=$_SESSION['id'];
@@ -137,19 +139,32 @@
 									$postagem = $rows['postagemtexto'];
 									$postagem1 = $rows['postagem-fv'];
 									$extensao = @end(explode('.', $postagem1));
-									if (isset($postagem)) {
-										echo "<td>$postagem</td>";
-									}if ($extensao == "jpg") {
-										echo "<td><img id='mostra' src=".$postagem1."></td>";
-									}
-									if ($extensao == "mp4") {
-										echo "<td><video controls>
-										<source src=".$postagem1." type='video/mp4'>
+									if (isset($postagem) && $postagem1=="") {
+										echo "<td bgcolor='green'>$postagem</td></tr>";
+									}elseif (isset($postagem) && isset($postagem1)) {
+										if ($extensao == "mp4") {
+										echo "<td bgcolor='green'>$postagem<br><br>";
+										echo "<video controls>
+										<source id='postagens1' src=".$postagem1." type='video/mp4'>
 										Desculpa mas não é possivel exibir o video
 										</video><br></td>";
+									}else{
+										echo "<td bgcolor='green'>$postagem<br><br>";
+										echo "<img id='postagens1' src=".$postagem1."><br></td>";
+									}
+									}
+									else{
+										if ($extensao == "mp4") {
+											echo "<td bgcolor='green'><video controls>
+										<source id='postagens1' src=".$postagem1." type='video/mp4'>
+										Desculpa mas não é possivel exibir o video
+										</video><br></td>";
+									}else{
+										echo "<td bgcolor='green'><img id='postagens1' src=".$postagem1."><br></td>";
+									}
 									}
 									echo "<br></center></tr>";
-								}
+							}
 								echo "</div>";
 				            mysqli_close($conexao);
 						 ?>
@@ -157,9 +172,5 @@
 				</center>
 			</div>
 		<!-- fim da postagem -->
-		<?php 
-		include('menu.php');
-		include('amigos-online.php');
-		?>
 	</body>
 </html>

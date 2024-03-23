@@ -1,24 +1,21 @@
-<?php
-session_start();
+<?php 
+	include ('conexao.php');
+	include('menu.php');
+	include('amigos-online.php');
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>IFFriends</title>
 		<meta charset="UTF-8"/>
-		<title>IFFTool</title> <!-- Nome que pagina tem -->
+		<title>IFFTool</title> <!-- Nome que pagina tem -->		
 		<link rel="stylesheet" type="text/css" href="_css/amigo.css">
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-			<?php 
-			include ('conexao.php');
-			include('menu.php');
-			include('amigos-online.php');
-			?>
 
 			<center>
-				<div id="amizade">
+				<div id="postagens">
 					<h1 id="titulo">Amigos</h1><br>
 					<table id="amizade">
 						<?php
@@ -35,14 +32,18 @@ session_start();
 							$resultado1 = mysqli_query($conexao, $consulta1) or die('error');
 							$rows1=$resultado1->fetch_assoc();
 							echo "<tr id='amizade'> 
-							<td id='amizade'> 
-								<a href='perfilamigo.php?id=".$idamigo."'> ";
+							<td id='amizade'>";
 							if($rows1['foto_perfil'] != ""){
-								echo "<img src=".$rows1['foto_perfil']." width=100%></td>";}
-								else{echo "<img src='_imagens/profpic.jpg' width=100%></td>";} 
-							echo"<td id='amizade'>".$rows1['nome']."	
-							</td></a></tr>";
+								echo " 
+								<a id='link' href='perfilamigo.php?id=".$idamigo."'><img src=".$rows1['foto_perfil']." width=100%>
+								</a></td>";}
+								else{echo "
+								<a id='link' href='perfilamigo.php?id=".$idamigo."'><img src='_imagens/profpic.jpg' width=100%>
+								</a></td>";
 							}
+								echo"<td id='amizade'><a id='link' href='perfilamigo.php?id=".$idamigo."'> ".$rows1['nome']."</a>	
+								</td></tr>";
+						}
 							else{
 								$idamigo=$rows['usuario_idusuario'];
 							$consulta1 = "SELECT `nome`, `foto_perfil` FROM `usuario` WHERE `idusuario`='$idamigo'";
@@ -50,14 +51,19 @@ session_start();
 							$rows1=$resultado1->fetch_assoc();
 							echo "<tr id='amizade'> 
 							<td id='amizade'> 
-								<a href='perfilamigo.php?id=".$idamigo."'> ";
+								";
 							if($rows1['foto_perfil'] != ""){
-								echo "<img src=".$rows1['foto_perfil']." width=100%></td>";}
-								else{echo "<img src='_imagens/profpic.jpg' width=100%></td>";} 
-							echo"<td id='amizade'>".$rows1['nome']."	
-							</td></a> </tr>";
+								echo "<a id='link' href='perfilamigo.php?id=".$idamigo."'><img src=".$rows1['foto_perfil']." width=100%></a></td>";}
+								else{echo "<a id='link' href='perfilamigo.php?id=".$idamigo."'><img src='_imagens/profpic.jpg' width=100%></a></td>";} 
+							echo"<td id='amizade'><a id='link' href='perfilamigo.php?id=".$idamigo."'> ".$rows1['nome']."</a>	
+							</td> </tr>";
 							}
 						}
+						/*echo $_SESSION['idpessoa']."<br>".$_GET['id']."<br>".$id;
+						unset($_SESSION['idpessoa']);
+						unset($_GET['id']);
+						unset($id);
+						echo $_SESSION['idpessoa']."<br>".$_GET['id']."<br>".$id."<br>ok";*/
 						?>
 					</table>
 				</div>

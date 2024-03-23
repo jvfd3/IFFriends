@@ -1,5 +1,7 @@
-<?php
-session_start();
+<?php 
+include('menu.php');
+include ('conexao.php');
+include('amigos-online.php'); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -7,18 +9,10 @@ session_start();
 		<title>IFFriends</title>
 		<meta charset="UTF-8"/>
 		<title>IFFTool</title> <!-- Nome que pagina tem -->
-		<link rel="stylesheet" type="text/css" href="_css/login.css"> <!-- Onde fica o arquivo de estilo da pagina -->
 		<link rel="stylesheet" type="text/css" href="_css/perfil.css">
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-		<?php include('menu.php'); ?>
-
-		<!-- ver amigos online -->
-			<?php include('amigos-online.php'); ?>
-		<!-- Fim da pesquisa de amigos-->
-
-		<!-- mostar perfil -->
 			<div id="postagens">
 				<center>
 					<?php $mensagem=isset($_SESSION['solicitacao'])?$_SESSION['solicitacao']:"";
@@ -26,7 +20,6 @@ session_start();
 						unset($_SESSION['solicitacao']) ?>
 					<table id="or"><!-- onde vai conter as opções -->
 						<?php
-							include ('conexao.php');
 							$id= (isset($_GET['id'])?$_GET['id'] : '');
 							$_SESSION['idpessoa'] = $id;
 							$consulta = "SELECT * FROM `usuario` WHERE idusuario='$id'";

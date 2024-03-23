@@ -1,14 +1,9 @@
 @charset "UTF-8";
-/* are de fundo */
-	div#amizade{
-		position: absolute;
-	    overflow: auto;
-	    width: 79.5%;
-	    height: 93.5%;
-	    margin: 50px 0px 0px 4px;
-	    padding: 0px 0px 0px 0px;
-		background: #5dad60;
-		}
+
+a#link{
+	text-decoration:none;
+	color: black;
+}
 
 /* Estilo de titulo */
 	h1#titulo{

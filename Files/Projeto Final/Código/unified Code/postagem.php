@@ -21,11 +21,14 @@
 		$extensao = @end(explode('.', $name));
 		$novoNome = rand().".$extensao";
 		$pasta = $folder.'/'.$novoNome;
-	if ($postagem != "" && $postagem1 != "") {
+	if ($postagem != "" && $postagem1['name'] != "") {
 		$postando="INSERT INTO `postagem` (data_postagem, postagemtexto, `postagem-fv`, usuario_idusuario) VALUES ('$data', '$postagem', '$pasta', '$id')";
 	}
 	elseif ($postagem != "") {
 		$postando="INSERT INTO `postagem` (data_postagem, postagemtexto, usuario_idusuario) VALUES ('$data', '$postagem', '$id')";
+		if (mysqli_query($conexao, $postando)) {
+		header('Location: pagina-pricipal.php');
+        exit();}
 	}
 	elseif ($postagem1 != "") {
 		$postando="INSERT INTO `postagem` (data_postagem, `postagem-fv`, usuario_idusuario) VALUES ('$data', '$pasta', '$id')";
