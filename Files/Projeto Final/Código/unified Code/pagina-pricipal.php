@@ -64,12 +64,12 @@
 				<center>
 					<table id="postagens"> 
 						<tr>
-							<td id="postagens"><a href=perfil.html> <img src="_imagens/profpic.jpg" width=70></a></td>
+							<td id="postagens"><a href=perfil.php> <img src="_imagens/profpic.jpg" width=70></a></td>
 
 							<form method="get" action="postagem.php">
 								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"> </textarea></td>
 													
-							<td id="postagens2"> <input type="submit" name="enviar" value="Enviar" id="botao"></td>
+							<td id="postagens2"> <input type="submit" value="Enviar" id="botao"></td>
 							</form>
 						</tr>
 					</table>
@@ -89,25 +89,23 @@
 				          ?>
 				          <?php
 				            if(isset($_SESSION['nao_autorizado'])):?>
-				            <div>
-				            erro
-				            </div>
 				            <?php
 				            endif;
 				            unset($_SESSION['nao_autorizado']);
 				          ?>
-						<!--<?php
+						<?php
 							include('conexao.php'); 
-				            $consulta = "SELECT * FROM postagem";
-				            $resultado = mysql_query($consulta, $conexao);
-				            echo "$resultado";
-				            $quant = mysql_num_rows($resultado);
+				            $consulta = "SELECT * FROM `postagem` ORDER BY `postagem`.`idpostagem`";
+				            $resultado = mysqli_query($conexao, $consulta) or die('error');
+				            $quant = mysqli_num_rows($resultado);
 				            for($i=0;$i<$quant;$i++){
-				            	$exibir= mysql_result($resultado,$i,"postagem_texto");
-				            	echo "$exibir";
-				            }
+								$rows=$resultado->fetch_assoc();
+								$postagem = $rows['postagemtexto'];
+								echo "<div><tr><td><center>$postagem<br></center></td></tr></div>";
+							}
+				            
 				            mysqli_close($conexao);
-						 ?> -->
+						 ?>
 					</table>
 				</center>
 			</div>

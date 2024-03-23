@@ -33,8 +33,8 @@
       $sexo = $_POST["Texto"];
       }
 
-      $teste = "INSERT INTO `usuario` (nome, email, senha, rsenha, cidade, bairro, curso, data_de_nascimento, telefone, genero, nome_social, data_criacao) VALUES ";
-      $teste .= "('$nome', '$email', '$senha', '$rsenha', '$cidade', '$bairro', '$curso', '$data', '$tele', '$sexo', '$nomes', '$ano')";
+      $teste = "INSERT INTO `usuario` (nome, email, senha, rsenha, cidade, bairro, curso, data_de_nascimento, telefone, genero, nome_social, data_criacao, situacao) VALUES ";
+      $teste .= "('$nome', '$email', '$senha', '$rsenha', '$cidade', '$bairro', '$curso', '$data', '$tele', '$sexo', '$nomes', '$ano''$ano', 1)";
 
       if (mysqli_query($conexao, $teste)) {
                $_SESSION['autorizado'] = true;

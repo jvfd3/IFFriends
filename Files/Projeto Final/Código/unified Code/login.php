@@ -20,8 +20,16 @@
 			$row = mysqli_num_rows($result);
 
 			if($row == 1) {
+				$consulta = "SELECT `idusuario` FROM `usuario` WHERE email = '{$usuario}'";
+				$resultado = mysqli_query ($conexao, $consulta) or die ('Não foi possível conectar');
+				$quant = mysqli_num_rows($resultado);
+				for($i=0;$i<$quant;$i++){
+					$rows=$resultado->fetch_assoc();
+					$id = $rows['idusuario'];
+				}
 				$_SESSION['usuario'] = $usuario;
 				$_SESSION['verificar'] = $row;
+				$_SESSION['id'] = $id;
 				header('Location: pagina-pricipal.php');
 				exit();
 			} else {
