@@ -1,13 +1,12 @@
 <meta charset="utf-8">
 <?php
 	include('verifica-login.php');
-	include('conexao.php');
+	include('conexao.php');	
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>IFFriends</title>
-		<script src='nightly.min.js'></script>
 		<meta charset="UTF-8"/>
 		<title>IFFTool</title> <!-- Nome que pagina tem -->
 		<link rel="stylesheet" type="text/css" href="_css/login.css"> <!-- Onde fica o arquivo de estilo da pagina -->
@@ -29,51 +28,11 @@
 	</head>
 	<body>
 		<!-- menu da pagina -->
-			<div id="interface">
-				<table>
-					<tr>
-						<td>
-							<!-- Incio da barra de pesquisa -->
-								<div id="divBusca">
-									<input type="text" id="txtBusca" placeholder="Buscar..."/>
-									<a href="pesquisa.html"><button id="btnBusca"><img src="_imagens/1.png"/></button>
-								</div>
-							<!-- Fim da barra de pesquisa -->
-						</td>
-						<td>
-								<div id="sair"><a href="logout.php">sair</a></div>
-						</td>
-					</tr>
-				</table>
-			</div>
+			<?php include('menu.php'); ?>
 		<!-- Fim de menu -->
 
 		<!-- ver amigos online -->
-			<div id="online">
-				<center><h1>Online</h1></center>
-				<hr>
-			</div>
-			<div id="amigo">
-				<center>
-					<table>
-						<tr><td></td></tr><!-- aqui ira aparecer os amigos online -->
-					</table>
-				</center>
-			</div>
-		<!-- fim de amigos online -->
-		<!-- pesqusa de amigos -->
-			<div id="busca">
-				<table id="busca">
-					<tr>
-						<td id="pesquisa">
-							<div id="divPesquisa">
-								<input type="text" id="tBusca" placeholder="Pesquisar"/>
-								<button id="bBusca"><img src="_imagens/1.png"/></button>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</div>
+			<?php include('amigos-online.php'); ?>
 		<!-- Fim da pesquisa de amigos-->
 
 		<!-- editar seus dados -->
@@ -81,7 +40,15 @@
 				<center>
 					<table id="or">
 						<tr> <td rowspan="4">
-						<a href=profpic.jpg> <img src="_imagens/profpic.jpg" width=200></a><br></td>
+						
+						<!-- ÁREA DA FOTO DE PERFIL-->
+
+							<?php include('foto_perfil.php'); ?>
+					
+					
+						<!-- FIM DA ÁREA DA FOTO DE PERFIL-->
+						
+						<br></td>
 
 						</tr>
 					</table>
@@ -286,10 +253,25 @@
 							                <option value="1">Não Excluir</option>
 					              		</select>
 					              </td>
-					          	</tr>
-	          				</table>
-	          				<br><input type="submit" value="Salvar" id="s"> </a>
+					              <br><input type="submit" value="Salvar" id="s"> </a>
 						</form>
+					          	</tr>
+
+								<tr>
+									<td colspan="2">
+										<form method="post" action="guarda-foto.php" enctype="multipart/form-data">
+										<input role="button" type="file" name="arquivo">
+										
+										<!--Envia para o guarda-foto.php -->
+										<?php
+										$_SESSION['origem']="editperf";
+										?>
+										
+										<input type="submit" value="upload">
+										</form>
+									</td>
+								</tr>
+	          				</table>
 					</div>
 				</center>
 			</div>

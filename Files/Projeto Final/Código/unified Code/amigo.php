@@ -8,7 +8,7 @@
 	<head>
 		<title>IFFriends</title>
 		<meta charset="UTF-8"/>
-		<title>IFFTool</title> <!-- Nome que pagina tem -->		
+		<title>IFFTool</title> <!-- Nome que pagina tem -->
 		<link rel="stylesheet" type="text/css" href="_css/amigo.css">
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>

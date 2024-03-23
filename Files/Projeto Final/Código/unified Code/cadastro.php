@@ -6,14 +6,16 @@
   <head>
   	<meta charset="utf-8"/>
   	<title> Cadastro</title><!-- Nome que pagina tem -->
-  	<!-- Onde fica o arquivo de estilo da pagina -->
-      <link rel="stylesheet" type="text/css" href="_css/estilo.css">
-      <link rel="stylesheet" type="text/css" href="_css/estilo-1.css" media="screen and (max-width: 870px) and(min-width: 420px)">
-      <link rel="stylesheet" type="text/css" href="_css/estilo-2.css" media="screen and (max-width: 414px)">
+    <!-- Onde fica o arquivo de estilo da pagina -->
     <!-- Reaproveitando o arquivo de estilo da pagin index -->
-  	<!-- Onde fica o arquivo de estilo da pagina -->
-    <link rel="stylesheet" type="text/css" href="_css/cadastro.css" media="screen and (min-width:0px)">
-    <link rel="stylesheet" type="text/css" href="_css/cadastro-1.css" media="screen and (width: 640px)">
+    <link rel="stylesheet" type="text/css" href="_css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="_css/estilo-1.css" media="screen and (max-width: 870px) and(min-width: 420px)">
+    <link rel="stylesheet" type="text/css" href="_css/estilo-2.css" media="screen and (max-width: 414px)">
+    <!-- Reaproveitando o arquivo de estilo da pagin index -->
+    <!-- Onde fica o arquivo de estilo da pagina -->
+    <link rel="stylesheet" type="text/css" href="_css/cadastro.css" media="screen and (max-width:1439px) and (min-width: 1280px)">
+    <link rel="stylesheet" type="text/css" href="_css/cadastro-1.css" media="screen and (min-width: 1440px)">
+    <link rel="stylesheet" type="text/css" href="_css/cadastro-2.css" media="screen and (max-width: 1250px)">
     
     <!-- Icone que fica na pagina -->
     <link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" />
@@ -28,14 +30,25 @@
             : "hidden"; 
         }
       </script>
+      <style>
+    body{
+      background-image:url("_imagens/bgverde.jpg");
+      background-attachment:fixed;
+      background-size:100% 100%;
+      background-repeat:no-repeat;
+    }
+  </style>  
     <!-- Fim do script -->
   </head>
   <body>
     <!-- Primeira divisão da pagina -->
       <!-- Criar a logo da pagina -->
-        <div id="primeira"">
+        <div id="primeira">
         <header id="cabecalho">
-          <a id="icone" href="index.php"><img id="icone" src="_imagens/logo3.png"></a><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
+          <a id="icone" href="index.php">
+            <img id="icone" src="_imagens/logo3.png">
+          </a>
+          <!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
         </header>
         </div>
       <!-- Fim da Primeira divisão da pagina -->

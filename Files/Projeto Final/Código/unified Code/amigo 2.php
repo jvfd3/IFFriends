@@ -1,5 +1,7 @@
-<?php
-session_start();
+<?php 
+	include ('conexao.php');
+	include('menu.php');
+	include('amigos-online.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,12 +13,7 @@ session_start();
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-			<?php 
-			include ('conexao.php');
-			include('menu.php');
-			include('amigos-online.php');
-			?>
-
+		
 			<center>
 				<div id="amizade">
 					<h1 id="titulo">Amigos</h1><br>
