@@ -65,8 +65,9 @@
 					<table id="postagens"> 
 						<tr>
 							<td id="postagens"><a href=perfil.html> <img src="_imagens/profpic.jpg" width=70></a></td>
-							<form method="get" action="pagina-pricipal.php">
-								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"> </textarea> <input type="file" name=""></td>
+
+							<form method="get" action="postagem.php">
+								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"> </textarea></td>
 													
 							<td id="postagens2"> <input type="submit" name="enviar" value="Enviar" id="botao"></td>
 							</form>
@@ -77,28 +78,36 @@
 				<center>
 					<table>
 						<?php
+				            if(isset($_SESSION['autorizado'])):
+				            echo "
+				            <div>
+				            <tr><td><center>".$_SESSION['postagem']."</center></td></tr>
+				            </div>";
+				            
+				            endif;
+				            unset($_SESSION['autorizado']);
+				          ?>
+				          <?php
+				            if(isset($_SESSION['nao_autorizado'])):?>
+				            <div>
+				            erro
+				            </div>
+				            <?php
+				            endif;
+				            unset($_SESSION['nao_autorizado']);
+				          ?>
+						<!--<?php
 							include('conexao.php'); 
-							$postagem = isset($_GET['postagem'])?$_GET['postagem']:"";
-							$postando="INSERT INTO `postagem` (postagem_texto) VALUES ('$postagem')";
-							if (mysqli_query($conexao, $postando)) {
-								echo "<tr><td><center>$postagem</center</td></tr>";
-				               
-				            } else {
-				               echo "erro";
-				            }
-				            /*mysqli_close($conexao);
-				            include('conexao.php');
-				            $consulta = "SELECT * FROM `postagem` WHERE 1";
-				            $resultado = mysqli_query($consulta, $conexao);
+				            $consulta = "SELECT * FROM postagem";
+				            $resultado = mysql_query($consulta, $conexao);
 				            echo "$resultado";
-				            $quant = mysqli_num_rows($resultado);
+				            $quant = mysql_num_rows($resultado);
 				            for($i=0;$i<$quant;$i++){
 				            	$exibir= mysql_result($resultado,$i,"postagem_texto");
 				            	echo "$exibir";
 				            }
-				            	echo "leo";*/
-      						
-						 ?>
+				            mysqli_close($conexao);
+						 ?> -->
 					</table>
 				</center>
 			</div>
