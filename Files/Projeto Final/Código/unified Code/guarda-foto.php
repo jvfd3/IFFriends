@@ -17,7 +17,7 @@ if(isset($_FILES['arquivo'])){
 		// para destinar a imagem para a pasta certa
 		
 		if ($_SESSION['origem']=="fotos"){
-			$folder		= 'fotos/'.$id.'/';}
+			$folder		= 'fotos/'.$id.'/Album/';}
 		
 		else if($_SESSION['origem']=="editperf"){
 			$folder		= 'fotos/'.$id.'/ProfPic/';}
@@ -57,6 +57,7 @@ if(isset($_FILES['arquivo'])){
 			for($i = 0; $i < $numFile; $i++){
 				$extensao = @end(explode('.', $name));
 				$novoNome = rand().".$extensao";
+				$pasta = $folder.'/'.$novoNome;
 				if($error != 0){
 					$_SESSION['error3'] = $errorMsg[$error];
 				}
@@ -71,22 +72,23 @@ if(isset($_FILES['arquivo'])){
 					
 						if($_SESSION['origem']=="fotos"){
 								
-							if(move_uploaded_file($tmp, $folder.'/'.$novoNome)){
-								$inserir ="INSERT INTO `albuns` (`nome_foto`, `local_foto`, `usuario_idusuario`) VALUES ('$novoNome', '$folder', '$id')";
+							if(move_uploaded_file($tmp, $pasta)){
+								$inserir ="INSERT INTO `albuns` (`foto_album`, `usuario_idusuario`) VALUES ('$pasta', '$id')";
+						
 							if (mysqli_query($conexao, $inserir)) {
 								$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";}
 							else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
 							}
-							
+							header('Location: fotos.php');
 						}
 						
 						else if($_SESSION['origem']=="editperf"){
 							
 						
 							$_SESSION['folder']=$folder;
-								if(move_uploaded_file($tmp, $folder.'/'.$novoNome)){
-								$inserir = "UPDATE `usuario` SET `foto_perfil`='$novoNome', `local_foto_perfil`='$folder' WHERE idusuario='$id'";
-	
+								if(move_uploaded_file($tmp, $pasta)){
+								$inserir = "UPDATE `usuario` SET `foto_perfil`='$pasta' WHERE idusuario='$id'";
+
 							if (mysqli_query($conexao, $inserir)) {
 								$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";}
 								else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
@@ -103,6 +105,6 @@ if(isset($_FILES['arquivo'])){
 		}
 	}
 }
-header('Location: editperf.php');
+//header('Location: editperf.php');
 exit();
 ?>

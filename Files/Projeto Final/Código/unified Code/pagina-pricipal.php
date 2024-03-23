@@ -105,27 +105,38 @@
 							$quant = mysqli_num_rows($resultado);
 							$resultado1=mysqli_query($conexao, $consulta1);
 							$quant1 = mysqli_num_rows($resultado1);
+							if($quant > 0 && $quant1 > 0){
 							for($i=0;$i<$quant or $i<$quant1;$i++){
 							$rows=$resultado->fetch_assoc();
 							$rows1=$resultado1->fetch_assoc();
-							$ids [] = $rows;
-							$ids [] = $rows1;
-						}
-							$quant = count($ids);
-							print_r($ids);echo "<br>$quant<br>";
-							for($i=0;$i<$quant;$i++){
-							$idamigo = $ids[$i];
-							print_r($idamigo);
-				            //$consulta = "SELECT * FROM `postagem` WHERE `usuario_idusuario`=$id";
-				            //$resultado = mysqli_query($conexao, $consulta) or die('error');
-				            //$quant = mysqli_num_rows($resultado);
-				            /*for($i=0;$i<$quant;$i++){
-								$rows=$resultado->fetch_assoc();
-								$postagem = $rows['postagemtexto'];
-								echo "<div><tr><td><center>$postagem<br></center></td></tr></div>";
-							}*/
-				            }
-				            //echo "$consulta";
+							$ids [] = $rows["usuario_idusuario"];
+							$ids [] = $rows1['idamizade_amigo'];
+							}
+							$quant2 = count($ids);
+							for($i=0;$i<$quant2;$i++){
+								if ($i == 0) {
+									$idamigo =  "'".$id."' or '".$ids[$i]."' or '" ;
+								}
+								elseif ($i > 0 && $i <= $quant) {
+									$idamigo = " ".$idamigo.$ids[$i]."' or '";
+								}
+								elseif ($i > $quant) {
+									$idamigo = "".$idamigo.$ids[$i]."'";
+								}
+								
+							}
+							}
+							elseif ($quant === 0 && $quant1 === 0) {$idamigo =  "'".$id."' ";}
+							$consulta = "SELECT * FROM `postagem` WHERE `usuario_idusuario`=".$idamigo." ORDER BY `data_postagem` ASC";
+					            $resultado1 = mysqli_query($conexao, $consulta) or die('error');
+					            $quant1 = mysqli_num_rows($resultado1);
+					            if ($quant1 == 0) {
+					            }
+					            for($a=0;$a<$quant1;$a++){
+									$rows=$resultado1->fetch_assoc();
+									$postagem = $rows['postagemtexto'];
+									echo "<div><tr><td><center>$postagem<br></center></td></tr></div>";
+								}
 				            mysqli_close($conexao);
 						 ?>
 					</table>

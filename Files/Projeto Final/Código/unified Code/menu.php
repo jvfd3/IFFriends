@@ -5,6 +5,14 @@
 	<link rel="stylesheet" type="text/css" href="_css/login.css">
 </head>
 <body>
+	<style>
+		body{
+			background-image:url("_imagens/bgverde.jpg");
+			background-attachment:fixed;
+			background-size:100% 100%;
+			background-repeat:no-repeat;
+		}
+	</style>
 	<!-- menu da pagina -->
 			<div id="interface">
 					<!-- Incio da barra de pesquisa -->

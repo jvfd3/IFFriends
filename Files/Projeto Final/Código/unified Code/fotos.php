@@ -61,14 +61,16 @@
 							<?php
 								include ('conexao.php');
 								$id=$_SESSION['id'];
-								$consulta = "SELECT * FROM `albuns` WHERE usuario_idusuario='$id'";
+								 $_SESSION['origem']="fotos";
+								$consulta = "SELECT `foto_album` FROM `albuns` WHERE usuario_idusuario='$id'";
+
 								$resultado = mysqli_query($conexao, $consulta)or die ('Não foi possível conectar');
 								$quant = mysqli_num_rows($resultado);
 								for($i=0;$i<$quant;$i++){
 									$rows=$resultado->fetch_assoc();
-									$nome = $rows['nome_foto'];
-									$local = $rows['local_foto'];
-									echo "<li id='fotos01'><img src='$local$nome' id='fotos'></li>";
+									$foto = $rows['foto_album'];
+								
+									echo "<li id='fotos01'><img src='$foto' id='fotos'></li>";
 								}
 							?>
 						</ul>

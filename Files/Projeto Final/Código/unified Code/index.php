@@ -26,7 +26,7 @@
 	<body>
   			<div id="primeira">
     		<header id="cabecalho">
-      		<p align=center> <a href="index.php"><img src="_imagens/logo3circle.png"></a></p><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
+      		<p align=center> <a href="index.php"><img src="_imagens/logo3circle.png"></a></p>
     		</header>
     		</div>
     	<!-- Fim da Primeira divisão da pagina -->
