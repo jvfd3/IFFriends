@@ -1,0 +1,49 @@
+﻿@charset "UTF-8";
+/* opções */
+	table#or{
+		margin-top: 70px;
+		}
+		td#or{
+		width: 15%;
+		}
+
+/* mostrar dados do usuario */
+	div#or{
+		margin-bottom:100px;
+		width: 50%;
+		border: 5px solid green;
+		}
+		table#ordem{
+		margin-left: 0%;
+		}
+		
+		
+/* perfil.php*/
+
+	table#tabsup{
+		margin-top: 30px;
+	}
+	
+	td#colsup{
+	width: 110px;
+	}
+	
+	div#cxtab{
+
+	/*
+	width: 30%;
+	*/
+	width: 450px;
+	border: 5px solid green;
+		}
+		
+	table#tabinf{
+
+	/*	
+	width: 100%;
+	*/
+	width: 450px;
+	}
+
+	td#colinfesq{}
+	td#colinfdir{}

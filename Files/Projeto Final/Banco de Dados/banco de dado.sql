@@ -1,0 +1,168 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema rede social
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema rede social
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `rede social` ;
+USE `rede social` ;
+
+-- -----------------------------------------------------
+-- Table `rede social`.`chat`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `rede social`.`chat` (
+  `idchat` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `mensagem` LONGTEXT NULL,
+  PRIMARY KEY (`idchat`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `rede social`.`Paginas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `rede social`.`Paginas` (
+  `idPaginas` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NULL,
+  `datainicio` VARCHAR(45) NULL,
+  `sobre` MEDIUMTEXT NULL,
+  `mebros` INT NULL,
+  PRIMARY KEY (`idPaginas`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `rede social`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `rede social`.`usuario` (
+  `idusuario` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(30) NOT NULL,
+  `email` VARCHAR(60) NOT NULL,
+  `senha` VARCHAR(30) NOT NULL,
+  `cidade` VARCHAR(45) NULL,
+  `bairro` VARCHAR(45) NULL,
+  `curso` VARCHAR(45) NULL,
+  `data_de_nascimento` DATE NULL,
+  `telefone` INT(11) NULL,
+  `genero` VARCHAR(45) NULL,
+  `nome_social` VARCHAR(45) NULL,
+  `foto_perfil` MEDIUMBLOB NULL,
+  `cor_fundo` VARBINARY(1000) NULL,
+  `modo_norturno` VARCHAR(45) NULL,
+  `usuariocol` TINYINT(1) NOT NULL,
+  `situacao` TINYINT(1) NOT NULL,
+  `chat_idchat` INT UNSIGNED NOT NULL,
+  `pesquisa_idpesquisa` INT NOT NULL,
+  `Paginas_idPaginas` INT NOT NULL,
+  PRIMARY KEY (`idusuario`, `Paginas_idPaginas`),
+  INDEX `fk_usuario_chat1_idx` (`chat_idchat` ASC),
+  INDEX `fk_usuario_Paginas1_idx` (`Paginas_idPaginas` ASC),
+  CONSTRAINT `fk_usuario_chat1`
+    FOREIGN KEY (`chat_idchat`)
+    REFERENCES `rede social`.`chat` (`idchat`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuario_Paginas1`
+    FOREIGN KEY (`Paginas_idPaginas`)
+    REFERENCES `rede social`.`Paginas` (`idPaginas`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `rede social`.`grupo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `rede social`.`grupo` (
+  `idgrupo` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nome_grupo` INT NOT NULL,
+  `foto_do_grupo` MEDIUMBLOB NULL,
+  `situação` TINYINT(1) NOT NULL,
+  `chat_idchat` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`idgrupo`),
+  INDEX `fk_grupo_chat1_idx` (`chat_idchat` ASC),
+  CONSTRAINT `fk_grupo_chat1`
+    FOREIGN KEY (`chat_idchat`)
+    REFERENCES `rede social`.`chat` (`idchat`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `rede social`.`amizade`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `rede social`.`amizade` (
+  `idamizade` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `idamizade_amigo` INT UNSIGNED NOT NULL,
+  `data_solicitacao` DATE NOT NULL,
+  `data_confirmacao` DATE NOT NULL,
+  `tipo_amigo` VARCHAR(45) NULL,
+  `usuario_idusuario` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`idamizade`, `idamizade_amigo`),
+  INDEX `fk_amizade_usuario1_idx` (`usuario_idusuario` ASC),
+  CONSTRAINT `fk_amizade_usuario1`
+    FOREIGN KEY (`usuario_idusuario`)
+    REFERENCES `rede social`.`usuario` (`idusuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `rede social`.`albuns`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `rede social`.`albuns` (
+  `idalbuns` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nome_foto` VARCHAR(100) NOT NULL,
+  `local_foto` MEDIUMBLOB NOT NULL,
+  `usuario_idusuario` INT UNSIGNED NOT NULL,
+  `Paginas_idPaginas` INT NOT NULL,
+  PRIMARY KEY (`idalbuns`),
+  INDEX `fk_albuns_usuario1_idx` (`usuario_idusuario` ASC),
+  INDEX `fk_albuns_Paginas1_idx` (`Paginas_idPaginas` ASC),
+  CONSTRAINT `fk_albuns_usuario1`
+    FOREIGN KEY (`usuario_idusuario`)
+    REFERENCES `rede social`.`usuario` (`idusuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_albuns_Paginas1`
+    FOREIGN KEY (`Paginas_idPaginas`)
+    REFERENCES `rede social`.`Paginas` (`idPaginas`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `rede social`.`usuario_e_grupo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `rede social`.`usuario_e_grupo` (
+  `usuario_idusuario` INT UNSIGNED NOT NULL,
+  `grupo_idgrupo` INT UNSIGNED NOT NULL,
+  `data_entraga` DATE NOT NULL,
+  `administrador` INT NOT NULL,
+  `membros` INT NULL,
+  PRIMARY KEY (`usuario_idusuario`, `grupo_idgrupo`),
+  INDEX `fk_usuario_has_grupo_grupo1_idx` (`grupo_idgrupo` ASC),
+  INDEX `fk_usuario_has_grupo_usuario1_idx` (`usuario_idusuario` ASC),
+  CONSTRAINT `fk_usuario_has_grupo_usuario1`
+    FOREIGN KEY (`usuario_idusuario`)
+    REFERENCES `rede social`.`usuario` (`idusuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuario_has_grupo_grupo1`
+    FOREIGN KEY (`grupo_idgrupo`)
+    REFERENCES `rede social`.`grupo` (`idgrupo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

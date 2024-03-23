@@ -1,0 +1,31 @@
+@charset"UTF-8";
+body{
+width: 100%;
+height: 100%;
+white-space: nowrap;
+overflow: hidden;
+}
+/*Ajustando o formulario*/
+div{
+margin-right: center;
+margin-bottom: 6px;
+}
+div#inicio{
+margin-top: 250px;
+}
+option{
+width: 200px;
+
+}
+div.form-group{
+position: relative;
+-webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+-moz-appearance: none; /* Remove estilo padrão do FireFox */
+width: 1850px;
+/*margin-left: 200px;*/
+}
+input{
+}
+input[password]{
+margin-left: 200px;
+}

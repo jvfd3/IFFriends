@@ -1,0 +1,33 @@
+﻿@charset "UTF-8";
+
+/* perfil.php*/
+
+	table#tabsup{
+		margin-top: 30px;
+	}
+	
+	td#colsup{
+	width: 110px;
+	}
+	
+	div#cxtab{
+
+	/*
+	width: 30%;
+	*/
+	width: 450px;
+	border: 5px solid green;
+		}
+		
+	table#tabinf{
+
+	/*	
+	width: 100%;
+	*/
+	width: 450px;
+	}
+
+	td#colinfesq{}
+	td#colinfdir{}
+
+	

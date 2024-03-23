@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/><!-- Coloca acentuação -->
+		<title>IFFRIENDS</title> <!-- Nome que pagina tem -->
+		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
+		<link rel="stylesheet" type="text/css" href="_css/estilo.css"> <!-- Onde fica o arquivo de estilo da pagina -->
+		<!-- Inicio da linguagem  javascript -->
+			<script src='nightly.min.js'></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+		  		var button = $('.night-mode-button');
+		  		var container = $('.content-box');
+		  
+		  		button.click(function() {
+		    	container.toggleClass('-nightmode');
+		  		});
+				});
+			</script>
+		<!-- Fim da linguagem  javascript -->
+	</head>
+	<body>
+		<!-- Primeira divisão da pagina -->
+			<!-- Criar a logo da pagina -->
+  			<div id="primeira">
+    		<header id="cabecalho">
+      		<a id="icone" href="pagina1.html"><img id="icone" src="_imagens/Logo2.png"></a><!-- Cria um link na logo OBS: tem que trocar o href no futuro -->
+    		</header>
+    		</div>
+    	<!-- Fim da Primeira divisão da pagina -->
+
+ 		<div id="funcoes">
+ 			<select>
+			<!-- Inicio da chamada das funções-->
+				<!-- Inico do corpo da função muda cor -->
+					<?php
+						$a=@$_POST['cor'];
+						$b="#ffffff";
+						?>
+						<style> 
+							body{ 
+							background-color: <?php switch ($a) {case "": echo $b;break; default: echo $a;
+							break;}?>;
+							} 
+						</style>
+				<!-- Fim da função muda cor -->
+
+				<!-- Incio da função modo noturno -->
+				
+					<option class="fab-toggle-nihgtly" id="toggle-nightify-btn">Modo noturno</option>
+
+			    	<script src="_javascript/nightly.js-develop/src/nightly.js" charset="utf-8"></script>
+			    	<script type="text/javascript">
+			      		var sayGoodNight = function() {
+			        	console.log("Good night :) !");
+			      		}
+
+			      		var sayGoodMorning = function() {
+			        	console.log("Good morning !");
+			     		}
+
+			      		// Persistência desativada
+			      		var Nightly = new Nightly(false, {
+			            classes: [
+			            {
+			            apply: 'hilighted-tex-dark',
+			            to: 'hilighted-tex'
+			            },
+			            {
+			            apply: 'comment-section-dark',
+			            to: 'comment-section'
+			            },
+			            {
+			            apply: 'comment-card-dark',
+			            to: 'comment-card'
+			            }
+			            ],
+			            });
+			                                
+			      		document.getElementById("toggle-nightify-btn").addEventListener("click", function(){
+
+			        	// A função toggle () recebe dois retornos de chamada opcionais
+			        	Nightly.toggle(sayGoodNight, sayGoodMorning);
+			      		});
+			    	</script>
+			    	
+			    	
+				<!-- Fim da função modo noturno -->
+
+				<!-- Chamada da função do muda cor botão -->
+					<form method="post" action="pagina1.html"><!-- action se diz a pagina que se redimecionado -->
+						
+						
+							<option name="mudaCor" id="cmuda" value="Mudar cor"> muda cor </option>
+							<input type="color" name="cor"/>
+						
+					</form>
+				<!-- Fim da chamada muda cor botão -->
+
+			<!-- Fim da chamada das funções -->
+			</select>
+		</div>
+
+		<!-- terceira divisão da pagina -->
+			<div id="inicio">
+				<!-- Inicio do formulario -->
+					<form id="Login" method="post" ><!-- tem que fazer o action -->
+						<div>
+							<label for="cEmail">E-mail:</label>
+		 					<input type="email" name="tEmail" id="cEmail" size="50" maxlength="113" />
+						</div>
+
+						<div id="senha">
+							<label for="cSenha">Senha:</label>
+							<input type="password" name="tSenha" id="cSenha" size="50" />
+						</div>
+
+						<div id="lembrar">
+							<label for="cLembrarSenha">Lembrar-me</label><input type="checkbox" name="tLembrarSenha" id="cLembrarSenha" value="LembrarSenha">
+						</div>
+
+						<div id="button1">
+							<button type="submit" class="button">Login</button>
+						</div>
+
+						<div id="button">
+							<a href="cadastro.html"><button type="button" class="button">Cadastro</button></a><!-- tera que trocar o href no futuro -->
+						</div>
+					</form>
+				<!-- Fim do formulario -->
+			</div>
+		<!-- Fim da terceira divisão da pagina -->
+	</body>
+</html>

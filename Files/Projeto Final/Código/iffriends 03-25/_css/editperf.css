@@ -1,0 +1,66 @@
+@charset "UTF-8";
+div#postagens{
+	overflow: hidden;
+}
+#divBusca{
+margin-top: -5px;
+}
+#divBusca img{
+	margin-top: -5px;
+}
+ul li {
+	margin-bottom: -5px;
+}
+/* editando o formulario */
+	div#or{
+		width: 50%;
+		border: 5px solid green;
+		}
+	label{
+		float: left;
+		}
+	input{
+		float: right;
+		}
+	input#s{
+		float: none;
+		}
+		select{
+			float: right;
+		}
+		#Texto{
+			visibility: hidden; 
+			display: block; 
+			float: right; 
+			margin-top: 0%; 
+			margin-right: -81.2px;
+			height: 30%; 
+			position: relative;
+		}
+input[type='file'] {
+  display: none
+}
+.botao  {
+position: relative;
+display: block;
+left: 280px;
+}
+
+.botao a, .botao a:visited {  
+text-decoration: none;
+color:#fff;
+background: #666;	
+width:140px;  
+height:24px;	
+display:block;	
+}
+
+.botao a:hover { 
+background: #666;
+background-color: #fff; 
+color:#999;
+}
+label#enviar{
+	margin-left: 10px;
+	font-size: 16px;
+}

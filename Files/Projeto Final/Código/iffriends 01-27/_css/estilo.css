@@ -1,0 +1,74 @@
+@charset"UTF-8;
+*{margin: 1; padding: 1}
+html, body{
+  height: 100%;
+  width: 100%;
+  white-space: normal;/* Permite a quebra de texto automaticamente */
+	overflow: hidden;/* Não permite rolagem na pagina */
+  min-width: 600px;
+  max-width: 20000px;
+  margin: 1px;
+  position: relative;
+}
+div#sup{
+	width: 100%;
+	
+}
+
+/*Definindo a largura e a posicão da primeira divisão*/
+	div#primeira{
+		width: 100%;
+		height: 100%;
+		}
+/*Ajustando a imagem*/
+	header#cabecalho img#icone{
+		position: absolute;
+		width: 99.8%;
+		height: 11.5%;
+		margin-top: 0.1%;
+		}
+
+/*definindo local das funções */
+	div#funcoes{
+		width: 100%;
+		height: 50px;
+		margin-top: -37%;
+		}
+	select{
+		background-image: "_imagens/confi.png";
+	}
+
+/*Ajustando o formulario*/
+	form#Login{
+		margin-top: -8%;
+		}
+	div#inicio{
+		text-align: center;
+		font-size: 200%;
+		margin-top: 20%;
+		}
+	div#senha{
+		margin-top: 1%;
+		}
+	div#lembrar{
+		font-size: 20px;
+		margin-top: 1%;
+		margin-left: 2.2%;
+		}
+	div#button1{
+		margin-top: 5px;
+		margin-left: 30px;
+		font-size: 100px;
+		display: inline;
+		}
+	div#button{
+		margin-top: 10px;
+		margin-left: 30px;
+		font-size: 100px;
+		display: inline;
+		}
+	button.button{
+		width: 10%;
+		height: 15%;
+		font-size: 20px;
+		}

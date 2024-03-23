@@ -1,0 +1,88 @@
+@charset "UTF-8";	
+fieldset{
+	margin-top: 50px;
+	width: 50%;
+	margin-bottom: 10px;
+}
+div#titulo{
+	width: 102.5%;
+	height: 30px;
+	margin-left: -10px;
+	margin-top: -5px;
+	background: green;
+	margin-bottom: 50px;}
+	input#foto{
+		width: 92px;
+		margin-left: -80px;
+	}div#foto{
+		display: block;
+		position: relative;
+		background-color: #ffffff;
+		width: 115px;
+		height: 27px;
+		margin-top: -26.5px;
+		margin-left: 129px;
+		text-align: center;
+		line-height: 1.5;
+	}button#foto{
+		display: block;
+		position: relative;
+		margin-top: -26px;
+		margin-left: 310px;
+	}div#fotos1{
+		margin-left: -10%;
+	}
+
+/* editar area de foto */
+ul#album-fotos{
+		width: 700px;
+		height: 90%;
+		margin: 0 auto;
+		padding: 50px;
+		overflow: hidden;
+		list-style: none;
+}
+ul#album-fotos li, img#fotos {
+		float: left;
+		width: 200px;
+		height: 200px;
+		margin: 10px;
+		border: 5px solid #ffffff;
+		background-color: #ffffff;
+		box-shadow: 1px 1px 3px rgba(0,0,0, 4)
+		-webkit-transition: all 1s ease-in;
+		-webkit-transition: all .4s ease-in;
+}
+
+ul#album-fotos li span{
+		opacity: 0;
+		color: #ffffff;
+		text-shadow: 1px 1px 1px #000000;
+		background-color:  rgba(0,0,0,.3);
+		font-size: 9pt;
+		line-height: 370px;
+		padding: 5px;
+}
+
+ul#album-fotos li:hover {
+		-webkit-transform: scale(1.5);
+}
+
+ul#album-fotos li:hover span{
+		opacity:1;
+}
+
+ul#album-fotos li#fotos01{
+		background-position: 50% 50%;
+		background-size: 400px 400px;
+		background-color: #ffffff;
+}
+
+ul#album-fotos li#fotos01:hover {
+	background-position: 0px 0px;
+	background-size: 200px 200px;
+}
+
+img#fotos{
+	margin: -5px;
+}

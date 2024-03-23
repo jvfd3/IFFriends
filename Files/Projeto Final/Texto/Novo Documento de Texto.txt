@@ -1,0 +1,37 @@
+
+O nosso objetivo (deste projeto final é) ao criar uma rede social focado inicialmente no Instituto Federal Fluminense (IFF) desta forma possibilitando que os alunos e professores possam ter mais sociabilidade, podendo trocar mensagens e também podendo interagir entre si, independente de seu turno, curso ou função.
+*revisar* No sistema que propomos, a tela inicial terá no cabeçalho da página a logo do IFF, também sendo exibidas notícias e propagandas. Existirão duas opções de entrada: uma por meio de e-mail e senha (o login) e a outra, por meio de cadastro onde o usuário vai ser redirecionado para a página de cadastro, onde deverá que preencher os dados pedidos que serão: nome, e-mail, senha e como opcionais: cidade, bairro, curso, data de nascimento, telefone, gênero e nome social.
+Ao logar, o usuário estará na página inicial da rede social, e a organização se dá da seguinte forma:
+No topo uma barra de pesquisas, que permitirá procurar por pessoas e campi do Instituto Federal. Ao efetuar a busca, o usuário será redirecionado para uma página onde poderá selecionar que tipo de busca ele pretende fazer, podendo ser: página, pessoa, campus. Ao lado da barra de pesquisas, haverá a opção de configurações (representado pelo símbolo de uma roda dentada) para poder alterar seus dados como: email, senha, data de nascimento, etc. 
+No lado direito haverá a lista de amigos com os quais os usuários poderão enviar mensagens e, no canto inferior direito, poder organizar os amigos de acordo com seus círculos sociais, exemplos: Igreja, Escola, Futebol, Curso de Inglês, etc.
+No centro da página haverão postagens dos usuários e dos campi, onde os usuários poderão comentar e/ou compartilhar o conteúdo. Durante a criação da postagem, o usuário pode optar pela visibilidade de sua publicação aos outros usuários da rede, podendo ser: Pública, apenas para amigos, apenas para ele e também a opção de selecionar dentre seus amigos (ou grupos de amigos) quais poderão ver. Os usuários podem entrar na página de outro usuário e pedir solicitação de amizade, ao aceitar a solicitação de amizade poderá mandar mensagens para a pessoa, comentar nas postagens e poder convidar essa pessoa para grupos.
+Descrever como serão criados os grupos. (quais os campos necessários)
+Esses grupos seriam similares aos grupos de whatsapp, onde há o criador, administradores e os membros. Todos os usuários do IFFriends podem criar grupos e administrá-los como quiser, podendo apagar, editar, convidar seus amigos, conceder privilégios de administrador, etc.
+
+
+
+
+Antigo 2
+
+O nosso objetivo (deste projeto final é) ao criar uma rede social focado inicialmente no Instituto Federal Fluminense (IFF) desta forma possibilitando que os alunos e professores possam ter mais sociabilidade, podendo trocar mensagens e também podendo interagir entre si, independente de seu turno, curso ou função.
+No sistema que propomos, a tela inicial terá no cabeçalho da página a logo do IFF, também sendo exibidas notícias e propagandas. Existirão duas opções de acesso: uma por meio de e-mail e senha, a segunda opção será o cadastro onde o usuário vai ser redirecionado para a página de cadastro, a onde terá que preencher os dados pedidos que serão: nome, e-mail, senha e como opcionais: cidade, bairro, curso, data de nascimento, telefone, gênero e nome social.
+Ao logar usuário estará na página inicial da rede social, e a organização se dá da seguinte forma:
+No topo uma barra de pesquisas, que permitirá procurar por pessoas e campi do Instituto Federal. Ao efetuar a busca, o usuário será redirecionado para uma página onde poderá selecionar que tipo de busca ele pretende fazer, podendo ser: página, pessoa, campus. Ao lado da barra de pesquisas, haverá a opção de configurações (representado pelo símbolo de uma roda dentada) para poder alterar seus dados como: email, senha, data de nascimento, etc. 
+No lado direito haverá a lista de amigos com os quais os usuários poderão enviar mensagens e, no canto inferior direito, poder organizar os amigos de acordo com seus círculos sociais, exemplos: Igreja, Escola, Futebol, Curso de Inglês, etc.
+No centro da página haverá postagens dos usuários e dos campus, onde os usuários poderão comentar ou compartilhar o conteúdo, durante a criação da postagem, o usuário pode optar pela visibilidade de sua publicação aos outros usuários da rede, podendo ser: Pública, apenas para amigos, apenas para ele e também a opção de selecionar dentre seus amigos (ou grupos de amigos) quais poderão ver. Os usuários podem entrar na página de outro usuário e pedir solicitação de amizade, ao aceitar a solicitação de amizade poderá mandar mensagens para a pessoa, comentar nas postagens e poder convidar essa pessoa para grupos.
+Esses grupos seriam similares aos grupos de whatsapp, onde há o criador, administradores e os membros. Todos os usuários do IFFriends podem criar grupos e administrá-los como quiser, podendo apagar, editar, convidar seus amigos, conceder privilégios de administrador, etc.
+
+
+
+
+
+
+
+Antigo:
+
+Em nosso trabalho de conclusão de curso teremos inicialmente uma tela de introdução, apresentando a logo do iff e alguma imagem ou notícia sobre a situação atual do iff, como por exemplo os anúncios que aparecem na televisão próximo à cantina. Nessa tela de introdução estará também apresentando duas opções: uma sendo o cadastramento de novos usuários e a segunda o login para aqueles que já se cadastraram. (Opcional: Havendo também a opção de integrar o login dessa rede social com a conta do google e/ou a do facebook, ou até mesmo o login do iff acadêmico).
+Na parte de cadastramento, alguns dos dados que deverão constar, são: Nome, email, senha, endereço, telefone, gênero e curso. (Posteriormente: data de nascimento (Opcional: nome social).
+Na parte de login, apenas serão necessários o email e a senha do usuário. Após o cadastramento ou o login, o usuário será direcionado para a página principal da Rede Social do IFF (Nome a ser planejado).
+Na esquerda da página principal encontram-se links que redirecionam o usuário para diferentes locais da rede social, como exemplo uma aba somente para pesquisas direcionadas a pessoas e outra a diferentes campi dos if. No centro da página inicial localiza-se o feed de notícias, que se encontram as notícias que são postadas e compartilhadas por pessoas ou pelo campus e curso que o usuário acompanha, tendo assim a opção de comentar sobre e também compartilhar caso seja algo de grande importância. 
+Outra área disponível seria a de sociabilidade entre os usuários: Após uma pesquisa quanto aos usuários existentes no banco de dados, pode ser enviada uma solicitação de amizade, para que haja interação direta entre os usuários.
+Ao adicionar um usuário como amigo, passa a ser possível mandar mensagens para essa pessoa. Na mesma aba onde é possível enviar mensagens, pode-se também criar grupos para facilitar a troca de informações sobre os cursos, sendo possível também a fácil comunicação entre os alunos, os professores e as coordenações.

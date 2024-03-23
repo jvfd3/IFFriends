@@ -1,0 +1,60 @@
+@charset"UTF-8";
+body{
+	overflow: scroll;
+	}
+/*Ajustando o formulario*/
+form#Login{
+	margin-left: 650px;
+	margin-top: -24.5%;
+	}
+table#ajuste{
+	height: 100%;
+	width: 100%;
+	text-align: left;
+	}
+td{
+	width: 40%;
+	float: left;
+	margin-right: -28%;
+	}
+
+input{
+	text-align: center;
+	font-size: 25px;
+	height: 45px;
+	width: 350px;
+	border: 1px solid black;
+	}
+input#cData{
+	display: block;
+	margin-left: 30%;
+	margin-bottom: 2%;
+	width: 199px;
+	}
+input#cNomeS{
+	display: block;
+	margin-left: 55px;
+	width: 295px;
+	font-size: 21px;
+	}
+select#Sexo{
+	width: 355px;
+	height: 45px;
+	}
+tr#sexo{
+	display: block;
+	margin-bottom: 50px;
+	}
+
+/*ajuste de botões*/
+button.button{
+	width: 11%;
+	}
+div#button, div#buton{
+	margin-left: -50%;
+	}
+
+input#color{
+	width: 30px;
+	height: 20px;
+	}
