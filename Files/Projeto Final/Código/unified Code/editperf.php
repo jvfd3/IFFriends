@@ -28,9 +28,7 @@
     	<!-- Fim do script -->
 	</head>
 	<body>
-	<font size="5" face="arial">
 		<!-- editar seus dados -->
-		
 			<div id="postagens">
 				<center>
 					<table id="or">
@@ -74,31 +72,31 @@
 	            					$nome_social=$_SESSION['nome_social'];
 	            				?>
 	              				<tr>
-					                <td><label for="cNome"><b>Nome:</b></label></td>
+					                <td><label for="cNome">Nome:</label></td>
 					                <td>
 					                	<input type='text' name='tNome' id='cNome' size='30' maxlength='50' placeholder=<?php echo "'$nome'>";?> 
 					                </td>
 				              	</tr>
 
 				              	<tr>
-				                	<td><label for="cEmail"><b>E-mail:</b></label></td>
+				                	<td><label for="cEmail">E-mail:</label></td>
 				                	<td>
 				                		<input type='email' name='tEmail' id='cEmail' size='30' maxlength='113' placeholder=<?php echo "'$email'>";?>
 					                </td>
 				              	</tr>
 
 				              	<tr>
-				              		<td><label for=""><b>Senha:</b></label></td>
+				              		<td><label for="">Senha:</label></td>
 				              		<td><input type="password" name="tSenha" id="cSenha" size="30" maxlength="30" placeholder="digite a senha"></td>
 				              	</tr>
 
 				              	<tr>
-				              		<td><label for=""><b>Re-Senha</b></label></td>
+				              		<td><label for="">Re-Senha:</label></td>
 				              		<td><input type="password" name="tRSenha" id="cRSenha" size="30" maxlength="30" placeholder="digite a senha novamente"></td>
 				              	</tr>
 
 								<tr>
-					                <td><label for="cCidade"><b>Cidade:</b></label></td>
+					                <td><label for="cCidade">Cidade:</label></td>
 					                <td>
 					                	<input type='text' name='tCidade' id='cCidade' size='30' maxlength='50' placeholder=<?php
 					                	echo"'$cidade'";?> list='cidade' />
@@ -200,27 +198,27 @@
 		              			</tr>
 
 		              			<tr>
-	              					<td><label for="cCurso"><b>Bairro:&nbsp;</b></label></td>
+	              					<td><label for="cCurso">Bairro:&nbsp;</label></td>
 	              					<td><input type="text" name="tBairro" id="cBairro" size="30" maxlength="40" placeholder="<?php echo $bairro; ?>"/></td>
 	            				</tr>
 
 								<tr>
-	              					<td><label for="cCurso"><b>Curso:&nbsp;</b></label></td>
+	              					<td><label for="cCurso">Curso:&nbsp;</label></td>
 	              					<td><input type="text" name="tCurso" id="cCurso" size="30" maxlength="40" placeholder="<?php echo $curso; ?>"/></td>
 	            				</tr>
 
 					            <tr>
-					              <td><label for="cDate" id="cData"><b>Data de Nascimento:</b></label></td>
+					              <td><label for="cDate" id="cData">Data de Nascimento:</label></td>
 					                <td><input type="date" name="TData" id="cData" size="30" /></td>
 					            </tr>
 					            
 					            <tr>
-					              <td><label for="cTele"><b>Telefone:</b></label></td>
+					              <td><label for="cTele">Telefone:</label></td>
 					              <td><input type="tel" name="tTele" id="cTele" size="30" maxlength="11" placeholder="<?php echo $telefone; ?>"></td>
 					            </tr>
 
 					            <tr id="sexo">
-					              	<td><label for="gene"><b>Gênero:</b></label></td>
+					              	<td><label for="gene">Gênero:</label></td>
 					              	<td><select class="form-group" name="Sexo" id="Sexo" onchange="mostraCampo(this);"> <!-- Incorporando a função na opção -->
 					                  	<option value="" selected="selected"><?php echo $genero; ?></option>
 					                  	<option value="Masculino">Masculino</option>
@@ -231,12 +229,12 @@
 					          	</tr>
 
 					            <tr>
-					              <td><label for="cNomeS"><b>Nome Social:</b></label></td>
+					              <td><label for="cNomeS">Nome Social:</label></td>
 					              <td><input type="text" name="tNomeS" id="cNomeS" size="30" maxlength="30" placeholder="<?php echo $nome_social; ?>"></td>
 					            </tr>
 
 					            <tr id="apagar">
-					              	<td><label for="gene"><b>Excluir conta:</b></label></td>
+					              	<td><label for="gene">Excluir conta:</label></td>
 					              	<td>
 					              		<select name="apagar" id="apagar">
 						                  	<option value="1" selected="selected">selecionar</option>
@@ -266,7 +264,6 @@
 					</div>
 				</center>
 			</div>
-			</font>
 		<!-- fim de editar seus dados -->
 	</body>
 </html>

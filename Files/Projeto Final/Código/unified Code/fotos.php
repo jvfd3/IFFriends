@@ -12,7 +12,6 @@
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-	<font face="arial">
 
 		<!-- area de foto -->
 			<div id="postagens">
@@ -29,7 +28,7 @@
 					?>
 					<fieldset>
 						<div id="titulo">
-							<font size=5 face=arial > Fotos	</font>
+							<font size=5 face=arial color=cyan > Fotos	</font>
 							<a>
 								  <div>
 								    <br>
@@ -39,13 +38,11 @@
 								  $_SESSION['origem']="fotos";
 								  ?>
 								  	<form method="post" action="guarda-foto.php" enctype="multipart/form-data">
-									
 								  <div id="fotos1"><input role="button" type="file" name="arquivo" accept="image/jpeg, image/png" id="foto">
 								  <div id="foto"><label for="foto" id="foto">Adicione sua foto</label></div>
 								 <!--Envia para o guarda-foto.php -->
 								  
 								  <button type="submit" id="foto">Salvar</button></div>
-								 
 								  </form>
 								</div>
 							</a>
@@ -69,7 +66,6 @@
 					</fieldset>
 				</center>
 			</div>
-			</font>
 		<!-- are de foto -->
 	</body>
 </html>

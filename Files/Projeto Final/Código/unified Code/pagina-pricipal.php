@@ -13,7 +13,6 @@
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-	<font size="5" face="arial">
 		<!-- postagens -->
 			<div id="postagens">
 				<center>
@@ -62,7 +61,7 @@
 							$quant = mysqli_num_rows($resultado);
 							for($i=0;$i<$quant;$i++){
 							$rows=$resultado->fetch_assoc();
-							$idamigo = $rows['idamizade_amigo'];
+							$idamigo = $rows['usuario_idusuario'];
 							$consulta1="SELECT * FROM `usuario` WHERE idusuario='{$idamigo}'";
 							$resultado1=mysqli_query($conexao, $consulta1);
 							$quant1 = mysqli_num_rows($resultado1);
@@ -70,7 +69,7 @@
 							$nome = $rows1['nome'];
 							if ($quant1 >= 1) {
 							echo "<form method='post' action='pagina-pricipal.php'>Aceitar solicitação de amizade de $nome 
-								<button type='submit' name='aceitou' value='$idamigo'>aceitar</button>&nbsp 
+								<button type='submit' name='aceitou' value='$idamigo'>aceitar</button>
 									<button type='submit' name='naoaceitou' value='$idamigo'>não aceito</button><br></form>";
 								}
 							}
@@ -81,17 +80,16 @@
 							$naoaceitou=isset($_POST['naoaceitou'])?$_POST['naoaceitou']:"0";
 							$data=date('Y-m-d');
 							if ($aceitou >= 1) {
-							$consulta2 = "SELECT * FROM `amizade` WHERE data_confirmacao is null and idamizade_amigo='{$aceitou}' or usuario_idusuario='{$id}'";
+							$consulta2 = "SELECT * FROM `amizade` WHERE data_confirmacao is null and idamizade_amigo='{$id}' or usuario_idusuario='{$aceitou}'";
 							$resultado2=mysqli_query($conexao, $consulta2)or die('error');
 							$rows2=$resultado2->fetch_assoc();
 							$idamizade = $rows2['idamizade'];
 							$teste="update `amizade` set data_confirmacao='$data' where idamizade='$idamizade'";
 							$enviar=mysqli_query($conexao, $teste) or die ('error1');
-							echo "$consulta2";
 							header("Location: pagina-pricipal.php");
 							}
 							elseif ($naoaceitou >= 1) {
-								$consulta2 = "SELECT * FROM `amizade` WHERE data_confirmacao is null and idamizade_amigo='{$naoaceitou}' and usuario_idusuario='{$id}'";
+								$consulta2 = "SELECT * FROM `amizade` WHERE data_confirmacao is null and idamizade_amigo='{$id}' and usuario_idusuario='{$naoaceitou}'";
 								$resultado2=mysqli_query($conexao, $consulta2);
 								$rows2=$resultado2->fetch_assoc();
 								$idamizade = $rows2['idamizade'];
@@ -173,7 +171,6 @@
 					</table>
 				</center>
 			</div>
-			</font>
 		<!-- fim da postagem -->
 	</body>
 </html>

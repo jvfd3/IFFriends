@@ -81,7 +81,7 @@
           <?php
             if(isset($_SESSION['autorizado'])):?>
             <div class='notification2'>
-            <p>Cadastro com sucesso!&nbsp;<a href='index.php'>Clique aqui para fazer login</a></p>
+            <p>cadastro com sucesso!&nbsp;<a href='index.php'>Clique aqui para fazer login</a></p>
             </div>
             <?php
             endif;

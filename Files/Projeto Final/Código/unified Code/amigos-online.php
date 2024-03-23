@@ -4,7 +4,6 @@
 	<meta charset="UTF-8"/>
 </head>
 <body>
-<font face="arial">
 	<!-- menu da pagina -->
 <!-- ver amigos online -->
 			<div id="online">
@@ -12,7 +11,6 @@
 						<hr>
 			</div>
 			<div id="amigo">
-			<font size="5" face="arial"><b>
 				<center>
 					<table>
 						<?php
@@ -58,8 +56,6 @@
 							?>
 					</table>
 				</center>
-				</b></font>
 			</div>
-			</font>
 	</body>
 </html>

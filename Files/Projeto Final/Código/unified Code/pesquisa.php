@@ -18,12 +18,10 @@ if ($_POST['busca'] != "") {
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
 	</head>
 	<body>
-	<font face"arial">
 		<div id="postagens">
 	
-			<!-- Nome do que está sendo buscado -->
+			<!-- Nome do que esta sendo buscado -->
 				<div id="foto">
-				<font face="arial">
 					<h1><?php echo $busca ?></h1>
 					<hr> </hr>
 
@@ -46,7 +44,7 @@ if ($_POST['busca'] != "") {
 				
 					echo "<td style=width:180px>";
 					echo "<a href='perfilamigo.php?id=".$idpessoa[$i]."' >";
-					echo "<font size=32 face=arial color=black>";
+					echo "<font size=32 color=black>";
 					echo "$usuario[$i]";
 					echo "</font>";
 					echo "</a>";
@@ -56,7 +54,6 @@ if ($_POST['busca'] != "") {
 					?>
 					</table>
 						<br>
-					</font>
 				</div>
 			<!-- fim da are do que esta sendo buscado -->
 			
@@ -64,6 +61,5 @@ if ($_POST['busca'] != "") {
 				
 			<!-- fim do que esta sendo buscado -->
 		</div>
-		</font>
 </body>
 </html>

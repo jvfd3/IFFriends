@@ -16,7 +16,7 @@
 				<center>
 					<fieldset>
 						<div id="titulo">
-							<font size=5 face=arial  ><b> Fotos	</b></font>
+							<font size=5 face=arial color=cyan >	 Fotos	</font>
 						</div>
 
 						

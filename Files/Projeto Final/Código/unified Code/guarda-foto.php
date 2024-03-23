@@ -50,8 +50,8 @@ if(isset($_FILES['arquivo'])){
 								$inserir ="INSERT INTO `albuns` (`nome_foto`, `usuario_idusuario`) VALUES ('$pasta', '$id')";
 						
 							if (mysqli_query($conexao, $inserir)) {
-								$_SESSION['sucesso'] = "<div class='alert alert-success'><b>Cadastrada com sucesso!</b></div>";}
-							else{$_SESSION['error6'] = "<div class='alert alert-danger'>Não pôde ser cadastrada!</div>";}
+								$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";}
+							else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
 							}
 							unset($_SESSION['origem']);
 							//header('Location: fotos.php');
@@ -66,8 +66,8 @@ if(isset($_FILES['arquivo'])){
 								$inserir = "UPDATE `usuario` SET `foto_perfil`='$pasta' WHERE idusuario='$id'";
 
 							if (mysqli_query($conexao, $inserir)) {
-								$_SESSION['sucesso'] = "<div class='alert alert-success'><b>Cadastrada com sucesso!</b></div>";}
-								else{$_SESSION['error6'] = "<div class='alert alert-danger'>Não pôde ser cadastrada!</div>";}
+								$_SESSION['sucesso'] = "<div class='alert alert-success'>cadastrada com Sucesso!</div>";}
+								else{$_SESSION['error6'] = "<div class='alert alert-danger'>não pôde ser cadastrada!</div>";}
 								}
 								unset($_SESSION['origem']);
 							//header('Location: editperf.php');
