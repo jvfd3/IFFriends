@@ -16,7 +16,6 @@
 			<div id="postagens">
 				<center>
 					<table id="postagens">
-					
 						<tr id="postagens">
 							<td id="postagens"><a href=perfil.php> <?php include('foto_perfil.php'); ?></a></td>
 
@@ -28,13 +27,11 @@
 							<td id="postagens2"> <input type="submit" value="Enviar" id="botao"></td>
 							</form>
 						</tr>
-						
 					</table>
 				</center>
 				<hr>
 				<center>
 					<table id="postagens1">
-				
 
 					<!--Exibição da solicitações -->
 						<?php
@@ -52,7 +49,7 @@
 							$rows1=$resultado1->fetch_assoc();
 							$nome = $rows1['nome'];
 							if ($quant1 >= 1) {
-							echo "<form method='post' action='aceita.php'><font size=5 face=arial><b>Aceitar solicitação de amizade de $nome</font></b><button type='submit' name='aceitou' value='$idamigo'>aceitar</button> 	<button type='submit' name='naoaceitou' value='$idamigo'>não aceito</button><br></form>";
+							echo "<form method='post' action='aceita.php'>Aceitar olicitação de amizade de $nome<button type='submit' name='aceitou' value='$idamigo'>aceitar</button> 	<button type='submit' name='naoaceitou' value='$idamigo'>não aceito</button><br></form>";
 								}
 							}
 							}
@@ -108,16 +105,16 @@
 									$postagem1 = $rows['postagem-fv'];
 									$extensao = @end(explode('.', $postagem1));
 									if (isset($postagem) && $postagem1=="") {
-										echo "<td class='postagens1'><font face=arial>$postagem</font></td></tr>";
+										echo "<td class='postagens1'>$postagem</td></tr>";
 									}elseif (isset($postagem) && isset($postagem1)) {
 										if ($extensao == "mp4") {
-										echo "<td class='postagens1'><font face=arial>$postagem</font><br><br>";
+										echo "<td class='postagens1'>$postagem<br><br>";
 										echo "<video controls>
 										<source id='postagens1' src=".$postagem1." type='video/mp4'>
 										Desculpa mas não é possivel exibir o video
 										</video><br></td>";
 									}else{
-										echo "<td class='postagens1'><font face=arial>$postagem</font><br><br>";
+										echo "<td class='postagens1'>$postagem<br><br>";
 										echo "<img id='postagens1' src=".$postagem1."><br></td>";
 									}
 									}
@@ -137,10 +134,8 @@
 				            mysqli_close($conexao);
 						 ?>
 					<!-- Fim mostra postagem --> 
-					
 					</table>
 				</center>
 			</div>
-		
 	</body>
 </html>
