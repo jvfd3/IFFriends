@@ -1,0 +1,247 @@
+﻿<!-- Tô fazendo esse arquivo em 10/02/2019 às 22h30 com o intuito de entender melhor o html, como manipulas as coisas e organizar os conhecimentos. -->
+<!-- Espero conseguir tornar simples. -->
+	
+<!-- Zona do copiar e colar: 
+
+<br>
+<meta http-equiv=Content-Type content=text/xhtml; charset=UTF-8 />		Esse aqui impede erros de acentuação.
+
+<!-- -->
+
+<html>		<!-- Os arquivos html começam sempre com <html> -->
+			<!-- em html, geralmente os comandos têm a seguinte sintaxe: <comando> (que é o início) e </comando> (que é o fim) -->
+
+esse é o aapdf.html
+
+<br>
+<a href=aapdf.html> inicial </a>
+
+<br>
+<a href=aapdf2.html> aapdf2 </a>
+
+<br>
+<a href=aapdfframe1.html> frame 1 </a>
+
+<br>
+<a href=aapdfframe2.html> frame 2 </a>
+
+	
+<br>
+<br>
+<head>		Cabeçalho			</head>		<!-- Início e fim do cabeçalho -->
+<title> 	Título no cabeçalho	</title>	<!-- Início e fim do título - O título é o que fica na aba da internet-->
+<br>										<!-- Pula linha -->
+<body>		Corpo				</body>		<!-- Início e fim do corpo -->
+
+	<!-- Aparentemente Head e Body não têm muita diferença -->
+
+<h1> Formatação de texto </h1>
+<br>	
+normal
+<br>
+<i> itálico </i>
+<br>
+<b> negrito </b>
+<br>
+<u> sublinhado </u>
+<br>
+<i>itálico<b>itálico e negrito </b> itálico</i>
+<br>
+<b>negrito <i>negrito e itálico </b> italico</i>
+<br>
+<b>negrito <i>negrito e itálico</i> negrito</b>
+<br>
+<font color=red> texto vermelho </font>
+<br>
+<font color=#BBFFBB> texto colorido </font>
+<br>
+<font size=5 face=arial color=green> texto diferente </font>
+<br>
+<h2> Título 2 </h2>
+<br>
+<h3> Título 3 </h3>
+<br>
+<h4> <center> Título 4 </center> </h4>
+<br>					
+
+
+<hr> <hr size=5 color=green>
+<h1> Formatação de Parágrafo </h1>
+Lista com marcador
+<br> 
+<ul type=circle>   <!-- type=Square, Disc -->
+<li> texto 1
+<li> texto 2
+<li> texto 3
+</ul>
+<br> Lista numerada <!-- type= 1, I, i, a, A -->
+<br>
+<ol type=1>
+<li> texto 1 
+<li> texto 2
+<li> texto 3
+</ol>
+
+<br>
+<br>
+<p align=center> texto texto		<!-- center, left, right, justify -->
+</p>
+Faça esquerda, direita e justificado
+<hr>
+<br>
+
+
+<h1> Formatação de imagens </h1>
+<img src=imagem.jpg width=10%>
+
+<br>Link para uma imagem: <br>
+<a href=imagem.jpg width=10% > Clique aqui para ver a imagem</a>
+
+<br>
+<br>
+
+
+Link para uma página da internet:
+<br>
+<a href=www.google.com.br > Google </a>
+<br>
+
+<br>
+Imagens como links
+<br>
+<a href=aapdf2.html> Vai pro aapdf2.html <img src=imagem.jpg width=10% > </a>
+
+<br>
+<br>
+
+<table>
+<tr>
+<td>nome</td> <td>nota</td> <td>telefone</td>
+</tr>
+<tr>
+<td>maria</td> <td>10</td> <td>999898765</td>
+</tr>
+<tr>
+<td>pedro</td> <td>8</td> <td>987899881</td>
+</tr>
+</table>
+
+<table border=1 align=center bordercolor=red bgcolor=green width=50%>
+<tr>
+<td>nome</td> <td>nota</td> <td>telefone</td>
+</tr>
+<tr>
+<td>maria</td> <td>10</td> <td>999898765</td>
+</tr>
+<tr>
+<td>pedro</td> <td>8</td> <td>987899881</td>
+</tr>
+</table>
+
+<br>
+<br>
+<br>
+
+
+Comando &lt;table&gt;
+<table border="1" width=30%>
+<tr>
+<td colspan="3" align=center>dado 1</td>
+</tr>
+<tr>
+<td align=right>dado 2</td>
+<td>dado 3</td>
+<td>dado 4</td>
+</tr>
+<tr>
+<td colspan="3" align=center>dado 5</td>
+</tr>
+</table>
+
+
+
+<br>
+<br> <!-- Borda simples: cellspacing=0 -->
+<br>
+
+
+<table border="1" width=30% cellspacing=0>
+<tr>
+<td rowspan="3" align=center>dado 1</td>
+<td>dado 2</td>
+</tr>
+<tr>
+<td>dado 3</td>
+</tr>
+<tr>
+<td>dado 4</td>
+</tr>
+</table>
+
+<b> FRAME </b>
+
+<frameset cols="40%, 40%, 20%">
+<frame src=aapdf2.html>
+<frame src=aapdfframe1.html>
+<frame src=aapdfframe2.html>
+</frameset>
+
+
+<br>
+<br>
+<br>
+
+<!--
+<frameset rows="40%, 60%“ frameborder=0>
+<frame src=aapdf2.html>
+<frameset cols="30%,70%">
+<frame src=aapdfframe1.html>
+<frame src=aapdfframe2.html>
+</frameset>
+</frameset>
+-->
+
+<h1>Ficha de inscrição</h1>
+<form>
+<br>Nome: <input type=text name=nome>
+<br>Sexo:
+<input type=radio name=sexo value=m>Masculino
+<input type=radio name=sexo value=f>Feminino
+<br>Assinale os programas de computador que você domina:
+<br><input type=checkbox name=prog value=word> Word
+<br><input type=checkbox name=prog value=excel> Excel
+<br><input type=checkbox name=prog value= access> Access
+<br>Cargo:
+<select name=cargo>
+<option value=analista>Analista de sistemas
+<option value=gerente>Gerente
+<option value=programador>Programador C
+</select>
+<br>Por que deseja trabalhar em nossa empresa?
+<br><textarea rows=6 cols=40 name=pq>digite</textarea>
+<br><input type=submit value=enviar>
+<input type=reset value=apagar>
+<br><fieldset><legend>Observações importantes</legend>
+O preenchimento do formulário é de responsabilidade do usuário.
+</fieldset>
+</form>
+
+<input type=password>
+<input type=date>
+<input type=time>
+<input type=number>
+
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+</html>	<!-- Os arquivos html terminam sempre com </html> -->

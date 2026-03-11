@@ -1,0 +1,8 @@
+insert into nomedatabela values (valor1, valor2);
+
+update chat
+set nome= 'mensagem a ser trocado'
+where nome='mensagem existente';
+
+delete from nomedatabela
+where condiçao;

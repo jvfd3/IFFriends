@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8"/>
+	<title> IFFTool cadastro</title>
+	<a href="redesocial.html"><img src="_imagens/LogoIFF1.png" width="100%"></a>
+	<link rel="stylesheet" type="text/css" href="_css/inicio.css">
+	<link rel="stylesheet" type="text/css" href="_css/cadastro.css">
+  <link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" />
+</head>
+<body>
+<div id="inicio">
+<form id="Login">
+<div>
+<label for="cNome">Nome:</label>
+<input type="text" name="tNome" id="cNome">
+</div>
+<div>
+<label for="cEmail">E-mail:</label>
+ <input type="email" name="tEmail" id="cEmail" />
+</div>
+<div>
+<label for="cCidade">Cidade:</label>
+<input type="text" name="tCidade" id="cCidade">
+</div>
+<div>
+<label for="cBairro">Bairro:</label>
+<input type="text" name="tBairro" id="cBairro">
+</div>
+<div>
+<label for="cTele">Telefone:</label>
+<input type="tel" name="tTele" id="cTele">
+</div>
+<div id="genero">
+<label for="gene">Gênero Biologico:</label>
+<select class="basic">
+<option value="" selected="selected"></option>
+<option value="macho">Macho</option>
+<option value="femea">Fêmea</option>
+<option value="inter">Intersexual</option>
+<option value="outros"(input type="text" name="tOutros" id="cOutros")>Outros</option>
+</select> 
+</div>
+<div>
+<label for="cCurso">Curso:</label>
+<input type="text" name="tCurso" id="cCurso" />
+</div>
+<div>
+<label for="cSenha">Senha:</label>
+<input type="password" name="tSenha" id="cSenha" />
+</div>
+<div class="button">
+<a href="cadastro.html"> <button type="button">Cadastrar</button> </a>
+</div>
+<div class="button1">
+<button type="reset">Restaurar</button>
+</div>
+
+<div class="contas">
+<div class="col-lg-6 col-xs-12 col-md-6">
+<a class="btn btn-block btn-social btn-google" href=""> <span class="fa fa-google"></span> Cadastrar com o Google</a>
+</div>
+
+<div class="col-lg-6 col-xs-12 col-md-6"> 
+<a class="btn btn-block btn-social btn-facebook" href=""> <span class="fa fa-facebook"></span> Cadastrar com o Facebook</a>
+</div>
+</div>
+</div>
+</body>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{297991601035851}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{v3.2}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+
+{
+    status: 'connected',
+    authResponse: {
+        accessToken: '...',
+        expiresIn:'...',
+        signedRequest:'...',
+        userID:'...'
+    }
+}
+
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+
+
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+</script>
+</html>

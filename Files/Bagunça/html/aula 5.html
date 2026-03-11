@@ -1,0 +1,38 @@
+<html>
+	<meta charset="UTF-8">
+	<h1> Cadastro de aluno</h1>
+	<form> <br>
+		Nome do aluno<input type="text" name=aluno><br>
+
+		Sexo
+		<input type=radio name=sexo value=M>Masculino
+		<input type=radio name=sexo value=f>Feminino<br>
+
+		Cursos de Interesse<br>
+		<input type=checkbox name=curso value=info>	Informática<br>
+		<input type=checkbox name=curso value=qui>	Química<br>
+
+		Turno	<select name=turno>
+		<option value=M>Manhã
+		<option value=T>Tarde
+		<option value=N>Noite
+				</select><br>
+				
+		Escreva um comentário<br>
+		<textarea cols=30 rows=5 name=coment>
+</textarea><br>
+
+		<input type=submit value="Salvar dados">
+		<input type=reset value="Limpar formulário"><br>
+
+		<fieldset>
+			<legend>Observações</legend>
+			Enviar o formulário até dia 30/11
+		</fieldset><br>
+		Senha: 	<input type="password" 	name="tSenha" 	id="cSenha" size="20" maxlength="50" placeholder="Senha"> <br>
+		Número:	<input type="number" 	name="tNum" 	id="cNum" 	size="20" min="0" max="18" placeholder="Número"><br>
+		Data:	<input type="date"						id="date" ><br>
+		Time:	<input type="time" 		name="ttempo"	id="appt-time"><br>
+	</form>
+	
+</html>

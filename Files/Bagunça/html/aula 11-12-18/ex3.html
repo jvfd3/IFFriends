@@ -1,0 +1,47 @@
+<meta http-equiv=Content-Type content=text/xhtml; charset=UTF-8 />
+<html>
+<h1>title</h1>
+
+<!-- 
+
+3.Elabore um formulário em HTML para cadastro de 
+nome (text),
+curso (select),
+turno (radio com manhã, tarde e noite)
+disciplinas (checkbox) de interesse de um aluno.
+Utilize os botões submit e reset.
+
+Ao enviar os dados, o programa em PHP deve exibir os dados recebidos e, com o comando if, exibir as seguintes mensagens:
+Caso turno = manhã: Matrícula efetuada com sucesso. (em verde)
+Caso turno = tarde: Turno indisponível no momento. (itálico)
+Caso turno = noite: Matrícula deve ser confirmada em até 30 dias. (em negrito)
+
+-->
+
+<form action=ex3.php method=POST> <!-- GET (Envia um a um), o post envia tudo de uma vez--><br>
+Nome<input type=text name=nome><br><br>
+
+Curso<select name=curso>
+
+	<option value=info>Mecânica
+	<option value=edif>Edificações
+	<option value=elet>Eletrotécnica
+	<option value=meca>Mecânica
+			</select><br><br>
+
+Turno:<br>
+
+	<input type=radio name=turno value=M>Manhã<br>
+	<input type=radio name=turno value=T>Tarde<br>
+	<input type=radio name=turno value=N>Noite<br><br>
+
+Disciplinas:<br>
+<!-- vários checkbox to be explained -->
+	<input type=checkbox name=disc value=Mat>	Matemática<br>
+	<input type=checkbox name=disc value=Port>	Português<br>
+	<input type=checkbox name=disc value=Fis>	Física<br><br>
+
+<input type=submit value="submit">
+<input type=reset value="reset"><br>
+</form>
+</html>

@@ -1,0 +1,5 @@
+create table de cabeça
+o código do php vai ser copiar colar e adaptar pelo que precisar.
+a prova vai ser escrita
+com uma cola dos comandos que vamos usar.
+mas não arrumados.

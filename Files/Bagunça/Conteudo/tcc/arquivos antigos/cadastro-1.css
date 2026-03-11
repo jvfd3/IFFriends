@@ -1,0 +1,10 @@
+@charset"UTF-8";
+div{
+margin-bottom: 6px;
+}
+div#inicio{
+margin-top: 250px;
+}
+div.form-group{
+margin-left: 200px;
+}

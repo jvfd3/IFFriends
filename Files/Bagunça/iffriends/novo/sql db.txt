@@ -1,0 +1,47 @@
+<form action=Produtos.php method=POST>
+Código<input type=text name=codigo>
+<input type=submit>
+</form>
+
+
+//a)Conectar com o MySQL
+
+echo "<br>Conectando o MySQL<br>";
+$conexao = mysql_connect ("localhost:3306", "root", "root") or die (mysql_error());
+
+//b)Selecionar o banco de dados
+
+echo "<br>Selecionando o banco de dados<br>";
+mysql_select_db("mercado", $conexao);
+
+//c)Inicializar variáveis
+
+
+echo "<br>Inicializando variáveis<br>";
+$codigo = $_POST["codigo"];
+
+//d)Inserir os dados do formulário na tabela
+
+echo "<br>Inserindo o dado<br>";
+$insere = "insert into Produtos values('$codigo','$produto','$preco','$quantidade')";
+mysql_query ($insere, $conexao) or die (mysql_error());
+
+//e)Exibir os dados inseridos na tabela com o seguinte cálculo: total = preço * quantidade
+
+echo "<h1>Exibindo o dado</h1>";
+$consulta = "select * from Produtos";
+$resultado = mysql_query ($consulta, $conexao);
+$quant = mysql_num_rows($resultado);
+
+for($i=0;$i<$quant;$i++){
+$codigo = mysql_result($resultado,$i,"codigo");
+
+echo "<br>Código: ".$codigo;
+
+}
+
+//f)Encerrar a conexão
+
+echo "<br><br>Encerrando a conexão com o MySQL<br>";
+mysql_close ($conexao);
+echo "<br><a href=Produtos.html>Voltar ao formulário</a>";

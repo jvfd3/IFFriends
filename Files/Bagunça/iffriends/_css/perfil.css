@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/* opções */
+	table#or{
+		margin-top: 70px;
+		}
+		td#or{
+		width: 15%;
+		}
+
+/* mostrar dados do usuario */
+	div#or{
+		width: 30%;
+		border: 5px solid green;
+		}
+		table#ordem{
+		margin-left: 25%;
+		}

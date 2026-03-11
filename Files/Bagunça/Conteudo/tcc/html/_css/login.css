@@ -1,0 +1,146 @@
+@charset"UTF-8";
+body{
+white-space: nowrap;
+overflow: hidden;
+}
+
+div#interface{
+position: absolute;
+overflow: hidden;
+width: 100%;
+height: 40px;
+background-color: #616b66;
+margin: 0px 0px 0px -5px;
+box-shadow: 0px 0px 5px #00e600;
+padding: 0px 0px 0px 0px;
+}
+
+td{
+width: 50%;
+}
+
+/*barra de pesquisa*/
+#divBusca{
+  background-color:#E0EEEE;
+  border:solid 2px #5F9EA0;
+  border-radius:10px;
+  width:300px;
+  height:32px;
+}
+ 
+#txtBusca{
+  float:left;
+  background-color:transparent;
+  padding-left:5px; 
+  font-size:18px;
+  border:none;
+  height:32px;
+  width:191px;
+}
+ 
+#btnBusca{
+  border:none;
+  float:right;
+  height:32px;
+  border-radius:0 7px 7px 0;
+  width:70px;
+  font-weight:bold;
+  background:#d2faf0;
+}
+ 
+#divBusca img{
+  width: 50%;
+  float:center;
+}
+/*fim da barra de pesquisa*/
+
+/*amigos online*/
+div#online{
+overflow: hidden;
+width: 10%;
+height: 86%;
+position: absolute;
+left: 0.3%;
+top: 12%;
+background-color: #616b66;
+margin: 10px 0px 0px 0px;
+box-shadow: 0px 0px 5px #00e600;
+padding: 0px 0px 0px 0px;
+white-space: nowrap;
+}
+h1{
+font-size: 200%;
+}
+
+/*conversa*/
+div#conversa{
+float:right;
+display: block;
+width: 60%;
+height: 86%;
+position: absolute;
+left: 10.8%;
+top: 12%;
+background-color: #616b66;
+margin: 10px 0px 0px 0px;
+box-shadow: 0px 0px 5px #00e600;
+padding: 0px 0px 0px 0px;
+vertical-align: middle;
+white-space: nowrap;
+overflow:auto;
+}
+
+/*grupos*/
+div#grupos{
+float:right;
+width: 28%;
+height: 86%;
+position: absolute;
+left: 71.2%;
+top: 12%;
+background-color: #616b66;
+margin: 10px 0px 0px 0px;
+box-shadow: 0px 0px 5px #00e600;
+padding: 0px 0px 0px 0px;
+vertical-align: middle;
+white-space: nowrap;
+overflow: hidden;
+}
+
+div#divPesquisa{
+  display: block;
+  background-color:#E0EEEE;
+  border:solid 2px #5F9EA0;
+  border-radius:1px;
+  width:100%;
+  height:32px;
+  top: 500px;
+}
+ 
+#tBusca{
+  float:left;
+  background-color:transparent;
+  font-size:13.1px;
+  border:none;
+  height:100%;
+  width:30%;
+}
+ 
+#bBusca{
+  border:none;
+  float:right;
+  height:100%;
+  width:30%;
+  background:#d2faf0;
+}
+ 
+#divBusca img{
+  width: 50%;
+  float:center;
+}
+td#pesquisa{
+width: 100%;
+height: 100%;
+position: absolute;
+top: 771px;
+}
